@@ -10,7 +10,7 @@ class RrmController < ApplicationController
     @ingredtypes_count = Ingredtype.count
 
     @recipes = Recipe.find(:all, :order => "id DESC")
-    @recipes = @recipes[0..9]
+    @recipes = @recipes[0..2]
   end
 
 end
