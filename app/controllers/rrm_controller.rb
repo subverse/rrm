@@ -11,6 +11,8 @@ class RrmController < ApplicationController
 
     @recipes = Recipe.find(:all, :order => "id DESC")
     @recipes = @recipes[0..2]
+
+#    @sources = Source.find
   end
 
 end
