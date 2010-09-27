@@ -12,7 +12,11 @@ class Ingred < ActiveRecord::Base
 
 
   def is_recipe?
-    false
+    true
+  end
+
+  def recipe
+    Recipe.find(:first, :conditions => ["name='#{self[:name]}'"])
   end
 
 

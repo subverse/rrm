@@ -9,8 +9,13 @@
       </tr>
       <% for i in 1..@ingred_list.length %>
         <% item = @ingred_list.shift %>
+        <% ingred_recipe = Ingred.find(item.id).recipe %>
         <tr>
-          <td><%= my_link_to_path "#{item.ingred}", Ingred.find(item.id) %></td>
+          <% if ingred_recipe == nil %>
+            <td><%= my_link_to_path "#{item.ingred}", Ingred.find(item.id) %></td>
+          <% else %>
+            <td><%= my_link_to_path "#{item.ingred}", ingred_recipe %></td>
+          <% end %>
           <td><%= item.amount %></td>
           <td><%= item.unit %></td>
         </tr>

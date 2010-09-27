@@ -5,7 +5,11 @@
    <table>
     <tr>
       <td> Bezeichnung: </td>
-      <td> <b><%=h @ingred.name %></b> </td>
+      <% if @ingred.recipe == nil %>
+        <td> <b><%=h @ingred.name %></b> </td>
+      <% else %>
+        <td><%= my_link_to_path "#{@ingred.name}", @ingred.recipe %></td>
+      <% end %>
     </tr>
     <tr>
       <td> Kategorie: </td>
