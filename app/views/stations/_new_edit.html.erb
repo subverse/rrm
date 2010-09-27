@@ -1,4 +1,7 @@
+<%= render :partial => "shared/titles", :locals => {:tab => "rrm::Posten (new/edit)", :page => ""}%>
+
 <div id="form">
+  <h2>Posten</h2>
 <% form_for(@station) do |f| %>
   <%= f.error_messages %>
   <table>

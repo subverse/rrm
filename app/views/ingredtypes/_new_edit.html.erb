@@ -1,4 +1,7 @@
+<%= render :partial => "shared/titles", :locals => {:tab => "rrm! ingredtypes (new/edit)", :page => "" }%>
+
 <div id="form">
+  <h2>Kategorie</h2>
   <% form_for(@ingredtype) do |f| %>
     <%= f.error_messages %>
     <table>
