@@ -1,13 +1,10 @@
-<%= render :partial => "shared/titles",
-           :locals => {:tab => "rrm::Rezepte",
-                       :page => ""}%>
+<%= render :partial => "shared/titles", :locals => {:tab => "rrm::Rezepte", :page => ""}%>
 <div id="form">
-  <h2>Rezepte (<%= @recipes_length  %>)</h2>
+  <h2>Rezepte (<%= @recipes_length  %>)*</h2>
   <br/>
-    <%= render :partial => "shared/alpha_search", :locals => {:c => "recipes"} %>
+  <%= render :partial => "shared/alpha_search", :locals => {:c => "recipes"} %>
   <div id="erg">
-  <% if admin? %>
-    <%= button_to 'Neu', new_recipe_path %>
-  <% end %>
+    <%= render :partial => "shared/list_recipes" %>
   <div/> <!--erg-->
+  * Die 10 letzten Einträge werden angezeigt
 <div/> <!--form-->

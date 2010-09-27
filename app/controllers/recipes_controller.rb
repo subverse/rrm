@@ -19,6 +19,8 @@ class RecipesController < ApplicationController
   # GET /recipes.xml
   def index
     @recipes_length = Recipe.count
+    @recipes = Recipe.find(:all, :order => "id DESC")
+    @recipes = @recipes[0..9]
 
     respond_to do |format|
       format.html # index.html.erb

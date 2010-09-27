@@ -1,1 +1,12 @@
-<b>recipes:<b/><%= @recipes_count %>
+<br />
+<div id="form">
+<b>Rezepte:<b/><%= @recipes_count %>
+<b>Posten:<b/><%= @stations_count %>
+<b>Zutaten:<b/><%= @ingreds_count %>
+<b>ingredtypes:<b/><%= @ingredtypes_count %>
+<br />
+<br />
+  <h3>Zuletzt angelegt (<%= @recipes.length  %>)</h3>
+  <br/>
+    <%= render :partial => "shared/list_recipes" %>
+<div/> <!--form-->
