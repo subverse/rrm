@@ -1,0 +1,16 @@
+<%= render :partial => "shared/titles",
+           :locals => {:tab => "rrm::Rezept",
+           :page => "Rezept::Zubereitung"} %>
+
+<div id="form">
+  <% form_for @recipe, :url => {:action => "save_process", :id => @recipe.id} do |f| %>
+    <%= f.error_messages %>
+    <b><%= f.label "#{@recipe.name} process:" %></b>
+    <br />
+    <br />
+    <%= f.tinymce :process %>
+    <br />
+    <%= submit_tag "Speichern", :onclick => 'javascript:tinyMCE.triggerSave(true,true);' %>
+  <% end %>
+<div/>
+

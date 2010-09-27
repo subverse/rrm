@@ -1,0 +1,24 @@
+<%= render :partial => "shared/titles", :locals => {:tab => "rrm:users", :page => "rrm:users"} %>
+<div id="form">
+  <% form_for(@user) do |f| %>
+    <%= f.error_messages %>
+    <table>
+      <tr>
+        <td> <%= f.label :name %> </td>
+        <td> <%= f.text_field :name %> </td>
+      </tr>
+      <tr>
+        <td><%= f.label :pw %></td>
+        <td><%= password_field_tag :pw, :class => 'text_field'  %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :level %></td>
+        <td><%= f.text_field :level %></td>
+      </tr>
+    </table>
+  <p><%= f.submit 'Create' %></p>
+  <% end %>
+  <br/>
+  <hr/>
+  <%= link_to 'Back', users_path %>
+<div/> <!--id=form-->

@@ -1,0 +1,14 @@
+<%= render :partial => "shared/titles",
+           :locals => {:tab => "rrm::Rezepte",
+                       :page => ""}%>
+<div id="form">
+  <h2>Rezepte</h2>
+  <br/>
+    <%= render :partial => "shared/alpha_search", :locals => {:c => "recipes"} %>
+  <div id="erg">
+  <%= render :partial => "shared/list_recipes" %>
+  <% if admin? %>
+    <%= button_to 'Neu', new_recipe_path %>
+  <% end %>
+  <div/> <!--erg-->
+<div/> <!--form-->

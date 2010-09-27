@@ -1,0 +1,55 @@
+<%= render :partial => "shared/titles",
+           :locals => {:tab => "rrm::Rezepte",
+                       :page => "Rezept::Details"}%>
+<div id="form">
+
+  <p>
+    <b>Name:</b>
+    <%=h @recipe.name %>
+  </p>
+  <p>
+    <b>Posten:</b>
+    <%=h @recipe.station_name %>
+  </p>
+  <p>
+    <b>Quelle:</b>
+    <%=h @recipe.source_name %>
+  </p>
+
+  <br />
+  <hr />
+  <br />
+
+<div id="ingreds">
+  <%= render :partial => "ingreds" %>
+</div>
+
+    <b>Faktor:</b>
+
+    <%= text_field_tag :factor_input, "" %>
+
+    <%= observe_field :factor_input, :url=>{ :action => :multiply, :id => @recipe.id },
+      :frequency => 0.1,
+      :update => "ingreds",
+      :with => 'input' %>
+
+  <br />
+  <br />
+  <hr />
+  <br />
+  <h3>Zubereitung</h3>
+  <br />
+  <%= @recipe.process %>
+
+  <br />
+  <hr>
+  <%= link_to 'Zurück', recipes_path, :class => "link_ext" %>
+  <% if logged_in? %>
+    |
+    <%= link_to "Bearbeiten", edit_recipe_path(@recipe), :class => "link_ext" %> |
+    <%= link_to "Zutaten", :action => "add_ingred", :id => @recipe.id %> |
+    <%= link_to "Zubereitung", :action => "add_process", :id => @recipe.id %>
+  <% end %>
+  |
+  <%= link_to 'Druckansicht', :action => "print", :id => @recipe.id, :class => "link_ext" %>
+</div>

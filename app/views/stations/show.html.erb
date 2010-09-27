@@ -1,0 +1,22 @@
+<%= render :partial => "shared/titles", :locals => {:tab => "rrm::Posten", :page => "Posten::Details" }%>
+
+<div id="form">
+<p>
+  <b>Posten:</b>
+  <%=h @station.name %>
+</p>
+<p>
+  <b>Rezepte:</b>
+  <%=h @station.recipes.count %>
+</p>
+<% if @recipes.length > 0 %>
+  <%= render :partial => "shared/list_recipes" %>
+<% end %>
+<br />
+<hr>
+<%= link_to 'Zurück', stations_path, :class => "link_ext" %>
+<% if admin? %>
+  |
+  <%= link_to 'Bearbeiten', edit_station_path(@station), :class => "link_ext" %>
+<% end %>
+<div/>

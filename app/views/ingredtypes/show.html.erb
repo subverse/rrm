@@ -1,0 +1,33 @@
+<%= render :partial => "shared/titles",
+           :locals => {:tab => "rrm::ingredtypes",
+           :page => ""}%>
+
+<div id="form">
+  <p>
+    <h2><%=h @ingredtype.name %></h2>
+  </p>
+
+  <table>
+    <tr>
+      <th>Bezeichnung</th>
+      <th>Rezepte</th>
+    </tr>
+    <% @ingreds.each do |ingred| %>
+      <tr class="<%= cycle("odd", "even") %>">
+        <td><%= my_link_to_path("#{ingred.name}", ingred) %></td>
+        <td><%=h ingred.find_recipes(ingred.id).length %></td>
+
+        <td>
+          <% if logged_in? %>
+          <%= img_link_to_edit edit_ingred_path(ingred) %>
+          <%= img_link_to_drop ingred %>
+        <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+  <br />
+  <hr>
+  <%= link_to 'Zurück', ingredtypes_path, :class => "link_ext" %> |
+  <%= link_to 'Bearbeiten', edit_ingredtype_path(@ingredtype), :class => "link_ext" %>
+</div>

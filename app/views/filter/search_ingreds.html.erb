@@ -1,0 +1,64 @@
+<%= render :partial => "shared/titles",
+           :locals => {:tab => "rrm::search::Zutaten",
+                       :page => ""} %>
+<div id="form">
+<% if @ingreds.length > 0 %>
+  <h3><%= "#{@search}..." %> <%= "(#{@ingreds.length})" %> </h3>
+  <table>
+    <tr>
+      <th>Bezeichnung</th>
+      <th>Kategorie</th>
+      <th>Rezepte</th>
+    </tr>
+    <% @ingreds.each do |ingred| %>
+    <tr class="<%= cycle("odd", "even") %>">
+      <td><%= my_link_to_path("#{ingred.name}", ingred) %></td>
+      <td><%= my_link_to_path("#{ingred.ingredtype.name}", ingred.ingredtype) %></td>
+      <td><%=h ingred.find_recipes(ingred.id).length %></td>
+
+    </tr>
+    <% end %>
+  </table>
+<% end %>
+
+
+<% if @ingreds_rest.length > 0 %>
+  <h3><%= "#{@search}" %> <%= "(#{@ingreds_rest.length})" %> </h3>
+  <table>
+    <tr>
+      <th>Bezeichnung</th>
+      <th>Kategorie</th>
+      <th>Rezepte</th>
+    </tr>
+    <% @ingreds_rest.each do |ingred| %>
+    <tr class="<%= cycle("odd", "even") %>">
+      <td><%= my_link_to_path("#{ingred.name}", ingred) %></td>
+      <td><%= my_link_to_path("#{ingred.ingredtype.name}", ingred.ingredtype) %></td>
+      <td><%=h ingred.find_recipes(ingred.id).length %></td>
+
+    </tr>
+    <% end %>
+  </table>
+<% end %>
+
+
+<% if @ingreds_contains.length > 0 %>
+  <h3><%= "#{@search}" %> <%= "(#{@ingreds_contains.length})" %> </h3>
+  <table>
+    <tr>
+      <th>Bezeichnung</th>
+      <th>Kategorie</th>
+      <th>Rezepte</th>
+    </tr>
+    <% @ingreds_contains.each do |ingred| %>
+    <tr class="<%= cycle("odd", "even") %>">
+      <td><%= my_link_to_path("#{ingred.name}", ingred) %></td>
+      <td><%= my_link_to_path("#{ingred.ingredtype.name}", ingred.ingredtype) %></td>
+      <td><%=h ingred.find_recipes(ingred.id).length %></td>
+
+    </tr>
+    <% end %>
+  </table>
+<% end %>
+
+<div/>

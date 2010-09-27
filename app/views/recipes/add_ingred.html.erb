@@ -1,0 +1,39 @@
+<%= render :partial => "shared/titles",
+           :locals => {:tab => "rrm::Rezepte",
+           :page => "Rezept::Zutat hinzufügen"} %>
+
+<div id="form">
+  <% form_for(@recipe, :url => {:action => "save_ingred", :id => @recipe.id}) do |f| %>
+    <%= f.error_messages %>
+
+    <% if @recipe.length > 0 %>
+      <% i = @recipe.length %>
+    <% else %>
+      <% i = 1 %>
+    <% end %>
+
+    <table>
+      <tr>
+        <td> ingred: </td>
+        <td> <%= f.collection_select :"ingred#{i}",
+                 Ingred.find_all, :id, :name %> </td>
+      </tr>
+      <tr>
+        <td> amount: </td>
+        <td> <%= f.text_field :"amount#{i}" %> </td>
+      </tr>
+      <tr>
+        <td> unit: </td>
+        <td> <%= f.collection_select :"unit#{i}",
+                 Unit.find_all, :id, :name %> </td>
+      </tr>
+    </table>
+    <p>
+      <%= f.submit 'OK' %>
+    </p>
+    <br />
+    <hr />
+    <%= my_link_to_path 'Abbrechen', @recipe %>
+<% end %>
+<div/>
+

@@ -1,0 +1,23 @@
+<%= render :partial => "shared/titles", :locals => {:tab => "rrm::Quellen", :page => "" }%>
+<div id="form">
+  <h2>Quellen</h2>
+  <table>
+    <tr>
+      <th>Quelle</th>
+      <th>Rezepte</th>
+    </tr>
+    <% @sources.each do |source| %>
+    <tr class="<%= cycle("odd", "even") %>">
+     <td><%= my_link_to_path("#{source.name}", source) %></td>
+      <td><%=h source.recipes.length %></td>
+      <% if logged_in? %>
+        <td class="td1"> <%= img_link_to_edit(edit_source_path( source )) %> </td>
+        <td class="td1"><%= img_link_to_drop( source ) %></td>
+      <% end %>
+    </tr>
+  <% end %>
+  </table>
+  <% if logged_in? %>
+    <%= button_to 'Neu', new_source_path %>
+  <% end %>
+</div>

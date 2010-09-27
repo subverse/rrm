@@ -1,0 +1,20 @@
+<div id="form">
+  <% form_for(@ingred) do |f| %>
+    <%= f.error_messages %>
+    <table>
+      <tr>
+        <td><%= f.label :name %></td>
+        <td><%= f.text_field :name %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :ingredtype_id %></td>
+        <td><%= f.collection_select :ingredtype_id,
+              Ingredtype.find_all, :id, :name %></td>
+      </tr>
+    </table>
+    <%= f.submit 'Ok' %>
+  <% end %>
+  <br />
+  <hr>
+  <%= link_to 'Zurück', ingreds_path, :class => "link_ext" %>
+<div/>

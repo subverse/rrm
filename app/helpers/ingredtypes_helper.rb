@@ -1,0 +1,2 @@
+module IngredtypesHelper
+end

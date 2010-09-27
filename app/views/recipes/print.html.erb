@@ -1,0 +1,35 @@
+<div id="form">
+  <h2><%=h @recipe.name %></h2>
+  <p>
+    Posten:
+    <%=h @recipe.station_name %><br/>
+    Quelle:
+    <%=h @recipe.source_name %>
+  </p>
+  <br/>
+  <hr/>
+  <h3>Zutaten</h3>
+  <% if @ingred_list.length > 0 %>
+    <table>
+      <tr>
+        <th>Bezeichnung</th>
+        <th>Menge</th>
+        <th>Einheit</th>
+      </tr>
+      <% for i in 1..@ingred_list.length %>
+        <% item = @ingred_list.shift %>
+        <tr>
+          <td><%= item.ingred %></td>
+          <td><%= item.amount %></td>
+          <td><%= item.unit %></td>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+  <% if @recipe.process != "" %>
+    <br/>
+    <hr/>
+    <h3>Zubereitung</h3>
+    <%= @recipe.process %>
+    <% end %>
+</div>

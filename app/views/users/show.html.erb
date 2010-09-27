@@ -1,0 +1,15 @@
+<%= render :partial => "shared/titles", :locals => {:tab => "rrm:users", :page => ""} %>
+<div id="form">
+  <p>
+    <b>Name:</b>
+    <%=h @user.name %>
+  </p>
+  <p>
+    <b>Level:</b>
+    <%=h @user.level %>
+  </p>
+  <br/>
+  <hr />
+  <%= link_to 'Zurück', users_path %> |
+  <%= link_to 'Bearbeiten', edit_user_path(@user) %>
+<div/>

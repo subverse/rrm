@@ -1,0 +1,23 @@
+<% if @recipes.length > 0%>
+  <table>
+    <tr>
+      <th>Rezept</th>
+      <th>Posten</th>
+      <th>Quelle</th>
+    </tr>
+
+    <% @recipes.each do |recipe| %>
+    <tr class="<%= cycle("odd", "even") %>">
+      <td><%= my_link_to_path("#{recipe.name}", recipe) %></td>
+      <td><%= my_link_to_path("#{recipe.station.name}", recipe.station) %></td>
+      <td><%= my_link_to_path("#{recipe.source.name}", recipe.source) %></td>
+      <% if logged_in? %>
+      <td>
+        <%= img_link_to_edit edit_recipe_path(recipe) %>
+        <%= img_link_to_drop recipe %>
+      </td>
+      <% end %>
+    </tr>
+    <% end %>
+  </table>
+<% end %>

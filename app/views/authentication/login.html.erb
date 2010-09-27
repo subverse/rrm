@@ -1,0 +1,26 @@
+<%= render :partial => "shared/titles", :locals => {:tab => "login",:page=>""}%>
+
+<div id="form">
+ <h2>Login</h2>
+  <table>
+    <% form_tag :controller => "authentication", :action => "check" do %>
+    <tr>
+      <td>
+        <label for="name" >Benutzername</label>
+      </td>
+      <td>
+        <%= text_field_tag :name, "", :class => 'text_field'  %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label for="pw">Passwort</label>
+      </td>
+      <td>
+        <%= password_field_tag :pw, "", :class => 'text_field' %>
+      </td>
+    </tr>
+  </table>
+      <%= submit_tag "login" %>
+    <% end %>
+</div>

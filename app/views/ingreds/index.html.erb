@@ -1,0 +1,25 @@
+<%= render :partial => "shared/titles",
+           :locals => {:tab => "rrm::Zutaten",
+                       :page => ""} %>
+<div id="form">
+  <h2>Zutaten</h2>
+  <br/>
+  <%= render :partial => "shared/alpha_search", :locals => {:c => "ingreds"} %>
+  <div id="erg">
+  <table>
+    <tr>
+      <th>Bezeichnung</th>
+      <th>Kategorie</th>
+      <th>Rezepte</th>
+    </tr>
+    <% @ingreds.each do |ingred| %>
+    <tr class="<%= cycle("odd", "even") %>">
+      <td><%= my_link_to_path("#{ingred.name}", ingred) %></td>
+      <td><%= my_link_to_path("#{ingred.ingredtype.name}", ingred.ingredtype) %></td>
+      <td><%=h ingred.find_recipes(ingred.id).length %></td>
+      <%= render :partial => "ingred_list_ops", :locals => {:item => ingred}%>
+    </tr>
+    <% end %>
+  </table>
+  <div/>
+<div/>

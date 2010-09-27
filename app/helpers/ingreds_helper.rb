@@ -1,0 +1,2 @@
+module IngredsHelper
+end

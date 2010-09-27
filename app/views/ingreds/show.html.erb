@@ -1,0 +1,27 @@
+<%= render :partial => "shared/titles",
+           :locals => {:tab => "Zutaten",
+                       :page => ""} %>
+<div id="form">
+   <table>
+    <tr>
+      <td> Bezeichnung: </td>
+      <td> <b><%=h @ingred.name %></b> </td>
+    </tr>
+    <tr>
+      <td> Kategorie: </td>
+      <td> <b><%=h @ingred.ingredtype_name %></b> </td>
+    </tr>
+    <tr>
+      <td> Rezepte: </td>
+      <td> <%= @recipes.length %> </td>
+    </tr>
+  </table>
+  <% if @recipes.length > 0 %>
+    <%= render :partial => "shared/list_recipes" %>
+  <% end %>
+
+<br />
+<hr>
+<%= link_to 'Zurück', ingreds_path, :class => "link_ext" %> |
+<%= link_to 'Bearbeiten', edit_ingred_path(@ingred), :class => "link_ext" %>
+<div/>

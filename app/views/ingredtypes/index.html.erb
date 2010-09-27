@@ -1,0 +1,24 @@
+<%= render :partial => "shared/titles",
+           :locals => {:tab => "rrm::Kategorien",
+           :page => ""}%>
+
+<div id="form">
+  <h2>Kategorien</h2>
+  <table>
+    <tr>
+      <th>Bezeichnung</th>
+      <th>Anzahl</th>
+    </tr>
+    <% @ingredtypes.each do |ingredtype| %>
+    <tr class="<%= cycle("odd", "even") %>">
+       <td><%= my_link_to_path("#{ingredtype.name}", ingredtype) %></td>
+      <td><%=h ingredtype.ingreds.length %></td>
+      <%= render :partial => "ingredtypes_list_ops", :locals => {:item => ingredtype} %>
+    </tr>
+    <% end %>
+  </table>
+  <% if logged_in? %>
+    <%= button_to 'Neu', new_ingredtype_path %>
+  <% end %>
+<div />
+

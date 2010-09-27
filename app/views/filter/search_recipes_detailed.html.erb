@@ -1,0 +1,13 @@
+<div id="form">
+Params{
+  <%= "station::#{@station}" if @station_check.to_i == 1 %>
+  <%= "source::#{@source}" if @source_check.to_i == 1 %>
+  <%= "ingred::#{@ingred}" if @ingred_check.to_i == 1 %>
+  <%= "ingred::#{@ingred_1}" if @ingred_check_1.to_i == 1 %>
+  <%= "ingred::#{@ingred_2}" if @ingred_check_2.to_i == 1 %>
+}
+<br/>
+<br/>
+<%= render :partial => "shared/list_recipes" %>
+</div>
+

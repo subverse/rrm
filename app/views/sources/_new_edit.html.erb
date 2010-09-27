@@ -1,0 +1,15 @@
+<div id="form">
+  <% form_for(@source) do |f| %>
+    <%= f.error_messages %>
+    <table>
+      <tr>
+        <td><%= f.label :Quelle %></td>
+        <td><%= f.text_field :name %></td>
+      </tr>
+    </table>
+    <%= f.submit 'Bestätigen' %>
+  <% end %>
+<br/>
+<hr/>
+  <%= link_to 'Zurück', sources_path, :class => "link_ext" %>
+</div>
