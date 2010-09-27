@@ -1,10 +1,11 @@
 <div id="form">
   <h2><%=h @recipe.name %></h2>
+  Rezept-Nr.: <%=h @recipe.id %>
   <p>
     Posten:
-    <%=h @recipe.station_name %><br/>
+    <b><%=h @recipe.station_name %><br/></b>
     Quelle:
-    <%=h @recipe.source_name %>
+    <b><%=h @recipe.source_name %></b>
   </p>
   <br/>
   <hr/>
