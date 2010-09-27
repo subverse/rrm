@@ -14,7 +14,7 @@ class IngredsController < ApplicationController
   # GET /ingreds
   # GET /ingreds.xml
   def index
-    @ingreds = Ingred.find_all
+    @ingreds_length = Ingred.count
 
     respond_to do |format|
       format.html # index.html.erb

@@ -18,7 +18,7 @@ class RecipesController < ApplicationController
   # GET /recipes
   # GET /recipes.xml
   def index
-    @recipes = Recipe.find_all
+    @recipes_length = Recipe.count
 
     respond_to do |format|
       format.html # index.html.erb
