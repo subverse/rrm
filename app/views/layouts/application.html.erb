@@ -30,8 +30,8 @@
 </div>
 
 <div id="menu">
-    <%= link_to "Find", :filter, :class => "link_ext" %> &nbsp; &nbsp;
-    <%= my_link_to_path("Posten", stations_path) %>  &nbsp; &nbsp;
+    <%= link_to "Find", :filter, :class => "link_ext" %> &nbsp;
+    <%= my_link_to_path("Posten", stations_path) %>  &nbsp;
     <%= my_link_to_path("Rezepte", recipes_path) %>
     <% if logged_in? %>
       <%= my_link_to_path(":neu", new_recipe_path) %>
@@ -46,7 +46,7 @@
     <% end %>  &nbsp;
     <%= my_link_to_path("Quellen", sources_path) %> &nbsp;
     <% if logged_in? %>
-      <%= my_link_to_path("Einheiten", units_path) %> &nbsp; &nbsp;
+      <%= my_link_to_path("Einheiten", units_path) %> &nbsp;
       <%= my_link_to_path( "Users", users_path) %>
       <!-- <%= my_link_to_path("new", new_user_path) %> --> &nbsp;
     <% end %>
