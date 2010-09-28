@@ -93,8 +93,12 @@ body, p, ol, ul, td {
     background-repeat:repeat-x;  
 } 
 
+#buffer {
+    margin-top: 60px;
+}
+
 #content {
-    padding:12px;
+   padding:12px;
 }
 
 #form{
