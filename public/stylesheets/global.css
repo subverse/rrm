@@ -141,7 +141,19 @@ body, p, ol, ul, td {
 }
 
 #search_right{
-/*  float:right;*/
+/*  float:right;*/  
+  min-width:330px;
+  min-height:416px;
+  margin:11px;
+  margin-left: 345px;
+  padding:17px;
+  padding-left:17px;
+  padding-right:17px;
+  border:1px solid grey;
+  background-color: #fff;
+  -moz-border-radius:10px;
+  -khtml-border-radius:10px;
+  -webkit-border-radius:10px;
 }
 
 .line {

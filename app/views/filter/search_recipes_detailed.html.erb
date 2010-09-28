@@ -1,4 +1,6 @@
+<!--
 <div id="form">
+-->
 Params{
   <%= "station::#{@station}" if @station_check.to_i == 1 %>
   <%= "source::#{@source}" if @source_check.to_i == 1 %>
@@ -9,5 +11,6 @@ Params{
 <br/>
 <br/>
 <%= render :partial => "shared/list_recipes" %>
+<!--
 </div>
-
+-->

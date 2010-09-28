@@ -1,10 +1,10 @@
 <%= render :partial => "shared/titles",
            :locals => {:tab => "rrm#recipes::search",
                        :page => "rrm#recipes::serch"}%>
-
+<!--
 <br/>
-
 <div id="form">
+-->
   <% if @recipes.length > 0 %>
     <h3><%= @search %> <%= "(#{@recipes.length})" %> </h3>
     <table>
@@ -80,4 +80,6 @@
     </table>
   <% end %>
 
-<div/><!--div/form-->
+<!--
+<div/>
+-->
