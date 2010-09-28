@@ -158,23 +158,6 @@ class RecipesController < ApplicationController
   end
 
 
-=begin
-  def search
-    @search = params[:search_field].strip
-
-    @recipes  = Array.new
-    @recipes_rest = Array.new
-
-    result = Recipe.search(@search)
-    @recipes = result.at(0)
-    @recipes_rest = result.at(1)
-    @recipes_contains = result.at(2)
-
-    render :layout => false
-  end #end search
-=end
-
-
   def add_process
     @recipe = Recipe.find(params[:id])
   end
