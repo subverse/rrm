@@ -12,7 +12,10 @@
       <td><%=h source.recipes.length %></td>
       <% if logged_in? %>
         <td class="td1"> <%= img_link_to_edit(edit_source_path( source )) %> </td>
-        <td class="td1"><%= img_link_to_drop( source ) %></td>
+        <% if source.recipes.count == 0 %>
+          <td class="td1"><%= img_link_to_drop( source ) %></td>
+        <% end %>
+
       <% end %>
     </tr>
   <% end %>
