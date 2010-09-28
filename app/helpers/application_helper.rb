@@ -35,6 +35,11 @@ module ApplicationHelper
   end
 
 
+  def link_to_new_tab(txt,url)
+    link_to txt, url, {:target => "_blank", :class=>"link_ext"}
+  end
+
+
   #------extern_weblinks--------------------------------------------------------------------
 
   def my_link_to_ext(txt,url)

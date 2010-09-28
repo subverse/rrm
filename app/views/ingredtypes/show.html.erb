@@ -14,12 +14,16 @@
     </tr>
     <% @ingreds.each do |ingred| %>
       <tr class="<%= cycle("odd", "even") %>">
-        <td><%= my_link_to_path("#{ingred.name}", ingred) %></td>
-        <td><%=h ingred.find_recipes(ingred.id).length %></td>
-
-        <td>
-          <% if logged_in? %>
-          <%= img_link_to_edit edit_ingred_path(ingred) %>
+        <% recipes_count = ingred.find_recipes(ingred.id).length %>
+        <td><%= my_link_to_path("#{ingred.name}", ingred) %> </td>
+        <td><%=h recipes_count %></td>
+        <% if logged_in? %>
+          <td class="td1"> <%= img_link_to_edit edit_ingred_path(ingred) %> </td>
+          <td class="td1">
+            <% if recipes_count == 0 %>
+              <%= img_link_to_drop ingred %>
+            <% end %>
+          </td>
         <% end %>
         </td>
       </tr>

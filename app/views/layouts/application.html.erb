@@ -35,15 +35,15 @@
     <%= my_link_to_path("Posten", stations_path) %>  &nbsp;
     <%= my_link_to_path("Rezepte", recipes_path) %>
     <% if logged_in? %>
-      <%= my_link_to_path(":neu", new_recipe_path) %>
+      <%= link_to_new_tab(":neu", new_recipe_path) %>
     <% end %>  &nbsp;
      <%= my_link_to_path("Zutaten", ingreds_path) %>
     <% if logged_in? %>
-      <%= my_link_to_path(":neu", new_ingred_path) %>
+      <%= link_to_new_tab(":neu", new_ingred_path) %>
     <% end %>  &nbsp;
     <%= my_link_to_path("Kategorien", ingredtypes_path) %>
     <% if logged_in? %>
-      <%= my_link_to_path(":neu", new_ingredtype_path) %>
+      <%= link_to_new_tab(":neu", new_ingredtype_path) %>
     <% end %>  &nbsp;
     <%= my_link_to_path("Quellen", sources_path) %> &nbsp;
     <% if logged_in? %>

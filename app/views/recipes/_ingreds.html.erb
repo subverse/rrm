@@ -12,9 +12,9 @@
         <% ingred_recipe = Ingred.find(item.id).recipe %>
         <tr>
           <% if ingred_recipe == nil %>
-            <td><%= my_link_to_path "#{item.ingred}", Ingred.find(item.id) %></td>
+            <td><%= link_to_new_tab "#{item.ingred}", Ingred.find(item.id) %></td>
           <% else %>
-            <td><%= my_link_to_path "#{item.ingred}", ingred_recipe %></td>
+            <td><%= link_to_new_tab "#{item.ingred}", ingred_recipe %></td>
           <% end %>
           <td><%= item.amount %></td>
           <td><%= item.unit %></td>

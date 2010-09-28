@@ -13,6 +13,7 @@
     <tr class="<%= cycle("odd", "even") %>">
        <td><%= my_link_to_path("#{ingredtype.name}", ingredtype) %></td>
       <td><%=h ingredtype.ingreds.length %></td>
+
       <% if logged_in? %>
         <td class="td1"> <%= img_link_to_edit(edit_ingredtype_path( ingredtype )) %> </td>
         <% if ingredtype.ingreds.count == 0 %>
