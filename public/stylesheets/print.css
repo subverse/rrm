@@ -11,7 +11,7 @@ body {
 body, p, ol, ul, td {
 /*  font-family: verdana, arial, helvetica, serif; */
   font-family:"Times New Roman", Times, serif;
-  font-size:   16px;
+  font-size:   17px;
 }
 
 #content {
@@ -29,16 +29,6 @@ body, p, ol, ul, td {
 }
 
 
-.line {
-    width:auto;
-    height:1px;
-    margin-top:7.5px;
-    margin-bottom:7.5px;
-    border:none;
-    border-bottom:1px solid grey;
-}
-
-
 table, td{
 /* font:100% Arial, Helvetica, serif; */
     font-family:"Times New Roman", Times, serif;
@@ -46,7 +36,7 @@ table, td{
 }
 table{
   width:auto;
-  min-width:230px;
+  min-width:250px;
   border-collapse:collapse;
   margin:1em 0;
 }
