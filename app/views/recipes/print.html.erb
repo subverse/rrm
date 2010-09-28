@@ -1,14 +1,7 @@
 <div id="form">
   <h2><%=h @recipe.name %></h2>
-  Rezept-Nr.: <%=h @recipe.id %>
-  <p>
-    Posten:
-    <b><%=h @recipe.station_name %><br/></b>
-    Quelle:
-    <b><%=h @recipe.source_name %></b>
-  </p>
   <br/>
-  <hr/>
+  <br/>
   <h3>Zutaten</h3>
   <% if @ingred_list.length > 0 %>
     <table>
@@ -29,8 +22,9 @@
   <% end %>
   <% if @recipe.process != "" %>
     <br/>
-    <hr/>
+    <br/>
     <h3>Zubereitung</h3>
+    <br/>
     <%= @recipe.process %>
     <% end %>
 </div>

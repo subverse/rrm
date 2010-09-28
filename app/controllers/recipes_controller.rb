@@ -79,7 +79,7 @@ class RecipesController < ApplicationController
     @station = Station.find(@recipe.station_id).name
     @ingred_list = @recipe.get_ingreds
     respond_to do |format|
-      format.html # show.html.erb
+      format.html { render :layout => 'recipe'}
       format.xml  { render :xml => @recipe }
     end
   end #end print
