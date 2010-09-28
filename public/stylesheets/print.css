@@ -4,7 +4,7 @@
     background-image: none !important;
 }
 
-body { 
+body {
 
 }
 
@@ -15,12 +15,13 @@ body, p, ol, ul, td {
 
 #print_content {
    padding:12px;
+   width:100%;
 }
 
 
 #form{
   float:left;
-  width:auto;
+/*  width:auto;*/
   height:auto;
   border:none;
   background-color: none;

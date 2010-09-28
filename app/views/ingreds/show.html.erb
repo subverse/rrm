@@ -13,7 +13,7 @@
     </tr>
     <tr>
       <td> Kategorie: </td>
-      <td> <b><%=h @ingred.ingredtype_name %></b> </td>
+      <td> <b><%=h my_link_to_path( "#{@ingred.ingredtype_name}", @ingred.ingredtype )  %></b> </td>
     </tr>
     <tr>
       <td> Rezepte: </td>
@@ -26,5 +26,6 @@
 
 <br />
 <hr>
+<%= link_to 'Zutaten', ingreds_path, :class => "link_ext" %> |
 <%= link_to 'Bearbeiten', edit_ingred_path(@ingred), :class => "link_ext" %>
 <div/>

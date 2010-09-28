@@ -1,19 +1,17 @@
 <%= render :partial => "shared/titles",
-           :locals => {:tab => "rrm::Rezepte",
-                       :page => "Rezept::Details"}%>
+           :locals => {:tab => "rrm::Rezepte", :page => ""}%>
 <div id="form">
-
   <p>
     <b>Name:</b>
     <%=h @recipe.name %>
   </p>
   <p>
     <b>Posten:</b>
-    <%=h @recipe.station_name %>
+    <%=h my_link_to_path( "#{@recipe.station_name}", @recipe.station ) %>
   </p>
   <p>
     <b>Quelle:</b>
-    <%=h @recipe.source_name %>
+    <%=h my_link_to_path( "#{@recipe.source_name}", @recipe.source ) %>
   </p>
 
   <br />

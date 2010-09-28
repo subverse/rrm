@@ -1,6 +1,7 @@
 <div id="form">
   <h2><%=h @recipe.name %></h2>
   <br/>
+  <hr/>
   <br/>
   <h3>Zutaten</h3>
   <% if @ingred_list.length > 0 %>
@@ -20,11 +21,12 @@
       <% end %>
     </table>
   <% end %>
-  <% if @recipe.process != "" %>
+  <% if @recipe.process != "" or @recipe.process != nil %>
     <br/>
+    <hr/>
     <br/>
     <h3>Zubereitung</h3>
     <br/>
     <%= @recipe.process %>
-    <% end %>
+  <% end %>
 </div>

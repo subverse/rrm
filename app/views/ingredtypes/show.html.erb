@@ -20,7 +20,6 @@
         <td>
           <% if logged_in? %>
           <%= img_link_to_edit edit_ingred_path(ingred) %>
-          <%= img_link_to_drop ingred %>
         <% end %>
         </td>
       </tr>
@@ -28,5 +27,6 @@
   </table>
   <br />
   <hr>
+  <%= link_to 'Kategorien', ingredtypes_path, :class => "link_ext" %> |
   <%= link_to 'Bearbeiten', edit_ingredtype_path(@ingredtype), :class => "link_ext" %>
 </div>
