@@ -9,19 +9,20 @@ body {
 }
 
 body, p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size:   13px;
+/*  font-family: verdana, arial, helvetica, serif; */
+  font-family:"Times New Roman", Times, serif;
+  font-size:   16px;
 }
 
-#print_content {
-   padding:12px;
+#content {
+   padding:33px;
    width:100%;
 }
 
 
 #form{
   float:left;
-/*  width:auto;*/
+  width:100%;
   height:auto;
   border:none;
   background-color: none;
@@ -38,12 +39,14 @@ body, p, ol, ul, td {
 }
 
 
-
 table, td{
-    font:100% Arial, Helvetica, sans-serif;
+/* font:100% Arial, Helvetica, serif; */
+    font-family:"Times New Roman", Times, serif;
+    font:100%;
 }
 table{
-  width:100%;
+  width:auto;
+  min-width:230px;
   border-collapse:collapse;
   margin:1em 0;
 }
