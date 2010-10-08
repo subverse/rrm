@@ -141,11 +141,11 @@ body, p, ol, ul, td {
 }
 
 #search_right{
-/*  float:right;*/  
+/*  float:right;*/
   min-width:330px;
   min-height:416px;
   margin:11px;
-  margin-left: 345px;
+  margin-left: 375px;
   padding:17px;
   padding-left:17px;
   padding-right:17px;

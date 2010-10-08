@@ -31,6 +31,21 @@ class FilterController < ApplicationController
   end #end search
 
 
+  def search_recipes_1
+    @search = params[:search_field].strip
+
+    @recipes  = Array.new
+    @recipes_rest = Array.new
+
+    result = Recipe.search(@search)
+    @recipes = result.at(0)
+    @recipes_rest = result.at(1)
+    @recipes_contains = result.at(2)
+
+    render :layout => false
+  end #end search_recipes_1
+
+
   def search_recipes_detailed
     @station = Station.find(params[:station][:station_id]).name
     @station_check = params[:station_check][:checked]
