@@ -1,7 +1,6 @@
 !.gitignore
 *.log
 *.tmp
-database.yml
 *.sqlite3
 *~
 .DS_Store
