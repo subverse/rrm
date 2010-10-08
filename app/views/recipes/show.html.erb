@@ -1,5 +1,5 @@
 <%= render :partial => "shared/titles",
-           :locals => {:tab => "rrm::Rezepte", :page => ""}%>
+           :locals => {:tab => "Rezept: #{@recipe.name}", :page => ""}%>
 <div id="form">
   <p>
     <b>Name:</b>
@@ -45,7 +45,7 @@
   <% if logged_in? %>
     |
     <%= link_to "Bearbeiten", edit_recipe_path(@recipe), :class => "link_ext" %> |
-    <%= link_to "Zutaten", {:action => "add_ingred", :id => @recipe.id}, :class => "link_ext" %> |
+    <%= link_to_new_tab("Zutaten", :action => "add_ingred", :id => @recipe.id) %> |
     <%= link_to "Zubereitung", {:action => "add_process", :id => @recipe.id}, :class => "link_ext" %>
   <% end %>
   |

@@ -1,6 +1,6 @@
 <%= render :partial => "shared/titles",
-           :locals => {:tab => "rrm::Rezepte",
-           :page => "Rezept::Zutat hinzufügen"} %>
+           :locals => {:tab => "Zutaten: #{@recipe.name}",
+           :page => "Rezept::"} %>
 
 <div id="form">
   <% form_for(@recipe, :url => {:action => "save_ingred", :id => @recipe.id}) do |f| %>
