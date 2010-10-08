@@ -6,7 +6,6 @@ class RecipesController < ApplicationController
                                              :print, :search, :multiply,
                                              :alpha]
 
-
   # Alphabetische Listen anzeigen
   def alpha
     @search = params[:a]
@@ -56,20 +55,6 @@ class RecipesController < ApplicationController
 
     render :partial => "ingreds"
   end #end show
-
-
-  # GET /recipes/1
-  # GET /recipes/1.xml
-  def show_alt
-    @recipe = Recipe.find(params[:id])
-    @station = Station.find(@recipe.station_id).name
-    @ingred_list = @recipe.get_ingreds
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @recipe }
-    end
-  end
-
 
 
   # GET /recipes/1
@@ -191,6 +176,8 @@ class RecipesController < ApplicationController
 #        format.html { render :action => "add_ingred" }
         format.xml  { render :xml => @recipe.errors, :status => :unprocessable_entity }
       end
+    else
+      render :layout => false
     end
   end #end add_ingred
 
@@ -202,11 +189,12 @@ class RecipesController < ApplicationController
     respond_to do |format|
       if  @recipe.length <= Recipe.ingreds_max_length && @recipe.update_attributes(params[:recipe])
         flash[:notice] = 'ingred was successfully saved.'
-#        format.html { redirect_to(@recipe) }
-        format.html { render :action => "add_ingred" }
+        format.html { redirect_to(@recipe) }
+#        format.html { render :action => "add_ingred" }
         format.xml  { head :ok }
       else
-        format.html { render :action => "add_ingred" }
+        format.html { redirect_to(@recipe) }
+#        format.html { render :action => "add_ingred" }
         format.xml  { render :xml => @recipe.errors, :status => :unprocessable_entity }
       end
     end

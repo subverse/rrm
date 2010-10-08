@@ -1,5 +1,6 @@
 <%= render :partial => "shared/titles",
            :locals => {:tab => "Rezept: #{@recipe.name}", :page => ""}%>
+<div id="search_left">
 <div id="form">
   <p>
     <b>Name:</b>
@@ -45,9 +46,18 @@
   <% if logged_in? %>
     |
     <%= link_to "Bearbeiten", edit_recipe_path(@recipe), :class => "link_ext" %> |
-    <%= link_to_new_tab("Zutaten", :action => "add_ingred", :id => @recipe.id) %> |
-    <%= link_to "Zubereitung", {:action => "add_process", :id => @recipe.id}, :class => "link_ext" %>
+    <%= link_to_remote "Zutaten", :url => { :action => "add_ingred", :id => @recipe.id },
+                                        :update => { :success => "edit", :failure => "edit"},
+                                        :before => "$('edit').update('Laden...')",
+                                        :html => { :class => "link_ext" }  %> |
+    <%= link_to "Zubereitung", {:action => "add_process", :id => @recipe.id}, :class => "link_ext" %> |
   <% end %>
-  |
   <%= link_to_new_tab("Druckansicht", :action => "print", :id => @recipe.id) %>
 </div>
+</div>
+
+
+<div id="edit">
+
+</div>
+
