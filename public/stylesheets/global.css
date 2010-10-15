@@ -80,11 +80,11 @@ body, p, ol, ul, td {
     position: fixed;
     color: black;
     height:21px;
-    min-width:725px;
+    min-width:850px;
     width: 100%;
     margin-top: 47px;
-    padding-top: 3px;
-    padding-left:5px;
+/*    padding-top: 3px;
+    padding-left:5px;*/
     border:none;
 /*  border-bottom:1px solid grey; */
     background-color: #424242;
@@ -171,10 +171,6 @@ pre {
   font-size: 11px;
 }
 
-a { color: #000; }
-a:visited { color: #666; }
-a:hover { color: #fff; background-color:#000; }
-
 .fieldWithErrors {
   padding: 2px;
   background-color: red;
@@ -212,6 +208,15 @@ a:hover { color: #fff; background-color:#000; }
 }
 
 /*...........................externe..weblinks........................*/
+
+a {
+    color: black; /*#000;*/
+    text-decoration: none;
+}
+a:visited { color: #maroon; }
+a:hover { color: red; }
+a:active {color:green;}
+
 
 .link_ext{
   text-decoration: none;

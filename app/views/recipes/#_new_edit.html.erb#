@@ -1,0 +1,54 @@
+<%= render :partial => "shared/titles", :locals => {:tab => "rrm! Rezept (new/edit)", :page => "" }%>
+
+<% form("Rezept", ["#{link_to 'Zurück', recipes_path, :class => 'link_ext'}"]) do %>
+<% form_for(@recipe) do |f| %>
+  <%= f.error_messages %>
+  <table>
+    <tr>
+      <td>Name</td>
+      <td><%= f.text_field :name %></td>
+    </tr>
+    <tr>
+      <td>Posten</td>
+      <td><%= f.collection_select :station_id,
+              Station.find_all, :id, :name %>
+      </td>
+    </tr>
+    <tr>
+      <td>Quelle</td>
+      <td><%= f.collection_select :source_id,
+              Source.find_all, :id, :name %>
+      </td>
+    </tr>
+  </table>
+
+<% if  @ingred_list != nil and @ingred_list.length > 0 %>
+  <br />
+  <h3>Zutaten</h3>
+<table>
+  <tr>
+    <th>Bezeichnung</th>
+    <th>Menge</th>
+    <th>Einheit</th>
+  </tr>
+  <% for i in 1..@ingred_list.length %>
+    <% item = @ingred_list.shift %>
+    <tr>
+      <td><%= f.collection_select :"ingred#{i}",
+              Ingred.find_all, :id, :name %>
+      </td>
+      <td><%= f.text_field :"amount#{i}", :size => "6" %></td>
+      <td><%= f.collection_select :"unit#{i}",
+              Unit.find_all, :id, :name %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<% end %>
+
+  <p>
+    <%= f.submit 'OK' %>
+  </p>
+<% end %>
+<br/>
+<% end %>
