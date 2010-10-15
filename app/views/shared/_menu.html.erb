@@ -1,14 +1,14 @@
 <% menu do %>
-    <%= menu_item link_to "Find", :filter %>
+    <%= menu_item linkTo "Find", :filter, "Erweiterte Suche" %>
     <%= menu_item link_to("Posten", stations_path) %>
     <%= menu_item link_to("Rezepte", recipes_path) %>
-    <%= menu_item link_to_new_tab(":neu", new_recipe_path) if logged_in? %>
+    <%= menu_item link_to_new_tab(":neu", new_recipe_path, "Neues Rezept anlegen") if logged_in? %>
     <%= menu_item link_to("Zutaten", ingreds_path) %>
-    <%= menu_item link_to_new_tab(":neu", new_ingred_path) if logged_in? %>
-    <%= menu_item link_to("Kategorien", ingredtypes_path) %>
-    <%= menu_item link_to_new_tab(":neu", new_ingredtype_path) if logged_in? %>
-    <%= menu_item link_to("Quellen", sources_path) %>
-    <%= menu_item link_to("Einheiten", units_path) if logged_in? %>
+    <%= menu_item link_to_new_tab(":neu", new_ingred_path, "Neue Zutat anlegen") if logged_in? %>
+    <%= menu_item linkTo("Kategorien", ingredtypes_path, "Kategorien der Zutaten") %>
+    <%= menu_item link_to_new_tab(":neu", new_ingredtype_path, "Neue Kategorie anlegen") if logged_in? %>
+    <%= menu_item linkTo("Quellen", sources_path, "Quellen der Rezepte") %>
+    <%= menu_item linkTo("Einheiten", units_path, "Verwendete Maßeinheiten") if logged_in? %>
     <%= menu_item link_to( "Users", users_path) if logged_in? %>
     <% if !logged_in? %>
       <%= menu_item link_to "Login", :login, :class => "link_ext" %>
