@@ -15,7 +15,7 @@ module TableHelper
        end #end table_header
 
 
-       def table_row(obj, edit_path, alternating, access, show, edit, destroy, obj_values)
+       def table_row(obj, edit_path, alternating, show, edit, destroy, obj_values)
          # expects cell value and the object which contains these value
          html = ""
          if alternating
@@ -26,18 +26,16 @@ module TableHelper
          obj_values.each do |value|
            html << "<td>#{value}</td>"
          end
-         html << "#{table_row_ops obj, edit_path, access, show, edit, destroy}"
+         html << "#{table_row_ops obj, edit_path, show, edit, destroy}"
          html << "</tr>"
        end #end table_row
 
 
-       def table_row_ops(obj, edit_path, access, show, edit, destroy)
+       def table_row_ops(obj, edit_path, show, edit, destroy)
          html = ""
          html << "<td class='td1'>#{link_to_show obj}</td>" if show
-         if access
-           html << "<td class='td1'>#{link_to_edit edit_path}</td>" if edit
-           html << "<td class='td1'>#{link_to_destroy obj}</td>" if destroy
-         end
+         html << "<td class='td1'>#{link_to_edit edit_path}</td>" if edit
+         html << "<td class='td1'>#{link_to_destroy obj}</td>" if destroy
          html
        end #end table_row_ops
 

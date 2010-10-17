@@ -7,28 +7,16 @@
     <h2><%=h @ingredtype.name %></h2>
   </p>
 
-  <table>
-    <tr>
-      <th>Bezeichnung</th>
-      <th>Rezepte</th>
-    </tr>
-    <% @ingreds.each do |ingred| %>
-      <tr class="<%= cycle("odd", "even") %>">
-        <% recipes_count = ingred.find_recipes(ingred.id).length %>
-        <td><%= my_link_to_path("#{ingred.name}", ingred) %> </td>
-        <td><%=h recipes_count %></td>
-        <% if logged_in? %>
-          <td class="td1"> <%= img_link_to_edit edit_ingred_path(ingred) %> </td>
-          <td class="td1">
-            <% if recipes_count == 0 %>
-              <%= img_link_to_drop ingred %>
-            <% end %>
-          </td>
-        <% end %>
-        </td>
-      </tr>
+  <% table ["Bezeichnung", "Rezepte"] do %>
+  <% @ingreds.each do |ingred| %>
+    <% recipes_count = ingred.find_recipes(ingred.id).length %>
+    <%= table_row(ingred, edit_ingred_path(ingred),
+        alternate=true, show=false, edit=logged_in?, destroy=(recipes_count == 0),
+        ["#{linkTo ingred.name, ingred}",
+         "#{recipes_count}"]) %>
     <% end %>
-  </table>
+  <% end %>
+
   <br />
   <hr>
   <%= link_to 'Kategorien', ingredtypes_path, :class => "link_ext" %> |
