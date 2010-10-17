@@ -93,23 +93,19 @@ ul#Navigation li:hover ul {
   display: block;
 }
 
-
-/* ================================================================
-This copyright notice must be untouched at all times.
-
-The original version of this stylesheet and the associated (x)html
-is available at http://www.cssplay.co.uk/menus/flyoutt.html
-Copyright (c) 2005-2007 Stu Nicholls. All rights reserved.
-This stylesheet and the assocaited (x)html may be modified in any
-way to fit your requirements.
-=================================================================== */
-/* common styling */
+/*==================================================================*/
 
 .menu {
     font-family: arial, sans-serif; font-size:11px;
     height:auto; width:auto;
     position:relative; float:left;
     margin:0px 0;
+}
+
+.menu p {
+    font-size:11px; color:#000; text-align:center;
+    height:21px; line-height:20px;
+    padding-left: 4px; padding-right: 4px;
 }
 .menu ul {
     padding:0;
@@ -124,13 +120,13 @@ way to fit your requirements.
     font-size:11px; color:#000; text-align:center; text-decoration:none;
     height:21px; line-height:20px;
     background: silver; background-image:url(/images/menu_img.png); background-repeat:repeat-x;
-    padding-left: 6px; padding-right: 6px;
+    padding-left: 4px; padding-right: 4px;
 }
 .menu ul li a.hidden {color: #000; /*border-right:1px solid grey;*/}
 /* Level_1 Menu */
 .menu ul li ul {display: none;}
 
-.menu ul li:hover a {
+.menu ul li:hover, .menu ul li:hover a {
     color:#fff;
     background:#silver; background-image:url(/images/menu_img_usd.png); background-repeat:repeat-x;
     border:none;

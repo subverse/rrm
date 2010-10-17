@@ -28,7 +28,20 @@ module MenuHelper
   end #end menu_item
 
 
-  def submenu(text, dest, title="", &submenu_items_block)
+  def submenu(title, &submenu_items_block)
+    html = ""
+    html << "<li>"
+      html << "<p>#{title}</p>"
+      html << "<ul>"
+        submenu_items = capture(&submenu_items_block)
+        html << submenu_items
+      html << "</ul>"
+    html << "</li>"
+    concat(html, submenu_items_block)
+  end #end submenu
+
+
+  def submenu_bak(text, dest, title="", &submenu_items_block)
     html = ""
     html << "<li>"
       html << "#{link(text, dest, title)}"
