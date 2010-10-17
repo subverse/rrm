@@ -19,7 +19,7 @@ module LinkHelper
   end
 
   def link_to_destroy(url)
-    link_to image_tag("Delete.png", :border => 0), url, :confirm => 'Are you sure?', :method => :delete, :title => "Destroy"
+    link_to image_tag("drop.png", :border => 0), url, :confirm => 'Are you sure?', :method => :delete, :title => "Destroy"
   end
 
   def link_to_new(url)

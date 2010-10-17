@@ -4,24 +4,13 @@
 
 <div id="form">
   <h2>Kategorien (<%= @ingredtypes.length %>)</h2>
-  <table>
-    <tr>
-      <th>Bezeichnung</th>
-      <th>Anzahl</th>
-    </tr>
-    <% @ingredtypes.each do |ingredtype| %>
-    <tr class="<%= cycle("odd", "even") %>">
-       <td><%= my_link_to_path("#{ingredtype.name}", ingredtype) %></td>
-      <td><%=h ingredtype.ingreds.length %></td>
-
-      <% if logged_in? %>
-        <td class="td1"> <%= img_link_to_edit(edit_ingredtype_path( ingredtype )) %> </td>
-        <% if ingredtype.ingreds.count == 0 %>
-           <td class="td1"><%= img_link_to_drop( ingredtype ) %></td>
-        <% end %>
-      <% end %>
-    </tr>
+  <% table ["Bezeichnung", "Anzahl"] do %>
+  <% @ingredtypes.each do |ingredtype| %>
+    <%= table_row(ingredtype, edit_ingredtype_path(ingredtype),
+        true, logged_in?, false, logged_in?, ingredtype.ingreds.count == 0,
+        ["#{linkTo ingredtype.name, ingredtype}",
+         "#{ingredtype.ingreds.length}"]) %>
     <% end %>
-  </table>
+  <% end %>
 <div />
 
