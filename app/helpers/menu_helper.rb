@@ -1,46 +1,65 @@
-# Methods added to this helper will be available to all templates in the application.
 module MenuHelper
 
-  def menu_item(item)
+  def menu(&menu_items_block) # menu item(s) or submenu(s)
+    html = ""
+    html << "<div class='menu'>"
+      html << "<ul>"
+        menu_items = capture(&menu_items_block)
+        html << menu_items
+      html << "</ul>"
+    html << "</div>"
+    concat(html, menu_items_block)
+  end #end menu
+
+
+  def menu_item(text, dest, title="")
     html = ""
     html << "<li>"
-    html << "#{item}"
+    html << "#{link(text, dest, title)}"
     html << "</li>"
-  end
+  end #end menu_item
 
-  def menu(&menu_items)
+
+  def menu_item_to_new_tab(text, dest, title="")
     html = ""
-    html << "<div id='Rahmen'>"
-      html << "<ul id='Navigation'>"
-        data = capture(&menu_items)
-        html << data
+    html << "<li>"
+    html << "#{links_to_new_tab(text, dest, title)}"
+    html << "</li>"
+  end #end menu_item
+
+
+  def submenu(text, dest, title="", &submenu_items_block)
+    html = ""
+    html << "<li>"
+      html << "#{link(text, dest, title)}"
+      html << "<ul>"
+        submenu_items = capture(&submenu_items_block)
+        html << submenu_items
       html << "</ul>"
-    html << "<div></div></div>"
-    concat(html, menu_items.binding)
+    html << "</li>"
+    concat(html, submenu_items_block)
+  end #end submenu
+
+
+  def submenu_item(item)
+    html = ""
+    html << "<li>"
+      html << "#{item}"
+    html << "</li>"
+  end #end submenu_item(item)
+
+
+  private
+
+
+  def link(text, dest, title)
+    link_to text, dest, {:class => 'hidden', :title => title}
   end
 
-  def menu_L1(menu_items=nil)
-    html = ""
-    html << "<div id='Rahmen'>"
-      html << "<ul id='Navigation'>"
-      menu_items.each do |item|
-        html << "<li>"
-        html << "#{item}"
-        html << "</li>"
-      end
-      html << "</ul>"
-    html << "<div></div></div>"
+
+  def links_to_new_tab(text, dest, title)
+    link_to text, dest, {:class => 'hidden', :target => '_blank', :title => title}
   end
 
-  def submenu_l1(menu_items=nil)
-    html = ""
-    html << "<ul>"
-    menu_items.each do |item|
-      html << "<li>"
-        html << "#{item}"
-      html << "</li>"
-    end
-    html << "</ul>"
-  end
 
 end #end module MenuHelper

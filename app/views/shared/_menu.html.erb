@@ -1,19 +1,24 @@
 <% menu do %>
-    <%= menu_item linkTo "Find", :filter, "Erweiterte Suche" %>
-    <%= menu_item link_to("Posten", stations_path) %>
-    <%= menu_item link_to("Rezepte", recipes_path) %>
-    <%= menu_item link_to_new_tab(":neu", new_recipe_path, "Neues Rezept anlegen") if logged_in? %>
-    <%= menu_item link_to("Zutaten", ingreds_path) %>
-    <%= menu_item link_to_new_tab(":neu", new_ingred_path, "Neue Zutat anlegen") if logged_in? %>
-    <%= menu_item linkTo("Kategorien", ingredtypes_path, "Kategorien der Zutaten") %>
-    <%= menu_item link_to_new_tab(":neu", new_ingredtype_path, "Neue Kategorie anlegen") if logged_in? %>
-    <%= menu_item linkTo("Quellen", sources_path, "Quellen der Rezepte") %>
-    <%= menu_item linkTo("Einheiten", units_path, "Verwendete Maßeinheiten") if logged_in? %>
-    <%= menu_item link_to( "Users", users_path) if logged_in? %>
+    <%= menu_item "Find", :filter, "Erweiterte Suche" %>
+    <% submenu("Posten", :stations) do %>
+      <%= submenu_item linkTo "Entremetier", Station.find_by_name("Entremetier") %>
+      <%= submenu_item linkTo "Gardemanger", Station.find_by_name("Gardemanger") %>
+      <%= submenu_item linkTo "Saucier", Station.find_by_name("Saucier") %>
+      <%= submenu_item linkTo "Patessier", Station.find_by_name("Patessier") %>
+    <% end %>
+    <%= menu_item "Rezepte", recipes_path %>
+    <%= menu_item_to_new_tab ":neu", new_recipe_path if logged_in? %>
+    <%= menu_item "Zutaten", ingreds_path %>
+    <%= menu_item_to_new_tab ":neu", new_ingred_path if logged_in? %>
+    <%= menu_item "Kategorien", ingredtypes_path, "Kategorien der Zutaten" %>
+    <%= menu_item_to_new_tab ":neu", new_ingredtype_path if logged_in? %>
+    <%= menu_item "Quellen", sources_path, "Quellen der Rezepte" %>
+    <%= menu_item "Einheiten", units_path, "Verwendete Maßeinheiten" %>
+    <%= menu_item "User", users_path, "Benutzerliste" %>
     <% if !logged_in? %>
-      <%= menu_item link_to "Login", :login, :class => "link_ext" %>
+      <%= menu_item_to_new_tab "Login", :login %>
     <% else %>
-      <%= menu_item link_to "logout (#{User.find(session[:user_id]).name})", :logout %>
+      <%= menu_item_to_new_tab "logout (#{User.find(session[:user_id]).name})", :logout %>
     <% end %>
 <% end %>
 

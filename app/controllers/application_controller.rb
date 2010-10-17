@@ -36,5 +36,4 @@ class ApplicationController < ActionController::Base
     admin? or not session[:user_id] == nil
   end
 
-
 end #end applicationcontroller

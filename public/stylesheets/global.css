@@ -75,7 +75,7 @@ body, p, ol, ul, td {
     margin-right: 10px;
     float:right;
 }
-
+/*
 #menu {
     position: fixed;
     color: black;
@@ -83,16 +83,13 @@ body, p, ol, ul, td {
     min-width:850px;
     width: 100%;
     margin-top: 47px;
-/*    padding-top: 3px;
-    padding-left:5px;*/
     border:none;
-/*  border-bottom:1px solid grey; */
     background-color: #424242;
 
     background-image:url(/images/menu_img.png);
     background-repeat:repeat-x;
 }
-
+*/
 #buffer {
     margin-top: 60px;
 }
