@@ -5,7 +5,7 @@
   <% table ["Bezeichnung", "Kategorie", "Rezepte"] do %>
     <% @ingreds.each do |ingred| %>
       <% recipes_count = ingred.find_recipes(ingred.id).length %>
-      <% table_row(ingred, edit_ingred_path(ingred), alternating=true, show=false, edit=logged_in?, destroy=(recipes_count == 0)) do %>
+      <% table_row(ingred, edit_ingred_path(ingred), alternating=true, show=false, edit=logged_in?, destroy=(recipes_count == 0 and logged_in?)) do %>
         <%= table_cell linkTo(ingred.name, ingred) %>
         <%= table_cell linkTo(ingred.ingredtype.name, ingred.ingredtype) %>
         <%= table_cell ingred.find_recipes(ingred.id).length %>

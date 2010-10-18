@@ -1,8 +1,0 @@
-<% if logged_in? %>
-  <td class="td1"> <%= img_link_to_edit(edit_ingredtype_path( item )) %> </td>
-       <% if unit.recipes.count == 0 %>
-          <td class="td1"><%= img_link_to_drop( source ) %></td>
-        <% end %>
-
-  <td class="td1"><%= img_link_to_drop( item ) %></td>
-<% end %>
