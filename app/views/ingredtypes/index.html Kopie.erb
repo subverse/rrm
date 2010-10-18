@@ -6,11 +6,17 @@
   <h2>Kategorien (<%= @ingredtypes.length %>)</h2>
 
 
-  <% table ["Bezeichnug", "Anzahl"] do %>
-    <% @ingredtypes.each do |ingredtype| %>
-      <%= table_row ingredtype, edit_ingredtype_path(ingredtype), logged_in?, ["#{value.value1}", "#{value.value1*2}"] %>
-    <% end %>
-  <% end %>
+
+
+  <% table ["Bezeichnung", "Rezepte"] do %>
+    <% @ingreds.each do |ingred| %>
+      <% recipes_count = ingred.find_recipes(ingred.id).length %>
+      <% table_row(ingred, edit_ingred_path(ingred), alternating=true, show=false, edit=logged_in?, destroy=(recipes_count == 0)) do %>
+        <%= table_cell(linkTo ingred.name, ingred) %>
+        <%= table_cell(recipes_count) %>
+      <% end %>
+    <% end %> <!--end .each-->
+  <% end %> <!--end table-->
 
 
   <table>

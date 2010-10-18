@@ -248,6 +248,7 @@ class Recipe < ActiveRecord::Base
         @arr.push(amount)
         @arr.push(Unit.find(unit).name)
         @arr.push(Ingred.find(ingred).id)
+        @arr.push(Ingred)
       end
     end
 
@@ -273,6 +274,10 @@ class Recipe < ActiveRecord::Base
 
     def id
       @arr.at(3)
+    end
+
+    def ingred_obj
+      @arr.at(4)
     end
 
   end #end ListItem

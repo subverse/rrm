@@ -1,24 +1,19 @@
 <h3>Zutaten</h3>
-  <% if @ingred_list.length > 0 %>
-    <br />
-    <table>
-      <tr>
-        <th>Bezeichnung</th>
-        <th>Menge</th>
-        <th>Einheit</th>
-      </tr>
-      <% for i in 1..@ingred_list.length %>
-        <% item = @ingred_list.shift %>
-        <% ingred_recipe = Ingred.find(item.id).recipe %>
-        <tr>
-          <% if ingred_recipe == nil %>
-            <td><%= link_to_new_tab "#{item.ingred}", Ingred.find(item.id) %></td>
-          <% else %>
-            <td><%= link_to_new_tab "#{item.ingred}", ingred_recipe %></td>
-          <% end %>
-          <td><%= item.amount %></td>
-          <td><%= item.unit %></td>
-        </tr>
-      <% end %>
-    </table>
-  <% end %>
+<% if @ingred_list.length > 0 %>
+
+  <% table ["Bezeichnung", "Menge", "Einheit"] do %>
+    <% for i in 1..@ingred_list.length %>
+      <% item = @ingred_list.shift %>
+      <% ingred_recipe = Ingred.find(item.id).recipe %>
+      <% table_row(item.ingred_obj, edit_ingred_path(item.ingred_obj), false, false, false, false) do %>
+        <% if ingred_recipe == nil %>
+          <%= table_cell(linkTo item.ingred, item.ingred_obj) %></td>
+        <% else %>
+          <%= table_cell(link_to_new_tab item.ingred, ingred_recipe) %></td>
+        <% end %>
+        <%= table_cell(item.amount) %>
+        <%= table_cell(item.unit) %>
+      <% end %> <!--table_row-->
+    <% end %> <!--end .for-->
+  <% end %> <!--end table-->
+<% end %>
