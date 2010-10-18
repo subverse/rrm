@@ -8,17 +8,17 @@
   </p>
 
   <% table ["Bezeichnung", "Rezepte"] do %>
-  <% @ingreds.each do |ingred| %>
-    <% recipes_count = ingred.find_recipes(ingred.id).length %>
-    <%= table_row(ingred, edit_ingred_path(ingred),
-        alternate=true, show=false, edit=logged_in?, destroy=(recipes_count == 0),
-        ["#{linkTo ingred.name, ingred}",
-         "#{recipes_count}"]) %>
-    <% end %>
-  <% end %>
+    <% @ingreds.each do |ingred| %>
+      <% recipes_count = ingred.find_recipes(ingred.id).length %>
+      <% table_row(ingred, edit_ingred_path(ingred), alternating=true, show=false, edit=logged_in?, destroy=(recipes_count == 0)) do %>
+        <%= table_cell(linkTo ingred.name, ingred) %>
+        <%= table_cell(recipes_count) %>
+      <% end %>
+    <% end %> <!--end .each-->
+  <% end %> <!--end table-->
 
   <br />
   <hr>
-  <%= link_to 'Kategorien', ingredtypes_path, :class => "link_ext" %> |
-  <%= link_to 'Bearbeiten', edit_ingredtype_path(@ingredtype), :class => "link_ext" %>
+  <%= linkTo 'Kategorien', ingredtypes_path %> |
+  <%= linkTo 'Bearbeiten', edit_ingredtype_path(@ingredtype) %>
 </div>

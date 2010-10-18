@@ -1,30 +1,16 @@
 <br />
 <b> <%= @search %> </b> (<%= @ingreds.length %>)
 <% if @ingreds.length > 0 %>
-<table>
-    <tr>
-      <th>Bezeichnung</th>
-      <th>Kategorie</th>
-      <th>Rezepte</th>
-    </tr>
+
+  <% table ["Bezeichnung", "Kategorie", "Rezepte"] do %>
     <% @ingreds.each do |ingred| %>
-    <tr class="<%= cycle("odd", "even") %>">
-      <td><%= my_link_to_path("#{ingred.name}", ingred) %></td>
-      <td><%= my_link_to_path("#{ingred.ingredtype.name}", ingred.ingredtype) %></td>
       <% recipes_count = ingred.find_recipes(ingred.id).length %>
-      <td><%=h ingred.find_recipes(ingred.id).length %></td>
-
-      <% if logged_in? %>
-        <td class="td1"> <%= img_link_to_edit(edit_ingred_path( ingred )) %> </td>
-        <td class="td1">
-          <% if recipes_count == 0 %>
-            <%= img_link_to_drop ingred %>
-          <% end %>
-        </td>
+      <% table_row(ingred, edit_ingred_path(ingred), alternating=true, show=false, edit=logged_in?, destroy=(recipes_count == 0)) do %>
+        <%= table_cell linkTo(ingred.name, ingred) %>
+        <%= table_cell linkTo(ingred.ingredtype.name, ingred.ingredtype) %>
+        <%= table_cell ingred.find_recipes(ingred.id).length %>
       <% end %>
-
-    </tr>
-    <% end %>
-  </table>
+    <% end %> <!--end .each-->
+  <% end %> <!--end table-->
 
 <% end %>

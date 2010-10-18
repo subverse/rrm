@@ -5,11 +5,12 @@
 <div id="form">
   <h2>Kategorien (<%= @ingredtypes.length %>)</h2>
   <% table ["Bezeichnung", "Anzahl"] do %>
-  <% @ingredtypes.each do |ingredtype| %>
-    <%= table_row(ingredtype, edit_ingredtype_path(ingredtype),
-        alternate=true, show=false, edit=logged_in?, destroy=ingredtype.ingreds.count == 0,
-        ["#{linkTo ingredtype.name, ingredtype}",
-         "#{ingredtype.ingreds.length}"]) %>
+    <% @ingredtypes.each do |ingredtype| %>
+      <% table_row(ingredtype, edit_ingredtype_path(ingredtype),
+         alternate=true, show=false, edit=logged_in?, destroy=ingredtype.ingreds.count == 0) do %>
+           <%= table_cell linkTo(ingredtype.name, ingredtype) %>
+           <%= table_cell ingredtype.ingreds.length %>
+      <% end %>
     <% end %>
   <% end %>
 <div />

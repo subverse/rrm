@@ -15,7 +15,30 @@ module TableHelper
        end #end table_header
 
 
-       def table_row(obj, edit_path, alternating, show, edit, destroy, obj_values)
+       def table_cell(content)
+         html = ""
+         html << "<td>#{content}</td>"
+       end #end table_cell(content)
+
+
+
+       def table_row(obj, edit_path, alternating, show, edit, destroy, &block)
+         # expects cell value and the object which contains these value
+         html = ""
+         if alternating
+           html << "<tr class='#{cycle('odd', 'even')}'>"
+         else
+           html << "<tr>"
+         end
+         cell_values = capture(&block)
+         html << cell_values
+         html << "#{table_row_ops obj, edit_path, show, edit, destroy}"
+         html << "</tr>"
+         concat(html, block)
+       end #end table_row
+
+
+       def table_row_bak(obj, edit_path, alternating, show, edit, destroy, obj_values)
          # expects cell value and the object which contains these value
          html = ""
          if alternating
