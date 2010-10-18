@@ -1,10 +1,11 @@
 <%= render :partial => "shared/titles", :locals => {:tab => "rrm::Einheiten", :page => "Einheiten::Neu" }%>
-<p>
-  <b>Einheit:</b>
-  <%=h @unit.name %>
-</p>
-<br />
-<hr>
-<%= link_to 'Zurück', units_path, :class => "link_ext" %> |
-<%= link_to 'Bearbeiten', edit_unit_path(@unit), :class => "link_ext" %>
-
+<div id="form">
+  <p>
+    <b>Einheit:</b>
+    <%=h @unit.name %>
+  </p>
+  <br />
+  <hr>
+  <%= link_to 'Zurück', units_path, :class => "link_ext" %> |
+  <%= link_to 'Bearbeiten', edit_unit_path(@unit), :class => "link_ext" %>
+</div>

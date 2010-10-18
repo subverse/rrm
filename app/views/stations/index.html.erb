@@ -2,26 +2,17 @@
            :locals => {:tab => "rrm::Posten",
                        :page => ""} %>
 <div id="form">
- <h2>Posten</h2>
+  <h2>Posten</h2>
 
-
-
-  <table>
-    <tr>
-      <th>Bezeichung</th>
-      <th>Rezepte</th>
-    </tr>
+  <% table ["Posten", "Rezepte"] do %>
     <% @stations.each do |station| %>
-    <tr class="<%= cycle("odd", "even") %>">
-      <td><%= my_link_to_path("#{station.name}", station) %></td>
-      <td><%=h station.recipes.count %></td>
-      <% if logged_in? %>
-        <td class="td1"> <%= img_link_to_edit(edit_source_path( station )) %> </td>
-        <td class="td1"><%= img_link_to_drop( station ) %></td>
+      <% table_row(station, edit_station_path(station), alternating=true, show=false, edit=logged_in?, destroy=logged_in?) do %>
+        <%= table_cell linkTo( station.name, station ) %>
+        <%= table_cell station.recipes.length %>
       <% end %>
-    </tr>
-    <% end %>
-  </table>
+    <% end %> <!--end .each-->
+  <% end %> <!--end table-->
+
   <% if logged_in? %>
     <%= button_to 'Neu', new_station_path %>
   <% end %>

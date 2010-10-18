@@ -1,24 +1,14 @@
 <br />
 <div id="form">
-<h2>Users (<%= @users.length %>)</h2>
+  <h2>Users (<%= @users.length %>)</h2>
 
-<table>
-  <tr>
-    <th>Login</th>
-    <th>email</th>
-  </tr>
+ <% table ["Login", "email"] do %>
+    <% @users.each do |user| %>
+      <% table_row(user, edit_user_path(user), alternating=true, show=false, edit=logged_in?, destroy=logged_in?) do %>
+        <%= table_cell linkTo( user.login, user ) %>
+        <%= table_cell linkTo( user.email, user) %>
+      <% end %>
+    <% end %> <!--end .each-->
+  <% end %> <!--end table-->
 
-<% @users.each do |user| %>
-  <tr class="<%= cycle("odd", "even") %>">
-    <td><%= link_to "#{user.login}", user, :class => "link_ext" %>
-    <td><%= link_to "#{user.email}", user, :class => "link_ext" %>
-    <% unless !logged_in? %>
-      <td><%= link_to 'Change Password', :action => 'change_password', :id => user.id if user.id == current_user.id %>
-          <%= link_to 'Change email', :action => 'edit', :id => user.id %>
-          <%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
-
-    <% end %>
-  </tr>
-<% end %>
-</table>
 </div>

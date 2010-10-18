@@ -1,20 +1,16 @@
 <%= render :partial => "shared/titles", :locals => {:tab => "rrm::Einheiten", :page => "" }%>
 
 <div id="form">
-<h2>Einheiten</h2>
-  <table>
-    <tr>
-      <th>Bezeichnung</th>
-    </tr>
+  <h2>Einheiten</h2>
+
+  <% table ["Bezeichnung"] do %>
     <% @units.each do |unit| %>
-    <tr class="<%= cycle("odd", "even") %>">
-      <td><%= my_link_to_path("#{unit.name}", unit) %></td>
-      <% if logged_in? %>
-        <td class="td1"> <%= img_link_to_edit(edit_unit_path( unit )) %> </td>
+      <% table_row(unit, edit_unit_path(unit), alternating=true, show=false, edit=logged_in?, destroy=false) do %>
+        <%= table_cell linkTo( unit.name, unit ) %>
       <% end %>
-    </tr>
-    <% end %>
-  </table>
+    <% end %> <!--end .each-->
+  <% end %> <!--end table-->
+
   <% if logged_in? %>
     <%= button_to 'Neu', new_unit_path %>
   <% end %>
