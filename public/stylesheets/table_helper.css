@@ -1,26 +1,30 @@
 table, td{
     font:100% Arial, Helvetica, sans-serif;
 }
+
 table{
   width:100%;
   border-collapse:collapse;
   margin:1em 0;
 }
+
 th, td{
   text-align:left;
   padding:0.2em;
   border:1px solid #fff;
 }
+
 th{
   background:#cccccc;
-  color:#black;
+  padding-left:0.3em;
 }
 
 td{
-  background:white
+  background:white;
 }
 
 td.td1{width:10px;}
 
-tr.even td{background:#f5f5dc;}
-tr.odd td{background:#D5D6E1;}
+tr.even td{background: #D8D8D8;}
+
+tr.odd td{background: #fff /*#D5D6E1;*/}
