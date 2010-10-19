@@ -48,8 +48,8 @@
     |
     <%= link_to "Bearbeiten", edit_recipe_path(@recipe), :class => "link_ext" %> |
     <%= link_to_remote "Zutaten", :url => { :action => "add_ingred", :id => @recipe.id },
-                                        :update => { :success => "edit", :failure => "edit"},
-                                        :before => "$('edit').update('Laden...')",
+                                        :update => { :success => "erg", :failure => "erg"},
+                                        :before => "$('erg').update('Laden...')",
                                         :html => { :class => "link_ext" }  %> |
     <%= link_to "Zubereitung", {:action => "add_process", :id => @recipe.id}, :class => "link_ext" %> |
   <% end %>
@@ -58,7 +58,7 @@
 </div>
 
 
-<div id="edit">
+<div id="erg">
 
 </div>
 
