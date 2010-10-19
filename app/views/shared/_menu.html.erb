@@ -20,7 +20,7 @@
     <% if !logged_in? %>
       <%= menu_item_to_new_tab "Login", :login %>
     <% else %>
-      <%= menu_item_to_new_tab "logout (#{User.find(session[:user_id]).name})", :logout %>
+      <%= menu_item_to_new_tab "logout (#{current_user.login})", :logout %>
     <% end %>
 <% end %>
 

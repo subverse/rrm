@@ -32,7 +32,6 @@
       :frequency => 0.1,
       :update => "ingreds",
       :with => 'input' %>
-
   <br />
   <br />
   <hr />
@@ -53,7 +52,7 @@
                                         :html => { :class => "link_ext" }  %> |
     <%= link_to "Zubereitung", {:action => "add_process", :id => @recipe.id}, :class => "link_ext" %> |
   <% end %>
-  <%= link_to_new_tab("Druckansicht", :action => "print", :id => @recipe.id) %>
+  <%= link_to_new_tab("Druckansicht", :action => "print", :id => @recipe.id ) %>
 </div>
 </div>
 
