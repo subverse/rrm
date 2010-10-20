@@ -1,0 +1,27 @@
+<h1>New list</h1>
+
+<% form_for(@list) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :owner %><br />
+    <%= f.text_field :owner %>
+  </p>
+  <p>
+    <%= f.label :recipe_id %><br />
+    <%= f.text_field :recipe_id %>
+  </p>
+  <p>
+    <%= f.label :shop_it %><br />
+    <%= f.text_field :shop_it %>
+  </p>
+  <p>
+    <%= f.label :print_it %><br />
+    <%= f.text_field :print_it %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', lists_path %>

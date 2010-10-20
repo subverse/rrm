@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100702084122) do
+ActiveRecord::Schema.define(:version => 20101020110803) do
 
   create_table "ingreds", :force => true do |t|
     t.string   "name"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(:version => 20100702084122) do
 
   create_table "ingredtypes", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "lists", :force => true do |t|
+    t.string   "owner",      :limit => 40
+    t.integer  "recipe_id",  :limit => 10
+    t.integer  "shop_it",    :limit => 1
+    t.integer  "print_it",   :limit => 1
     t.datetime "created_at"
     t.datetime "updated_at"
   end
