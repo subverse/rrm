@@ -5,6 +5,7 @@
     <th>Recipe</th>
     <th>Shop it</th>
     <th>Print it</th>
+    <th>Incl Prod</th>
   </tr>
 
 <% @lists.each do |list| %>
@@ -12,6 +13,7 @@
     <td><%=h list.recipe_id %></td>
     <td><%=h list.shop_it %></td>
     <td><%=h list.print_it %></td>
+    <td><%=h list.incl_prod %></td>
     <td><%= link_to_show list %></td>
     <td><%= link_to_edit edit_list_path(list) %></td>
     <td><%= link_to_destroy list %></td>

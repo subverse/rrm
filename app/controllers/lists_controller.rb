@@ -1,6 +1,7 @@
 class ListsController < ApplicationController
 
   layout 'application'
+
   # GET /lists
   # GET /lists.xml
   def index
