@@ -53,7 +53,7 @@
     <%= link_to "Zubereitung", {:action => "add_process", :id => @recipe.id}, :class => "link_ext" %> |
   <% end %>
   <%= link_to_new_tab("Druckansicht", :action => "print", :id => @recipe.id ) %>
-  <%= add_to_list(@recipe, current_user.login) %>
+  <%= add_to_list(@recipe) %>
 </div>
 </div>
 

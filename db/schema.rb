@@ -27,8 +27,8 @@ ActiveRecord::Schema.define(:version => 20101020110803) do
   create_table "lists", :force => true do |t|
     t.string   "owner",      :limit => 40
     t.integer  "recipe_id",  :limit => 10
-    t.integer  "shop_it",    :limit => 1
-    t.integer  "print_it",   :limit => 1
+    t.integer  "shop_it",    :limit => 1,  :default => 0
+    t.integer  "print_it",   :limit => 1,  :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

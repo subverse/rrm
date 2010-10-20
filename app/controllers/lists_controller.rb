@@ -1,4 +1,6 @@
 class ListsController < ApplicationController
+
+  layout 'application'
   # GET /lists
   # GET /lists.xml
   def index
@@ -27,6 +29,7 @@ class ListsController < ApplicationController
     @list = List.new
     @list.recipe_id = params[:recipe_id]
     @list.owner = current_user.login
+    @recipe_name = Recipe.find(@list.recipe_id).name
 
     respond_to do |format|
       format.html # new.html.erb
@@ -46,7 +49,7 @@ class ListsController < ApplicationController
 
     respond_to do |format|
       if @list.save
-        format.html { redirect_to(@list, :notice => 'List was successfully created.') }
+        format.html { redirect_to( :action => "index", :notice => 'successful') }
         format.xml  { render :xml => @list, :status => :created, :location => @list }
       else
         format.html { render :action => "new" }
@@ -62,7 +65,7 @@ class ListsController < ApplicationController
 
     respond_to do |format|
       if @list.update_attributes(params[:list])
-        format.html { redirect_to(@list, :notice => 'List was successfully updated.') }
+        format.html { redirect_to( :action => "index", :notice => 'successful') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

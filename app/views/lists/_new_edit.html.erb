@@ -1,0 +1,30 @@
+<div id="form">
+<% form_for(@list) do |f| %>
+
+<h2>new_edit</h2>
+
+  <%= f.error_messages %>
+
+  <table>
+    <tr>
+      <td> <%= @recipe_name %> </td>
+    </tr>
+    <tr>
+      <td> <%= f.label :shop_it %> </td>
+      <td> <%= f.check_box :shop_it %> </td>
+    </tr>
+    <tr>
+      <td> <%= f.label :print_it %> </td>
+      <td> <%= f.check_box :print_it %> </td>
+    </tr>
+  <table>
+  <%= f.hidden_field :owner %>
+  <%= f.hidden_field :recipe_id %>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+<br/>
+<hr/>
+<%= link_to 'Back', lists_path %>
+</div>
