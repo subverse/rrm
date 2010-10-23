@@ -1,0 +1,12 @@
+<% menu do %>
+    <%= menu_item "Exit", {:controller => :rrm, :action => :index}, "Zurück zum Hauptprogramm" %>
+    <%= menu_item "Find", :filter, "Erweiterte Suche" %>
+    <% if !logged_in? %>
+      <%= menu_item_to_new_tab "Login", :login %>
+    <% else %>
+      <%= menu_item_to_new_tab "logout (#{current_user.login})", :logout %>
+    <% end %>
+<% end %>
+
+
+

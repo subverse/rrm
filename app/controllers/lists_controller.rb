@@ -1,11 +1,29 @@
 class ListsController < ApplicationController
 
-  layout 'application'
+
+  # GET /recipes/1
+  # GET /recipes/1.xml
+  def print
+    owner = current_user.login
+    @lists = List.find_all_by_owner(owner)
+    @recipes = Array.new
+    @lists.each do |item|
+      @recipes.push(Recipe.find(item.recipe_id))
+    end
+
+    respond_to do |format|
+      format.html { render :layout => 'recipe'}
+      format.xml  { render :xml => @lists }
+    end
+  end #end print
+
 
   # GET /lists
   # GET /lists.xml
   def index
-    @lists = List.all
+    owner = current_user.login
+    @lists = List.find_all_by_owner(owner)
+    @recipes = List.recipes(owner)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -33,7 +51,7 @@ class ListsController < ApplicationController
     @recipe_name = Recipe.find(@list.recipe_id).name
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html { render :layout => false }
       format.xml  { render :xml => @list }
     end
   end
@@ -50,10 +68,10 @@ class ListsController < ApplicationController
 
     respond_to do |format|
       if @list.save
-        format.html { redirect_to( :action => "index", :notice => 'successful') }
+        format.html { redirect_to( :controller => "recipes" ,:action => "show", :id => @list.recipe_id, :notice => 'successful') }
         format.xml  { render :xml => @list, :status => :created, :location => @list }
       else
-        format.html { render :action => "new" }
+        format.html { redirect_to( :controller => "recipes" ,:action => "show", :id => @list.recipe_id, :notice => 'error while saving') }
         format.xml  { render :xml => @list.errors, :status => :unprocessable_entity }
       end
     end

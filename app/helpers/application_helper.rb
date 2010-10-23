@@ -1,12 +1,23 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
 
+
   def  add_to_list(recipe)
     if current_user != nil
       link_to image_tag("temp.png", :border=>0), {:controller => "lists", :action => "new",
         :params => {:recipe_id => recipe.id }}
     end
   end # end add_to_list
+
+
+  def  remote_add_to_list(recipe, div)
+    if current_user != nil
+      link_to_remote image_tag("temp.png", :border=>0), :url => {:controller => "lists", :action => "new",
+                                                                 :params => {:recipe_id => recipe.id}},
+                                                        :update => { :success => div, :failure => div},
+                                                        :before => "$('#{div}').update('Laden...')"
+    end
+  end # end remote_add_to_list
 
 
   def admin?

@@ -1,3 +1,15 @@
+
+@page {
+    size:21.0cm 29.7cm
+}
+
+#pagebrake { page-break-after:always; }
+
+
+{
+ size:21.0cm 29.7cm
+}
+
 *{
     margin:0;
     background-color: white !important;
