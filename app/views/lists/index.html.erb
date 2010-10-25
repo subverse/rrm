@@ -1,8 +1,10 @@
-<h1>Listing lists</h1>
+<% if not @lists.empty? %>
+<div id="form">
+<h1>Liste</h1>
 
 <table>
   <tr>
-    <th>Recipe</th>
+    <th>Rezept</th>
   </tr>
 
 <% @lists.each do |list| %>
@@ -12,4 +14,5 @@
   </tr>
 <% end %>
 </table>
-
+</div>
+<% end %>

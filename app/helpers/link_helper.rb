@@ -6,28 +6,46 @@ module LinkHelper
    link_to text, url, :title => title
   end
 
+  def imageLinkTo(image, url, title="", new_tab=false)
+    if new_tab
+      link_to image_tag(image, :border => 0), url, {:target => "_blank", :title => title}
+    else
+      link_to image_tag(image, :border => 0), url, :title => title
+    end
+  end
+
+  def imageLinkToRemote(image, url, div)
+    link_to_remote image_tag(image, :border=>0), :url => url,
+                                        :update => { :success => "#{div}", :failure => "#{div}"},
+                                        :before => "$('#{div}').update('Laden...')"
+  end
+
+  def imageLinkTo_new_tab(image, url, title="")
+    link_to image_tag(image, :border => 0), url, {:target => "_blank", :title => title}
+  end
+
   def link_to_new_tab(text,url, title="")
     link_to text, url, {:target => "_blank", :title => title}
   end
 
   def link_to_show(url)
-    link_to image_tag("Globe.png", :border => 0), url, :title => "Show"
+    link_to image_tag("Preview_16x16.png", :border => 0), url, :title => "Show"
   end
 
   def link_to_edit(url)
-    link_to image_tag("Edit.png", :border => 0), url, :title => "Edit"
+    link_to image_tag("Edit_16x16.png", :border => 0), url, :title => "Edit"
   end
 
   def link_to_destroy(url)
-    link_to image_tag("drop.png", :border => 0), url, :confirm => 'Are you sure?', :method => :delete, :title => "Destroy"
+    link_to image_tag("Delete_16x16.png", :border => 0), url, :confirm => 'Are you sure?', :method => :delete, :title => "Destroy"
   end
 
   def link_to_new(url)
-    link_to image_tag("Add.png", :border => 0), url, :title => "New"
+    link_to image_tag("Add_16x16.png", :border => 0), url, :title => "New"
   end
 
   def link_to_cancel(url)
-    link_to image_tag("Add.png", :border => 0), url, :title => "cancel"
+    link_to image_tag("cancel_16x16.png", :border => 0), url, :title => "cancel"
   end
 
 

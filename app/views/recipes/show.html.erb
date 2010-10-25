@@ -23,7 +23,6 @@
 <div id="ingreds">
   <%= render :partial => "ingreds" %>
 </div>
-
     <b>Faktor:</b>
 
     <%= text_field_tag :factor_input, "" %>
@@ -35,25 +34,26 @@
   <br />
   <br />
   <hr />
+<% if @recipe.process.to_s != "" %>
   <br />
   <h3>Zubereitung</h3>
   <br />
   <%= @recipe.process %>
-
   <br />
   <hr>
-  <%= link_to 'Zurück', recipes_path, :class => "link_ext" %>
+<% end %>
+<div id="form_bottom_menu">
+  <%= imageLinkTo "Previous_16x16.png", recipes_path, "Zurück zur Übersicht" %>
   <% if logged_in? %>
-    |
-    <%= link_to "Bearbeiten", edit_recipe_path(@recipe), :class => "link_ext" %> |
-    <%= link_to_remote "Zutaten", :url => { :action => "add_ingred", :id => @recipe.id },
-                                        :update => { :success => "erg", :failure => "erg"},
-                                        :before => "$('erg').update('Laden...')",
-                                        :html => { :class => "link_ext" }  %> |
-    <%= link_to "Zubereitung", {:action => "add_process", :id => @recipe.id}, :class => "link_ext" %> |
+
+    <%= link_to_edit edit_recipe_path(@recipe) %>
+    <%= imageLinkToRemote "Temp_16x16.png", {:action => "add_ingred", :id => @recipe.id}, "erg" %>
+    <%= imageLinkTo "Settings_16x16.png", {:action => "add_process", :id => @recipe.id}, "Zubereitung" %>
   <% end %>
-  <%= link_to_new_tab("Druckansicht", :action => "print", :id => @recipe.id ) %>
+  <%= imageLinkTo "Print_16x16.png", {:action => "print", :id => @recipe.id}, "Druckansicht", true %>
   <%= remote_add_to_list(@recipe, "erg") %>
+</div>
+
 </div>
 </div>
 

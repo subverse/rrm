@@ -1,14 +1,11 @@
 <div id="form">
 <% form_for(@list) do |f| %>
 
-<h2>new_edit</h2>
+<h3> <%= @recipe_name %> </h3>
 
   <%= f.error_messages %>
 
   <table>
-    <tr>
-      <td> <%= @recipe_name %> </td>
-    </tr>
     <tr>
       <td> <%= f.label :shop_it %> </td>
       <td> <%= f.check_box :shop_it %> </td>
