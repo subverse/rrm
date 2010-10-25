@@ -248,7 +248,7 @@ class Recipe < ActiveRecord::Base
         @arr.push(amount)
         @arr.push(Unit.find(unit).name)
         @arr.push(Ingred.find(ingred).id)
-        @arr.push(ingred)
+        @arr.push(Ingred.find(ingred))
         @arr.push(unit)
       end
     end

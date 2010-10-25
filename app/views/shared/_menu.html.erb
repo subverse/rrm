@@ -13,6 +13,7 @@
     <%= menu_item "Kategorien", ingredtypes_path, "Kategorien der Zutaten" %>
     <%= menu_item_to_new_tab ":neu", new_ingredtype_path if logged_in? %>
     <% submenu("sonstiges") do %>
+      <%= submenu_item linkTo("Listen", lists_path, "Quellen der Rezepte") %>
       <%= submenu_item linkTo("Quellen", sources_path, "Quellen der Rezepte") %>
       <%= submenu_item linkTo("Einheiten", units_path, "Verwendete Maßeinheiten") %>
       <%= submenu_item linkTo("User", users_path, "Benutzerliste") %>
