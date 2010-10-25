@@ -1,6 +1,5 @@
 class ListsController < ApplicationController
 
-
   # GET /recipes/1
   # GET /recipes/1.xml
   def print
@@ -18,12 +17,44 @@ class ListsController < ApplicationController
   end #end print
 
 
+  def shoppinglist
+    owner = current_user.login
+    @lists = List.find_all_by_owner(owner)
+    @recipes = Array.new
+    @lists.each do |item|
+      @recipes.push(Recipe.find(item.recipe_id))
+    end
+    @recipes = List.find_recipes_by_owner(owner)
+    @shoppinglist = List.get_shoppinglist(@recipes)
+
+    respond_to do |format|
+      format.html { render :layout => 'recipe'}
+      format.xml  { render :xml => @lists }
+    end
+  end #end shoppinglist
+
+
+  def print_ingreds
+    owner = current_user.login
+    @lists = List.find_all_by_owner(owner)
+    @recipes = Array.new
+    @lists.each do |item|
+      @recipes.push(Recipe.find(item.recipe_id))
+    end
+
+    respond_to do |format|
+      format.html { render :layout => 'recipe'}
+      format.xml  { render :xml => @lists }
+    end
+  end #end print_ingreds
+
+
   # GET /lists
   # GET /lists.xml
   def index
     owner = current_user.login
     @lists = List.find_all_by_owner(owner)
-    @recipes = List.recipes(owner)
+    @recipes = List.find_recipes_by_owner(owner)
 
     respond_to do |format|
       format.html # index.html.erb

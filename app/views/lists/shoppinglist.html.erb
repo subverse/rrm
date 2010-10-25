@@ -1,0 +1,27 @@
+
+<div id="form">
+
+
+<div id="pagebrake">
+  <br/>
+  <h3>SL</h3>
+  <% if @shoppinglist.length > 0 %>
+    <table>
+      <% for i in 1..@shoppinglist.length %>
+        <% item = @shoppinglist.shift %>
+        <tr>
+          <td><%= item.ingred %></td>
+          <td><%= item.amount %></td>
+          <td><%= item.unit %></td>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+
+  <br/>
+  <br/>
+
+</div>
+
+
+</div>
