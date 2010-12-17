@@ -3,22 +3,39 @@
   <div id="form">
     <h1>Liste</h1>
 
-    <% table ["Rezept"] do %>
+    <% table ["Rezept", "multiplier", "shop_it", "incl_prod"] do %>
       <% @lists.each do |item| %>
         <% table_row(item, edit_list_path(item),
            alternating=true, show=true,
            edit=false, destroy=logged_in?) do %>
            <%  recipe = Recipe.find(item.recipe_id) %>
+
            <%= table_cell(link_to_remote recipe.name, 
              :url => { :controller => "Lists", :action => "edit", :id => item.id },
                        :update => { :success => "erg", :failure => "erg"},
                        :before => "$('erg').update('Laden...')",
                        :html => { :class => "link_ext" } ) %>
 
+           <%= table_cell(item.multiplier)%>
+
+           <% if item.shop_it == 1 %> 
+             <% shop_it = "ja"%>
+           <% else %>
+             <% shop_it = "" %>
+           <% end %>
+           <%= table_cell(shop_it)%>
+
+           <% if item.incl_prod == 1 %> 
+             <% incl_prod = "ja"%>
+           <% else %>
+             <% incl_prod = "" %>
+           <% end %>
+           <%= table_cell(incl_prod)%>
+
         <% end %>
       <% end %> <!--end .each-->
     <% end %> <!--end table-->    
-
+   
   </div>
 </div>
 <% end %>

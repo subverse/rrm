@@ -1,27 +1,26 @@
+<% if not @shoppinglist.empty? %>
+<div id="marginTop">
+  <div id="form">
+    <h1>shoppinglist</h1>
 
-<div id="form">
+    <% table ["Rezept"] do %>
+      <% @shoppinglist.each do |item| %>
+        <% table_row(item, edit_list_path(item),
+           alternating=true, show=true,
+           edit=false, destroy=true) do %>
+           <%  recipe = Recipe.find(item.recipe_id) %>
+           <%= table_cell(link_to_remote recipe.name, 
+             :url => { :controller => "Lists", :action => "edit", :id => item.id },
+                       :update => { :success => "erg", :failure => "erg"},
+                       :before => "$('erg').update('Laden...')",
+                       :html => { :class => "link_ext" } ) %>
 
+        <% end %>
+      <% end %> <!--end .each-->
+    <% end %> <!--end table-->    
 
-<div id="pagebrake">
-  <br/>
-  <h3>SL</h3>
-  <% if @shoppinglist.length > 0 %>
-    <table>
-      <% for i in 1..@shoppinglist.length %>
-        <% item = @shoppinglist.shift %>
-        <tr>
-          <td><%= item.ingred %></td>
-          <td><%= item.amount %></td>
-          <td><%= item.unit %></td>
-        </tr>
-      <% end %>
-    </table>
-  <% end %>
-
-  <br/>
-  <br/>
-
+  </div>
 </div>
+<% end %>
 
-
-</div>
+<div id="erg"></div> 
