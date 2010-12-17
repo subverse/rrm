@@ -1,4 +1,5 @@
 <% if not @shoppinglist.empty? %>
+
 <div id="marginTop">
   <div id="form">
     <h1>shoppinglist</h1>
@@ -21,6 +22,28 @@
 
   </div>
 </div>
-<% end %>
+
+<div id="marginTop">
+  <div id="form">
+    <h1>shoppinglistItems</h1>
+    
+    <table>
+      <th>Zutat</th>
+      <th>Menge</th>
+      <th>Einheit</th>
+      <% for i in 1..@shoppinglistItems.length %>
+        <% item = @shoppinglistItems.shift %>
+        <tr>
+          <td><%= item.ingred %></td>
+          <td><%= item.amount %></td>
+          <td><%= item.unit %></td>
+        </tr>
+      <% end %>
+    </table>
+
+  </div>
+</div>
 
 <div id="erg"></div> 
+
+<% end %>

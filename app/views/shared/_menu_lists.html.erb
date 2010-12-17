@@ -1,5 +1,9 @@
 <% menu do %>
     <%= menu_item "Find", :filter, "Erweiterte Suche" %>
+    <% submenu("Listen") do %>
+      <%= submenu_item linkTo "Übersicht", {:action => 'index'} %>
+      <%= submenu_item linkTo "Einkaufsliste", {:action => 'shoppinglist', :id => 1} %>
+    <% end %>
     <% submenu("Drucken") do %>
       <%= submenu_item linkTo "Rezepte", {:action => 'print', :id => 1} %>
       <%= submenu_item linkTo "Zutaten", {:action => 'print_ingreds', :id => 1} %>

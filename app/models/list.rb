@@ -47,6 +47,8 @@ class List < ActiveRecord::Base
 
   def self.get_shoppinglist(recipes)
     shoppinglist = Array.new
+    all_ingreds_list = Array.new
+    
     all_ingreds_list = get_all_ingreds_list( recipes )
     locked = false
     all_ingreds_list.each do |item|
@@ -67,15 +69,7 @@ class List < ActiveRecord::Base
     return sorted_shoppinglist
   end #end get_shoppinglist
   
-=begin
-  def self.clear(owner)
-    list = self.find(:all, :conditions => "owner='#{owner}'")
-    list.each do |listItem|
-      listItem.destroy
-    end
-    return list
-  end #end clear
-=end
+
 
   private
 

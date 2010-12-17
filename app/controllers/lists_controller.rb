@@ -32,15 +32,21 @@ class ListsController < ApplicationController
     owner = current_user.login
     @lists = List.find_all_by_owner(owner)
     @shoppinglist = Array.new
+    @recipes = Array.new
+    
     @lists.each do |item|
       if item.shop_it == 1
         @shoppinglist.push(item)
+        @recipes.push(Recipe.find_by_id(item.recipe_id))
       end
     end
     
+    @shoppinglistItems = Array.new
+    @shoppinglistItems = List.get_shoppinglist(@recipes)
+        
     respond_to do |format|
       format.html #shoppinglist.html.erb
-      format.xml  { render :xml => @shoppinglists }
+      format.xml  { render :xml => @lists }
     end
   end #end shoppinglist
  
@@ -50,9 +56,11 @@ class ListsController < ApplicationController
     @lists = List.find_all_by_owner(owner)
     @recipes = Array.new
     @lists.each do |item|
-      @recipes.push(Recipe.find(item.recipe_id))
+      if item.shop_it == 1
+        @recipes.push(Recipe.find(item.recipe_id))
+      end
     end
-    @recipes = List.find_recipes_by_owner(owner)
+
     @shoppinglist = List.get_shoppinglist(@recipes)
 
     respond_to do |format|
