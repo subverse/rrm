@@ -3,7 +3,7 @@
 }
 
 body { background-color: #F6FFE5; /*#fff#666;*/
-       color: #333;
+   color: #333;
 }
 
 body, p, ol, ul, td {
@@ -99,12 +99,19 @@ body, p, ol, ul, td {
 
 #content {
    padding:12px;
+   min-width: 600px;
 }
 
 #marginTop {
    height: auto;
    width: auto;
    margin-top: 79px;
+}
+
+#erg{
+/*   background-color: #dedede;
+   min-width: 500px;
+   min-height: 500px;   */   
 }
 
 #form{
