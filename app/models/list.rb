@@ -66,7 +66,16 @@ class List < ActiveRecord::Base
     sorted_shoppinglist = sort_ingred_list(sorted_shoppinglist)
     return sorted_shoppinglist
   end #end get_shoppinglist
-
+  
+=begin
+  def self.clear(owner)
+    list = self.find(:all, :conditions => "owner='#{owner}'")
+    list.each do |listItem|
+      listItem.destroy
+    end
+    return list
+  end #end clear
+=end
 
   private
 

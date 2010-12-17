@@ -1,5 +1,16 @@
 class ListsController < ApplicationController
+  
+  def clearList
+    owner = current_user.login
+    @list = List.clear(owner)
+    
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @list }
+    end
+  end #end clearList
 
+  
   # GET /recipes/1
   # GET /recipes/1.xml
   def print
@@ -64,7 +75,7 @@ class ListsController < ApplicationController
 
   # GET /lists/1
   # GET /lists/1.xml
-  def show
+  def showBak
     @list = List.find(params[:id])
 
     respond_to do |format|

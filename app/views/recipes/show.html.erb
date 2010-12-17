@@ -5,15 +5,15 @@
 <div id="form">
   <p>
     <b>Name:</b>
-    <%=h @recipe.name %>
+    <%= @recipe.name %>
   </p>
   <p>
     <b>Posten:</b>
-    <%=h my_link_to_path( "#{@recipe.station_name}", @recipe.station ) %>
+    <%= my_link_to_path( "#{@recipe.station_name}", @recipe.station ) %>
   </p>
   <p>
     <b>Quelle:</b>
-    <%=h my_link_to_path( "#{@recipe.source_name}", @recipe.source ) %>
+    <%= my_link_to_path( "#{@recipe.source_name}", @recipe.source ) %>
   </p>
 
   <br />
