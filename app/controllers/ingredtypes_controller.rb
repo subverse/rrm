@@ -14,7 +14,8 @@ class IngredtypesController < ApplicationController
       format.xml  { render :xml => @ingredtypes }
     end
   end
-
+  
+  
   # GET /ingredtypes/1
   # GET /ingredtypes/1.xml
   def show
@@ -23,11 +24,27 @@ class IngredtypesController < ApplicationController
     @recipes = @ingredtype.recipes
 
     respond_to do |format|
+      format.html #show.html.erb
+      format.xml  { render :xml => @ingredtype }
+    end
+  end #end show
+  
+
+  # GET /ingredtypes/1
+  # GET /ingredtypes/1.xml
+  def show_remote
+    @ingredtype = Ingredtype.find(params[:id])
+    @ingreds = @ingredtype.ingreds
+    @recipes = @ingredtype.recipes
+
+    respond_to do |format|
       format.html { render :layout => false }
       format.xml  { render :xml => @ingredtype }
     end
-  end
-
+  end #end show_remote
+ 
+  
+  
   # GET /ingredtypes/new
   # GET /ingredtypes/new.xml
   def new

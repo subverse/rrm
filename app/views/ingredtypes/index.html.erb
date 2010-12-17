@@ -11,7 +11,7 @@
          alternate=true, show=false, edit=logged_in?, destroy=ingredtype.ingreds.count == 0) do %>
 
          <%= table_cell(link_to_remote ingredtype.name, 
-             :url => { :controller => "Ingredtypes", :action => "show", :id => ingredtype.id },
+             :url => { :controller => "Ingredtypes", :action => "show_remote", :id => ingredtype.id },
                        :update => { :success => "erg", :failure => "erg"},
                        :before => "$('erg').update('Laden...')",
                        :html => { :class => "link_ext" } ) %>

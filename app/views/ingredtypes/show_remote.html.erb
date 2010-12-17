@@ -1,0 +1,35 @@
+<%= render :partial => "shared/titles",
+           :locals => {:tab => "rrm::ingredtypes",
+           :page => "rrm"}%>
+
+<div id="search_left">
+<div id="form">
+
+
+  <p>
+    <h2><%= @ingredtype.name %></h2>
+  </p>
+
+  <% table ["Bezeichnung", "Rezepte"] do %>
+    <% @ingreds.each do |ingred| %>
+      <% recipes_count = ingred.find_recipes.length %>
+      <% table_row(ingred, edit_ingred_path(ingred), alternating=true, show=false, edit=logged_in?, destroy=(recipes_count == 0)) do %>
+      <%= table_cell(link_to_remote ingred.name, 
+                     :url => { :controller => "Ingreds", :action => "show_remote", :id => ingred.id },
+                     :update => { :success => "div_recipes", :failure => "div_recipes"},
+                     :before => "$('div_recipes').update('Laden...')",
+                     :html => { :class => "link_ext" } ) %>
+
+        <%= table_cell(recipes_count) %>
+      <% end %>
+    <% end %> <!--end .each-->
+  <% end %> <!--end table-->
+
+  <br />
+  <hr>
+  <%= linkTo 'Bearbeiten', edit_ingredtype_path(@ingredtype) %>
+</div>
+</div> 
+ <div id="div_recipes"></div>
+
+

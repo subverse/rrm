@@ -99,10 +99,6 @@ body, p, ol, ul, td {
    padding:12px;
 }
 
-#form, #form-content{
-
-} /*form, form-content*/
-
 
 #form{
    float: left;
@@ -142,10 +138,6 @@ body, p, ol, ul, td {
   float:left;
   width: 530pt; /*753pt;*//*53.5em;*//*700px;*/
   background-color: none;
-  -moz-border-radius:10px;
-  -khtml-border-radius:10px;
-  -webkit-border-radius:10px;
-
 }
 
 #search_left{
@@ -153,20 +145,26 @@ body, p, ol, ul, td {
   max-width: 500px;
 }
 
-#search_right{
-/*  float:right;*/
-  min-width:330px;
-  min-height:416px;
-  margin:11px;
-  margin-left: 375px;
-  padding:17px;
-  padding-left:17px;
-  padding-right:17px;
-  border:1px solid grey;
-  background-color: #fff;
-  -moz-border-radius:10px;
-  -khtml-border-radius:10px;
-  -webkit-border-radius:10px;
+#search-right{
+   min-width:330px;
+   min-height:416px;
+
+   margin:11px;
+   margin-bottom: 0px;
+   margin-left: 350px;
+
+   padding:17px;
+   padding-left:17px;
+   padding-right:17px;
+
+   background-color: #fff;
+   
+   border: 1px solid grey;
+   -moz-border-radius:10px;
+   -khtml-border-radius:10px;
+   -webkit-border-radius:10px;
+   -webkit-box-shadow: #000 3px 4px 17px ;
+   -moz-box-shadow: #000 3px 4px 14px ;
 }
 
 .line {
