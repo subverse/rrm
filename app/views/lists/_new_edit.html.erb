@@ -1,35 +1,37 @@
-<div id="form">
-<% form_for(@list) do |f| %>
+<div id="marginTop">
+  <div id="form">
+    <% form_for(@list) do |f| %>
 
-<h3> <%= @recipe_name %> </h3>
+    <h3> <%= @recipe_name %> </h3>
 
-  <%= f.error_messages %>
+    <%= f.error_messages %>
 
-  <table>
-    <tr>
-      <td> <%= f.label :shop_it %> </td>
-      <td> <%= f.check_box :shop_it %> </td>
-    </tr>
-    <tr>
-      <td> <%= f.label :print_it %> </td>
-      <td> <%= f.check_box :print_it %> </td>
-    </tr>
-    <tr>
-      <td> <%= f.label :incl_prod %> </td>
-      <td> <%= f.check_box :incl_prod %> </td>
-    </tr>
-    <tr>
-      <td> <%= f.label :multiplier %> </td>
-      <td> <%= f.text_field :multiplier %> </td>
-    </tr>
-  <table>
-  <%= f.hidden_field :owner %>
-  <%= f.hidden_field :recipe_id %>
-  <p>
-    <%= f.submit 'Create' %>
-  </p>
-<% end %>
-<br/>
-<hr/>
-<%= link_to 'Back', lists_path %>
+    <table>
+      <tr>
+        <td> <%= f.label :shop_it %> </td>
+        <td> <%= f.check_box :shop_it %> </td>
+      </tr>
+      <tr>
+        <td> <%= f.label :print_it %> </td>
+        <td> <%= f.check_box :print_it %> </td>
+      </tr>
+      <tr>
+        <td> <%= f.label :incl_prod %> </td>
+        <td> <%= f.check_box :incl_prod %> </td>
+      </tr>
+      <tr>
+        <td> <%= f.label :multiplier %> </td>
+        <td> <%= f.text_field :multiplier %> </td>
+      </tr>
+    </table>
+    <%= f.hidden_field :owner %>
+    <%= f.hidden_field :recipe_id %>
+    <p>
+      <%= f.submit 'Create' %>
+    </p>
+    <% end %>
+    <br/>
+    <hr/>
+    <%= link_to 'Abbrechen', lists_path %>
+  </div>
 </div>

@@ -91,14 +91,21 @@ body, p, ol, ul, td {
     background-repeat:repeat-x;
 }
 */
+
 #buffer {
     margin-top: 60px;
+   background-color: #dedede;
 }
 
 #content {
    padding:12px;
 }
 
+#marginTop {
+   height: auto;
+   width: auto;
+   margin-top: 79px;
+}
 
 #form{
    float: left;
@@ -114,12 +121,13 @@ body, p, ol, ul, td {
    background-color: #fff;
    
    border: 1px solid grey;
-   -moz-border-radius:10px;
-   -khtml-border-radius:10px;
-   -webkit-border-radius:10px;
+   -moz-border-radius:6px;
+   -khtml-border-radius:6px;
+   -webkit-border-radius:6px;
    -webkit-box-shadow: #000 3px 4px 17px ;
-   -moz-box-shadow: #000 3px 4px 14px ;
+   -moz-box-shadow: grey 2px 3px 18px ;
 } /*end form*/
+
 
 
 #form_right{

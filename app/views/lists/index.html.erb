@@ -1,18 +1,19 @@
 <% if not @lists.empty? %>
-<div id="form">
-<h1>Liste</h1>
+<div id="marginTop">
+  <div id="form">
+    <h1>Liste</h1>
 
-<table>
-  <tr>
-    <th>Rezept</th>
-  </tr>
+    <% table ["Rezept"] do %>
+      <% @lists.each do |item| %>
+        <% table_row(item, edit_list_path(item),
+           alternating=true, show=false,
+           edit=logged_in?, destroy=logged_in?) do %>
+           <%  recipe = Recipe.find(item.recipe_id) %>
+          <%= table_cell linkTo( recipe.name, recipe) %>
+        <% end %>
+      <% end %> <!--end .each-->
+    <% end %> <!--end table-->    
 
-<% @lists.each do |list| %>
-  <tr>
-    <td><%= linkTo "#{Recipe.find(list.recipe_id).name}", edit_list_path(list) %></td>
-    <td><%= link_to_destroy list %></td>
-  </tr>
-<% end %>
-</table>
+  </div>
 </div>
 <% end %>
