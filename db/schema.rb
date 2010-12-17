@@ -9,13 +9,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101023141324) do
+ActiveRecord::Schema.define(:version => 20101217111455) do
 
   create_table "ingreds", :force => true do |t|
     t.string   "name"
     t.integer  "ingredtype_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "unit_id",       :default => 5
   end
 
   create_table "ingredtypes", :force => true do |t|

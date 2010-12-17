@@ -1,0 +1,44 @@
+<%= render :partial => "shared/titles",
+           :locals => {:tab => "rrm#::search",
+                       :page => "rrm#::serch"}%>
+
+  <% if @ingreds.length > 0 %>
+    <h3><%= @search %> <%= "(#{@ingreds.length})" %> </h3>
+
+    <% table ["Name"] do %>
+       <% @ingreds.each do |ingred| %>
+          <% table_row(ingred, edit_ingred_path(ingred), alternating=true, show=false, edit=logged_in?, destroy=false) do %>
+             <%= table_cell linkTo(ingred.name, ingred) %>
+          <% end %>
+      <% end %> <!--end .each-->
+    <% end %> <!--end table-->
+  
+  <% end %>
+
+
+  <% if @ingreds_rest.length > 0 %>
+    <h3><%= "#{@search}" %> <%= "(#{@ingreds_rest.length})" %> </h3>
+
+0    <% table ["Name"] do %>
+        <% @ingreds_rest.each do |ingred| %>
+           <% table_row(ingred, edit_ingred_path(ingred), alternating=true, show=false, edit=logged_in?, destroy=false) do %>
+               <%= table_cell linkTo(ingred.name, ingred) %>
+           <% end %>
+        <% end %> <!--end .each-->
+    <% end %> <!--end table-->
+  <% end %>  
+
+
+  <% if @ingreds_contains.length > 0 %>
+    <h3><%= "#{@search}" %> <%= "(#{@ingreds_contains.length})" %> </h3>
+    
+    <% table ["Name"] do %>
+        <% @ingreds_contains.each do |ingred| %>
+            <% table_row(ingred, edit_ingred_path(ingred), alternating=true, show=false, edit=logged_in?, destroy=(logged_in? & ingred.find_recipes().length)) do %>
+                   <%= table_cell linkTo(ingred.name, ingred) %>
+           <% end %>
+        <% end %> <!--end .each-->
+    <% end %> <!--end table-->
+   
+  <% end %>
+

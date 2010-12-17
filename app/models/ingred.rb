@@ -3,7 +3,7 @@ class Ingred < ActiveRecord::Base
   validates_uniqueness_of :name
   validates_presence_of :ingredtype_id
   belongs_to :ingredtype
-
+  belongs_to :unit
 
  # Alphabetische Listen anzeigen
   def self.alpha(arg)
@@ -48,14 +48,20 @@ class Ingred < ActiveRecord::Base
   def ingredtype_name
     Ingredtype.find(self[:ingredtype_id]).name
   end
-
-
+  
+  
+  def baseUnit
+    Unit.find(self[:unit_id]).name
+  end
+  
+  
   def self.find_all
     find(:all, :order => "name asc")
   end
 
 
-  def find_recipes(ingred_id)
+  def find_recipes #(ingred_id)
+    ingred_id = self[:id]
     result = Array.new
     recipes = Recipe.find(:all)
     recipes.each do |recipe|

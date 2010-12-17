@@ -57,7 +57,7 @@ module TableHelper
        def table_row_ops(obj, edit_path, show, edit, destroy)
          html = ""
          html << "<td class='td1'>#{link_to_show obj}</td>" if show
-         html << "<td class='td1'>#{link_to_edit edit_path}</td>" if edit
+         html << "<td class='td1'>#{link_to_edit edit_path}</td>" if edit #else "<td class='td1'>#{link_to_edit edit_path}</td>" 
          html << "<td class='td1'>#{link_to_destroy obj}</td>" if destroy
          html
        end #end table_row_ops

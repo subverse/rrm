@@ -22,12 +22,26 @@ class IngredsController < ApplicationController
     end
   end
 
+  
+  # GET /ingreds/1
+  # GET /ingreds/1.xml
+  def show_remote
+    @ingred = Ingred.find(params[:id])
+    @recipes = @ingred.find_recipes
+        
+    respond_to do |format|
+      format.html { render :layout => false}# show_remote.html.erb
+      format.xml  { render :xml => @ingred }
+    end
+  end
 
+  
+  
   # GET /ingreds/1
   # GET /ingreds/1.xml
   def show
     @ingred = Ingred.find(params[:id])
-    @recipes = @ingred.find_recipes(@ingred.id)
+    @recipes = @ingred.find_recipes
 
     respond_to do |format|
       format.html # show.html.erb

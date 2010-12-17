@@ -99,20 +99,31 @@ body, p, ol, ul, td {
    padding:12px;
 }
 
+#form, #form-content{
+
+} /*form, form-content*/
+
+
 #form{
-  float:left;
-  width:auto;
-  height:auto;
-  margin:11px;
-  padding:17px;
-  padding-left:17px;
-  padding-right:17px;
-  border:1px solid grey;
-  background-color: #fff;
-  -moz-border-radius:10px;
-  -khtml-border-radius:10px;
-  -webkit-border-radius:10px;
-}
+   float: left;
+
+   width:auto;
+   height:auto;
+   
+   padding: 17px;
+
+   margin: 3px;
+   margin-top: 0px;
+
+   background-color: #fff;
+   
+   border: 1px solid grey;
+   -moz-border-radius:10px;
+   -khtml-border-radius:10px;
+   -webkit-border-radius:10px;
+   -webkit-box-shadow: #000 3px 4px 17px ;
+   -moz-box-shadow: #000 3px 4px 14px ;
+} /*end form*/
 
 
 #form_right{

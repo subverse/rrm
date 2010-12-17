@@ -34,7 +34,7 @@
             <% form_remote_tag :update => "erg",
                            :url => { :controller => :filter,
                                      :action => :search_ingreds } do %>
-              <%= text_field_tag :search_field, "", :class => "textField_format" %>
+              <%= text_field_tag :ingred_search_field, "", :class => "textField_format" %>
           </td>
           <td>
               <%= submit_tag "Suchen" %>

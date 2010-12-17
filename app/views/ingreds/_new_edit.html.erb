@@ -12,7 +12,12 @@
       <tr>
         <td><%= f.label :ingredtype_id %></td>
         <td><%= f.collection_select :ingredtype_id,
-              Ingredtype.find_all, :id, :name %></td>
+                Ingredtype.find_all, :id, :name %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :unit_id %></td>
+        <td><%= f.collection_select :unit_id,
+                Unit.find_all, :id, :name %></td>
       </tr>
     </table>
     <%= f.submit 'Ok' %>

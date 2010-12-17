@@ -1,0 +1,17 @@
+<%= render :partial => "shared/titles",
+           :locals => {:tab => "Zutaten",
+                       :page => ""} %>
+
+<div id="form">
+  <h2><%= @ingred.name %></h2>
+
+  <% if @recipes.length > 0 %>
+    <%= render :partial => "shared/list_recipes" %>
+  <% end %>
+
+<br />
+<hr>
+<%= link_to 'Zutaten', ingreds_path, :class => "link_ext" %> |
+<%= link_to 'Bearbeiten', edit_ingred_path(@ingred), :class => "link_ext" %>
+<div/>
+

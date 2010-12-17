@@ -7,15 +7,21 @@
     <tr>
       <td> Bezeichnung: </td>
       <% if @ingred.recipe == nil %>
-        <td> <b><%=h @ingred.name %></b> </td>
+        <td> <b><%= @ingred.name %></b> </td>
       <% else %>
         <td><%= my_link_to_path "#{@ingred.name}", @ingred.recipe %></td>
       <% end %>
     </tr>
     <tr>
       <td> Kategorie: </td>
-      <td> <b><%=h my_link_to_path( "#{@ingred.ingredtype_name}", @ingred.ingredtype )  %></b> </td>
+      <td> <b><%= my_link_to_path( "#{@ingred.ingredtype_name}", @ingred.ingredtype )  %></b> </td>
     </tr>
+
+    <tr>
+      <td> Basiseinheit: </td>
+      <td> <b><%= @ingred.baseUnit %></b> </td>
+    </tr>
+            
     <tr>
       <td> Rezepte: </td>
       <td> <%= @recipes.length %> </td>

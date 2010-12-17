@@ -13,7 +13,7 @@ class Ingredtype < ActiveRecord::Base
     length = ingreds.length
     if length > 0
       ingreds_list.each do |ingred|
-        recipes = recipes + ingred.find_recipes(ingred.id)
+        recipes = recipes + ingred.find_recipes
       end
     end
     return recipes

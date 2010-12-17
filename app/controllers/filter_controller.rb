@@ -1,20 +1,41 @@
 class FilterController < ApplicationController
 
   def search_ingreds
-    @search = params[:search_field].strip
+    @search = params[:ingred_search_field].strip
 
     @ingreds  = Array.new
     @ingreds_rest = Array.new
     @ingreds_contains = Array.new
 
     result = Ingred.search(@search)
-    @ingreds = result.at(0)
-    @ingreds_rest = result.at(1)
-    @ingreds_contains = result.at(2)
+#    if result != nil
+      @ingreds = result.at(0) 
+      @ingredss_rest = result.at(1)
+      @ingreds_contains = result.at(2)
+#    end
 
     render :layout => false
   end #end search_ingreds
+  
+ 
+  def search_ingreds_bak
+    @search = params[:ingred_search_field].strip
 
+    @ingreds  = Array.new
+    @ingreds_rest = Array.new
+    @ingreds_contains = Array.new
+
+    result = Ingred.search(@search)
+    if result != nil
+      @ingreds = result.at(0) 
+      @ingreds_rest = result.at(1)
+      @ingreds_contains = result.at(2)
+    end
+
+    render :layout => false
+  end #end search_ingreds
+  
+  
 
   def search_recipes
     @search = params[:search_field].strip
