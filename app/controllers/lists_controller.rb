@@ -77,11 +77,8 @@ class ListsController < ApplicationController
   # GET /lists/1.xml
   def show
     listItem = List.find(params[:id])
-       
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @list }
-    end
+
+    redirect_to :controller => :recipes, :action => :show, :id => listItem.recipe_id
   end
 
   # GET /lists/new
@@ -102,6 +99,8 @@ class ListsController < ApplicationController
   def edit
     @list = List.find(params[:id])
     @recipe_name = Recipe.find(@list.recipe_id).name
+
+    render :layout => false
   end
 
   # POST /lists

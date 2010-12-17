@@ -6,10 +6,15 @@
     <% table ["Rezept"] do %>
       <% @lists.each do |item| %>
         <% table_row(item, edit_list_path(item),
-           alternating=true, show=false,
-           edit=logged_in?, destroy=logged_in?) do %>
+           alternating=true, show=true,
+           edit=false, destroy=logged_in?) do %>
            <%  recipe = Recipe.find(item.recipe_id) %>
-          <%= table_cell linkTo( recipe.name, recipe) %>
+           <%= table_cell(link_to_remote recipe.name, 
+             :url => { :controller => "Lists", :action => "edit", :id => item.id },
+                       :update => { :success => "erg", :failure => "erg"},
+                       :before => "$('erg').update('Laden...')",
+                       :html => { :class => "link_ext" } ) %>
+
         <% end %>
       <% end %> <!--end .each-->
     <% end %> <!--end table-->    
@@ -17,3 +22,5 @@
   </div>
 </div>
 <% end %>
+
+<div id="erg"></div> 
