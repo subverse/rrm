@@ -45,7 +45,6 @@
 <div id="form_bottom_menu">
   <%= imageLinkTo "Previous_16x16.png", recipes_path, "Zurück zur Übersicht" %>
   <% if logged_in? %>
-
     <%= link_to_edit edit_recipe_path(@recipe) %>
     <%= imageLinkToRemote "Temp_16x16.png", {:action => "add_ingred", :id => @recipe.id}, "erg" %>
     <%= imageLinkTo "Settings_16x16.png", {:action => "add_process", :id => @recipe.id}, "Zubereitung" %>

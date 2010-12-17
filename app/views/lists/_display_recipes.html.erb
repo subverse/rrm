@@ -1,0 +1,11 @@
+<% if not @lists.empty? %>
+  <table>
+    <% @lists.each do |list| %>
+    <tr>
+      <td><%=h linkTo "#{Recipe.find(list.recipe_id).name}", edit_list_path(list) %></td>
+      <td><%= link_to_destroy list %></td>
+    </tr>
+    <% end %>
+  </table>
+<% end %>
+</div>

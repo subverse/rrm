@@ -1,9 +1,9 @@
 <% menu do %>
     <%= menu_item "Find", :filter, "Erweiterte Suche" %>
     <% submenu("Drucken") do %>
-      <%= submenu_item linkTo "print", {:action => 'print', :id => 1} %>
-      <%= submenu_item linkTo "ingreds", {:action => 'print_ingreds', :id => 1} %>
-      <%= submenu_item linkTo "shoppinglist", {:action => 'shoppinglist', :id => 1} %>
+      <%= submenu_item linkTo "Rezepte", {:action => 'print', :id => 1} %>
+      <%= submenu_item linkTo "Zutaten", {:action => 'print_ingreds', :id => 1} %>
+      <%= submenu_item linkTo "Einkaufsliste", {:action => 'shoppinglist', :id => 1} %>
     <% end %>
     <%= menu_item "Exit", {:controller => :rrm, :action => :index}, "Zurück zum Hauptprogramm" %>
     <% if !logged_in? %>
