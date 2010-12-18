@@ -47,8 +47,8 @@
   <% if logged_in? %>
     <%= link_to_edit edit_recipe_path(@recipe) %>
     <%= imageLinkToRemote "Temp_16x16.png", {:action => "add_ingred", :id => @recipe.id}, "erg" %>
-    <%= imageLinkTo "Settings_16x16.png", {:action => "add_process", :id => @recipe.id}, "Zubereitung" %>
-  <% end %>
+    <%= imageLinkTo "Settings_16x16.png", {:action => "add_process", :id => @recipe.id}, "Zubereitung bearbeiten" %>
+ <% end %>
   <div id="floatRight">
     <%= remote_add_to_list(@recipe, "erg") %>
     <%= imageLinkTo "Print_16x16.png", {:action => "print", :id => @recipe.id}, "Druckansicht", true %>  

@@ -2,11 +2,64 @@
            :locals => {:tab => "rrm::Rezept",
            :page => "Rezept::Zubereitung"} %>
 
+<div id="search_left">
+<div id="form">
+  <p>
+    <b>Name:</b>
+    <%= @recipe.name %>
+  </p>
+  <p>
+    <b>Posten:</b>
+    <%= my_link_to_path( "#{@recipe.station_name}", @recipe.station ) %>
+  </p>
+  <p>
+    <b>Quelle:</b>
+    <%= my_link_to_path( "#{@recipe.source_name}", @recipe.source ) %>
+  </p>
+
+  <br />
+  <hr />
+  <br />
+
+<div id="ingreds">
+  <%= render :partial => "ingreds" %>
+</div>
+    <b>Faktor:</b>
+
+    <%= text_field_tag :factor_input, "" %>
+
+    <%= observe_field :factor_input, :url=>{ :action => :multiply, :id => @recipe.id },
+      :frequency => 0.1,
+      :update => "ingreds",
+      :with => 'input' %>
+  <br />
+  <br />
+  <hr />
+
+<div id="form-bottom-menu">
+  <%= imageLinkTo "Previous_16x16.png", recipe_path(@recipe), "Zurück zur Übersicht" %>
+  <% if logged_in? %>
+    <%= link_to_edit edit_recipe_path(@recipe) %>
+    <%= imageLinkToRemote "Temp_16x16.png", {:action => "add_ingred", :id => @recipe.id}, "erg" %>
+ <% end %>
+  <div id="floatRight">
+    <%= remote_add_to_list(@recipe, "erg") %>
+    <%= imageLinkTo "Print_16x16.png", {:action => "print", :id => @recipe.id}, "Druckansicht", true %>  
+  </div>
+</div>
+
+</div>
+</div>
+
+
+<div id="erg">
+
+</div>
+
 <div id="form">
   <% form_for @recipe, :url => {:action => "save_process", :id => @recipe.id} do |f| %>
     <%= f.error_messages %>
-    <b><%= f.label "#{@recipe.name} process:" %></b>
-    <br />
+    <h3><%= f.label "Zubereitung" %></h3>
     <br />
     <%= f.tinymce :process %>
     <br />
