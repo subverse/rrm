@@ -19,7 +19,13 @@ module LinkHelper
                                         :update => { :success => "#{div}", :failure => "#{div}"},
                                         :before => "$('#{div}').update('Laden...')"
   end
-
+  
+  def imageLinkToRemoteCancel
+    link_to_remote image_tag("Cancel_16x16.png", :border => 0), 
+      :url => { :controller => "Application", :action => "cancel", :id => 1 },
+      :method => :get
+  end
+  
   def imageLinkTo_new_tab(image, url, title="")
     link_to image_tag(image, :border => 0), url, {:target => "_blank", :title => title}
   end

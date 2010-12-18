@@ -3,7 +3,7 @@
   <div id="form">
     <h1>Liste</h1>
 
-    <% table ["Rezept", "multiplier", "shop_it", "incl_prod"] do %>
+    <% table ["Rezept", "Menge", "Einkaufen", "Produktion"] do %>
       <% @lists.each do |item| %>
         <% table_row(item, edit_list_path(item),
            alternating=true, show=true,

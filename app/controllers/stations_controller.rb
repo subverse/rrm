@@ -1,6 +1,6 @@
 class StationsController < ApplicationController
 
-  layout 'application'
+  layout 'application', :except => :print
 
   before_filter :login_required, :except => [:index, :show]
 
@@ -26,6 +26,19 @@ class StationsController < ApplicationController
     end
   end
 
+  def print
+    @station = Station.find(params[:id])
+    
+    @lists = @station.recipes
+    @recipes = @lists
+
+    respond_to do |format|
+      format.html { render :layout => 'recipe'}
+      format.xml  { render :xml => @lists }
+    end
+  end #end print
+
+  
   # GET /stations/new
   # GET /stations/new.xml
   def new

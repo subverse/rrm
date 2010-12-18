@@ -26,7 +26,12 @@ class ApplicationController < ActionController::Base
       end
     end
   end #end authenticate
-
+  
+  def cancel
+    render :update do |page|
+      page.replace_html 'erg', ' '
+    end
+  end
 
   def admin?
     session[:admin] == true

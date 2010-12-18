@@ -105,15 +105,16 @@ class ListsController < ApplicationController
 
     redirect_to :controller => :recipes, :action => :show, :id => listItem.recipe_id
   end
-
+  
+   
   # GET /lists/new
   # GET /lists/new.xml
   def new
     @list = List.new
     @list.recipe_id = params[:recipe_id]
     @list.owner = current_user.login
-    @recipe_name = Recipe.find(@list.recipe_id).name
-
+    @recipe = Recipe.find(@list.recipe_id)
+        
     respond_to do |format|
       format.html { render :layout => false }
       format.xml  { render :xml => @list }

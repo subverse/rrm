@@ -42,15 +42,17 @@
   <br />
   <hr>
 <% end %>
-<div id="form_bottom_menu">
+<div id="form-bottom-menu">
   <%= imageLinkTo "Previous_16x16.png", recipes_path, "Zurück zur Übersicht" %>
   <% if logged_in? %>
     <%= link_to_edit edit_recipe_path(@recipe) %>
     <%= imageLinkToRemote "Temp_16x16.png", {:action => "add_ingred", :id => @recipe.id}, "erg" %>
     <%= imageLinkTo "Settings_16x16.png", {:action => "add_process", :id => @recipe.id}, "Zubereitung" %>
   <% end %>
-  <%= imageLinkTo "Print_16x16.png", {:action => "print", :id => @recipe.id}, "Druckansicht", true %>
-  <%= remote_add_to_list(@recipe, "erg") %>
+  <div id="floatRight">
+    <%= remote_add_to_list(@recipe, "erg") %>
+    <%= imageLinkTo "Print_16x16.png", {:action => "print", :id => @recipe.id}, "Druckansicht", true %>  
+  </div>
 </div>
 
 </div>

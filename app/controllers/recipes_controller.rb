@@ -69,7 +69,14 @@ class RecipesController < ApplicationController
     end
   end #end print
 
+  
+  def cancel
+    render :update do |page|
+      page.replace_html 'erg', ' '
+    end
+  end
 
+  
   # GET /recipes/new
   # GET /recipes/new.xml
   def new

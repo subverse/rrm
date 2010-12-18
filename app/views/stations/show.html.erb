@@ -1,22 +1,26 @@
 <%= render :partial => "shared/titles", :locals => {:tab => "rrm::Posten", :page => "Posten::Details" }%>
 
 <div id="form">
-<p>
-  <b>Posten:</b>
-  <%=h @station.name %>
-</p>
-<p>
-  <b>Rezepte:</b>
-  <%=h @station.recipes.count %>
-</p>
-<% if @recipes.length > 0 %>
+  <p>
+    <b>Posten:</b>
+    <%=h @station.name %>
+  </p>
+  <p>
+    <b>Rezepte:</b>
+    <%=h @station.recipes.count %>
+  </p>
+  <% if @recipes.length > 0 %>
   <%= render :partial => "shared/list_recipes" %>
-<% end %>
-<br />
-<hr>
-<%= link_to 'Zurück', stations_path, :class => "link_ext" %>
-<% if admin? %>
-  |
-  <%= link_to 'Bearbeiten', edit_station_path(@station), :class => "link_ext" %>
-<% end %>
+  <% end %>
+  <br />
+  <hr>
+  <div id="form-bottom-menu">
+    <%= imageLinkTo "Previous_16x16.png", stations_path, "Übersicht Posten" %>
+    <% if logged_in? %>
+      <%= imageLinkTo "Edit_16x16.png", edit_station_path(@station), "Posten bearbeiten" %>
+      <div id="floatRight">
+        <%= imageLinkTo "Print_16x16.png", {:action => "print", :id => @station.id}, "Posten drucken", true %>
+      </div>
+    <% end %>
+  <div/>
 <div/>

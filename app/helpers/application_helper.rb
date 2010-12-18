@@ -11,9 +11,9 @@ module ApplicationHelper
 
 
   def  remote_add_to_list(recipe, div)
-    if current_user != nil
+    if current_user != nil      
       link_to_remote image_tag("Paste_16x16.png", :border=>0), :url => {:controller => "lists", :action => "new",
-                                                                 :params => {:recipe_id => recipe.id}},
+                                                        :params => {:recipe_id => recipe.id}},
                                                         :update => { :success => div, :failure => div},
                                                         :before => "$('#{div}').update('Laden...')"
     end

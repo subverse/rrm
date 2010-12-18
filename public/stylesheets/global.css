@@ -135,8 +135,6 @@ body, p, ol, ul, td {
    -moz-box-shadow: grey 2px 3px 18px ;
 } /*end form*/
 
-
-
 #form_right{
   float:left;
   width:auto;
@@ -145,8 +143,16 @@ body, p, ol, ul, td {
   background-color: none;
 }
 
-#form_bottom_menu {
-    padding-top:5px;
+#form-bottom-menu {
+   padding-top:5px;
+}
+
+#padding-top-5 {
+   padding-top: 5px;
+}
+
+#floatRight {
+   float: right;
 }
 
 #search{

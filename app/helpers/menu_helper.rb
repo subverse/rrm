@@ -1,5 +1,6 @@
 module MenuHelper
-
+  
+  
   def menu(&menu_items_block) # menu item(s) or submenu(s)
     html = ""
     html << "<div class='menu'>"
