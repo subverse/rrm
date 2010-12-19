@@ -22,6 +22,11 @@ class Recipe < ActiveRecord::Base
   end
 
 
+  def self.get_by_station(station)
+    find(:all, :conditions => ["station_id='#{station.id}'"], :order => "name ASC")
+  end  
+
+
   def self.search(search)
     result1 = find(:all, :conditions => ["name='#{search}'"], :order => "name ASC")
     if result1.length == 0

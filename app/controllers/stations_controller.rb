@@ -28,12 +28,10 @@ class StationsController < ApplicationController
 
   def print
     @station = Station.find(params[:id])
-    
-    @lists = @station.recipes
-    @recipes = @lists
+    @lists = Recipe.get_by_station(@station)
 
     respond_to do |format|
-      format.html { render :layout => 'recipe'}
+      format.html
       format.xml  { render :xml => @lists }
     end
   end #end print
