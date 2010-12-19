@@ -1,101 +1,100 @@
 <br />
-<div id="search_left">
-  <div id="form">
+<!--<div id="search_left">-->
+<div id="form">
 
-      <b>Finder</b>*<br/>
-      <table>
-        <tr>
-          <th>param</th>
-          <th>args</th>
-          <th>action</th>
-        </tr>
+  <b>Finder</b>*<br/>
 
-        <tr>
-          <td>
-            Rezepte
-          </td>
-          <td>
-            <% form_remote_tag :update => "erg",
-                               :url => { :controller => :filter,
-                               :action => :search_recipes } do %>
-              <%= text_field_tag :search_field, "", :class => "textField_format" %>
-          </td>
-          <td>
-              <%= submit_tag "Suchen" %>
-          </td>
-            <% end %>
-        </tr>
+  <table>
+    <tr>
+      <th>param</th>
+      <th>args</th>
+      <th>action</th>
+    </tr>
 
-        <tr>
-          <td>
-            Zutaten
-          </td>
-          <td>
-            <% form_remote_tag :update => "erg",
-                           :url => { :controller => :filter,
-                                     :action => :search_ingreds } do %>
-              <%= text_field_tag :ingred_search_field, "", :class => "textField_format" %>
-          </td>
-          <td>
-              <%= submit_tag "Suchen" %>
-          </td>
-            <% end %>
-        </tr>
-      </table>
-      *Mindestlänge 2 Buchstaben
-
-
-
-<br /><br /><br />
-<hr>
-<br />
-
-
-
-      <b>Filter</b>
-      <% form_remote_tag :update => "erg",
-                     :url => { :controller => :filter,
-                               :action => :search_recipes_detailed } do %>
-      <table>
-        <tr>
-          <th>param</th>
-          <th>include</th>
-          <th>args</th>
-        </tr>
-        <tr>
-          <td>Posten</td>
-          <td><%= check_box :station_check, "checked?" %></td>
-          <td><%= collection_select :station, :station_id, Station.find_all, :id, :name %></td>
-        </tr>
-        <tr>
-          <td>Quelle</td>
-          <td><%= check_box :source_check, "checked?" %></td>
-          <td><%= collection_select :source, :source_id, Source.find_all, :id, :name %></td>
-        </tr>
-        <tr>
-          <td>Zutat 1</td>
-          <td><%= check_box :ingred_check, "checked?" %></td>
-          <td><%= collection_select :ingred, :ingred_id, Ingred.find_all, :id, :name %></td>
-        </tr>
-        <tr>
-          <td>Zutat 2</td>
-          <td><%= check_box :ingred_check_1, "checked?" %></td>
-          <td><%= collection_select :ingred_1, :ingred_id_1, Ingred.find_all, :id, :name %></td>
-        </tr>
-        <tr>
-          <td>Zutat 3</td>
-          <td><%= check_box :ingred_check_2, "checked?" %></td>
-          <td><%= collection_select :ingred_2, :ingred_id_2, Ingred.find_all, :id, :name %></td>
-        </tr>
-      </table>
-
-         <%= submit_tag "Suchen" %>
+    <tr>
+      <td>
+        Rezepte
+      </td>
+      <td>
+        <% form_remote_tag :update => "erg",
+        :url => { :controller => :filter,
+        :action => :search_recipes } do %>
+        <%= text_field_tag :search_field, "", :class => "textField_format" %>
+      </td>
+      <td>
+        <%= submit_tag "Suchen" %>
+      </td>
       <% end %>
-  </div> <!--form-->
-</div> <!--search-left-->
+    </tr>
+
+    <tr>
+      <td>
+        Zutaten
+      </td>
+      <td>
+        <% form_remote_tag :update => "erg",
+        :url => { :controller => :filter,
+        :action => :search_ingreds } do %>
+        <%= text_field_tag :ingred_search_field, "", :class => "textField_format" %>
+      </td>
+      <td>
+        <%= submit_tag "Suchen" %>
+      </td>
+      <% end %>
+    </tr>
+  </table>
+  *Mindestlänge 2 Buchstaben
+
+
+  <br /><br /><br />
+  <hr>
+  <br />
+
+
+  <b>Filter</b>
+  <% form_remote_tag :update => "erg",
+  :url => { :controller => :filter,
+  :action => :search_recipes_detailed } do %>
+  <table>
+    <tr>
+      <th>param</th>
+      <th>include</th>
+      <th>args</th>
+    </tr>
+    <tr>
+      <td>Posten</td>
+      <td><%= check_box :station_check, "checked?" %></td>
+      <td><%= collection_select :station, :station_id, Station.find_all, :id, :name %></td>
+    </tr>
+    <tr>
+      <td>Quelle</td>
+      <td><%= check_box :source_check, "checked?" %></td>
+      <td><%= collection_select :source, :source_id, Source.find_all, :id, :name %></td>
+    </tr>
+    <tr>
+      <td>Zutat 1</td>
+      <td><%= check_box :ingred_check, "checked?" %></td>
+      <td><%= collection_select :ingred, :ingred_id, Ingred.find_all, :id, :name %></td>
+    </tr>
+    <tr>
+      <td>Zutat 2</td>
+      <td><%= check_box :ingred_check_1, "checked?" %></td>
+      <td><%= collection_select :ingred_1, :ingred_id_1, Ingred.find_all, :id, :name %></td>
+    </tr>
+    <tr>
+      <td>Zutat 3</td>
+      <td><%= check_box :ingred_check_2, "checked?" %></td>
+      <td><%= collection_select :ingred_2, :ingred_id_2, Ingred.find_all, :id, :name %></td>
+    </tr>
+  </table>
+
+  <%= submit_tag "Suchen" %>
+  <% end %>
+</div> <!--form-->
+<!--</div>--> <!--search-left-->
 
 <div id="search-right">
-  <b>Result</b>
+  <!--  <b>Result</b>-->
   <div id="erg"></div>
 </div>
 

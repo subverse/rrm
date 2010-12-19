@@ -168,13 +168,13 @@ body, p, ol, ul, td {
 
 #search-right{
    min-width:330px;
-   min-height:416px;
-
-   margin:11px;
+   min-height:426px;
+  
    margin-bottom: 0px;
-   margin-left: 350px;
+   margin-left: 340px;
 
    padding:17px;
+   padding-top:0px;
    padding-left:17px;
    padding-right:17px;
 

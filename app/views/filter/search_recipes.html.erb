@@ -1,85 +1,36 @@
 <%= render :partial => "shared/titles",
            :locals => {:tab => "rrm#recipes::search",
                        :page => "rrm#recipes::serch"}%>
-<!--
-<br/>
-<div id="form">
--->
+
   <% if @recipes.length > 0 %>
     <h3><%= @search %> <%= "(#{@recipes.length})" %> </h3>
-    <table>
-      <tr>
-        <th>Name</th>
-        <th>Station</th>
-        <th>Source</th>
-      </tr>
-
-      <% @recipes.each do |recipe| %>
-      <tr class="<%= cycle("odd", "even") %>">
-        <td><%= my_link_to_path("#{recipe.name}", recipe) %></td>
-        <td><%= my_link_to_path("#{recipe.station.name}", recipe.station) %></td>
-        <td><%= my_link_to_path("#{recipe.source.name}", recipe.source) %></td>
-        <% if logged_in? %>
-        <td>
-          <%= img_link_to_edit edit_recipe_path(recipe) %>
-          <%= img_link_to_drop recipe %>
-        </td>
-        <% end %>
-      </tr>
-      <% end %>
-    </table>
-  <% end %>
+    <%= render :partial => "shared/list_recipes" %>
+  <% end %> <!--end recipes--> 
 
 
   <% if @recipes_rest.length > 0 %>
     <h3><%= "#{@search}" %> <%= "(#{@recipes_rest.length})" %> </h3>
-    <table>
-      <tr>
-        <th>Name</th>
-        <th>Station</th>
-        <th>Source</th>
-      </tr>
+    <% table ["Rezept", "Posten", "Quelle"] do %>
       <% @recipes_rest.each do |recipe| %>
-      <tr class="<%= cycle("odd", "even") %>">
-        <td><%= my_link_to_path("#{recipe.name}", recipe) %></td>
-        <td><%= my_link_to_path("#{recipe.station.name}", recipe.station) %></td>
-        <td><%= my_link_to_path("#{recipe.source.name}", recipe.source) %></td>
-        <% if logged_in? %>
-        <td>
-          <%= img_link_to_edit edit_recipe_path(recipe) %>
-          <%= img_link_to_drop recipe %>
-        </td>
+        <% table_row(recipe, edit_recipe_path(recipe), alternating=true, show=false, edit=logged_in?, destroy=logged_in?) do %>
+          <%= table_cell linkTo(recipe.name, recipe, "#{recipe.station.name}, #{recipe.source.name}") %>
+          <%= table_cell linkTo(recipe.station.name, recipe.station) %>
+          <%= table_cell linkTo(recipe.source.name, recipe.source) %>
         <% end %>
-      </tr>
-      <% end %>
-    </table>
-  <% end %>
+      <% end %> <!--end .each-->
+    <% end %> <!--end table-->
+  <% end %> <!--end recipes_rest--> 
 
 
   <% if @recipes_contains.length > 0 %>
     <h3><%= "#{@search}" %> <%= "(#{@recipes_contains.length})" %> </h3>
-    <table>
-      <tr>
-        <th>Name</th>
-        <th>Station</th>
-        <th>Source</th>
-      </tr>
+    <% table ["Rezept", "Posten", "Quelle"] do %>
       <% @recipes_contains.each do |recipe| %>
-      <tr class="<%= cycle("odd", "even") %>">
-        <td><%= my_link_to_path("#{recipe.name}", recipe) %></td>
-        <td><%= my_link_to_path("#{recipe.station.name}", recipe.station) %></td>
-        <td><%= my_link_to_path("#{recipe.source.name}", recipe.source) %></td>
-        <% if logged_in? %>
-        <td>
-          <%= img_link_to_edit edit_recipe_path(recipe) %>
-          <%= img_link_to_drop recipe %>
-        </td>
+        <% table_row(recipe, edit_recipe_path(recipe), alternating=true, show=false, edit=logged_in?, destroy=logged_in?) do %>
+          <%= table_cell linkTo(recipe.name, recipe, "#{recipe.station.name}, #{recipe.source.name}") %>
+          <%= table_cell linkTo(recipe.station.name, recipe.station) %>
+          <%= table_cell linkTo(recipe.source.name, recipe.source) %>
         <% end %>
-      </tr>
-      <% end %>
-    </table>
-  <% end %>
-
-<!--
-<div/>
--->
+      <% end %> <!--end .each-->
+    <% end %> <!--end table-->
+  <% end %> <!--end recipes_contains--> 
