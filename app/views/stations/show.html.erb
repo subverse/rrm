@@ -1,6 +1,7 @@
 <%= render :partial => "shared/titles", :locals => {:tab => "rrm::Posten", :page => "Posten::Details" }%>
-
+<%= stylesheet_link_tag 'pagination' %>
 <div id="form">
+ 
   <p>
     <b>Posten:</b>
     <%=h @station.name %>
@@ -12,6 +13,12 @@
   <% if @recipes.length > 0 %>
   <%= render :partial => "shared/list_recipes" %>
   <% end %>
+  <div id="floatRight">
+    <div class="my_pagination">
+      <%= will_paginate @recipes, :page_links => true %>      
+    </div>
+  </div>  
+  <br />
   <br />
   <hr>
   <div id="form-bottom-menu">
@@ -22,5 +29,5 @@
         <%= imageLinkTo "Print_16x16.png", {:action => "print", :id => @station.id}, "Posten drucken", true %>
       </div>
     <% end %>
-  <div/>
+  <div/> 
 <div/>

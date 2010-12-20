@@ -155,6 +155,14 @@ body, p, ol, ul, td {
    float: right;
 }
 
+#float-left {
+   float: left;
+}
+
+.float-right {
+   float: right;
+}
+
 #search{
   float:left;
   width: 530pt; /*753pt;*//*53.5em;*//*700px;*/

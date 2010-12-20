@@ -96,15 +96,16 @@ class ListsController < ApplicationController
       format.html # index.html.erb
       format.xml  { render :xml => @lists }
     end
-  end
-
+  end #end index
+  
+  
   # GET /lists/1
   # GET /lists/1.xml
   def show
     listItem = List.find(params[:id])
 
     redirect_to :controller => :recipes, :action => :show, :id => listItem.recipe_id
-  end
+  end#end show
   
    
   # GET /lists/new
@@ -119,15 +120,17 @@ class ListsController < ApplicationController
       format.html { render :layout => false }
       format.xml  { render :xml => @list }
     end
-  end
-
+  end #end new
+  
+  
   # GET /lists/1/edit
   def edit
     @list = List.find(params[:id])
     @recipe_name = Recipe.find(@list.recipe_id).name
 
     render :layout => false
-  end
+  end #end edit
+  
 
   # POST /lists
   # POST /lists.xml

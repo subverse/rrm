@@ -1,12 +1,13 @@
-
+<%= stylesheet_link_tag 'print', :media => :print %>
 <div id="form">
-
-
-<div id="pagebrake">
   <br/>
-  <h3>SL</h3>
+  <h3>Einkaufsliste</h3>
+  <br />
   <% if @shoppinglist.length > 0 %>
-
+    <% @recipes.each do |recipe| %>
+      <p><%= recipe.name  %></p>
+    <% end %>
+    <br />
     <table>
       <% for i in 1..@shoppinglist.length %>
         <% item = @shoppinglist.shift %>
@@ -18,11 +19,4 @@
       <% end %>
     </table>
   <% end %>
-
-  <br/>
-  <br/>
-
-</div>
-
-
 </div>

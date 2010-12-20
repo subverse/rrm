@@ -14,22 +14,34 @@ class StationsController < ApplicationController
       format.xml  { render :xml => @stations }
     end
   end
-
+  
+  
   # GET /stations/1
   # GET /stations/1.xml
   def show
     @station = Station.find(params[:id])
     @recipes = @station.recipes
+    @recipes = Recipe.paginate :page => params[:page],
+                               :conditions => ["station_id='#{@station.id}'"],
+                               :order => 'name ASC'
+
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @station }
     end
   end
-
+  
+  
   def print
     @station = Station.find(params[:id])
-    @lists = Recipe.get_by_station(@station)
-
+    @recipes = Recipe.get_by_station(@station)
+    
+    @first = 2
+    @second = 31
+    @third = 60
+    
+    @rows = 28
+    
     respond_to do |format|
       format.html
       format.xml  { render :xml => @lists }
@@ -47,12 +59,14 @@ class StationsController < ApplicationController
       format.xml  { render :xml => @station }
     end
   end
-
+  
+  
   # GET /stations/1/edit
   def edit
     @station = Station.find(params[:id])
   end
-
+  
+  
   # POST /stations
   # POST /stations.xml
   def create
@@ -69,7 +83,8 @@ class StationsController < ApplicationController
       end
     end
   end
-
+  
+  
   # PUT /stations/1
   # PUT /stations/1.xml
   def update
@@ -86,7 +101,8 @@ class StationsController < ApplicationController
       end
     end
   end
-
+  
+  
   # DELETE /stations/1
   # DELETE /stations/1.xml
   def destroy

@@ -31,6 +31,22 @@ body, p, ol, ul, td {
    width:100%;
 }
 
+.content-left {
+   float: left;
+   width: 100px;
+   background-color: grey;
+}
+
+.content-right {
+   position: relative;
+   top: 0px;
+   left: 300px;
+   background-color: orange;
+}
+
+.recipes {
+   margin-top: 1000px;
+}
 
 #form{
   float:left;
@@ -70,3 +86,5 @@ td.td1{width:10px;}
 
 tr.even td{background:#f5f5dc;}
 tr.odd td{background:#D5D6E1;}
+
+

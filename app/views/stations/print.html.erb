@@ -1,9 +1,34 @@
 <%= stylesheet_link_tag 'print', :media => :print %>
+
 <div id="form">
-  <h1><%= "#{@station.name} (#{@lists.length})" %></h1>
+  <h1><%= "#{@station.name} (#{@recipes.length})" %></h1>
   <hr /><hr />
-  <div id="pagebrake"></div>
-  <% @lists.each do |item| %>
+
+  <br />
+  <h2>Inhalt*</h2>
+    
+  <table width="" cellspacing="0" cellpadding="0" border-width="0">    
+    <% for i in 0..@rows %>
+    <tr>
+      <% if i < @recipes.length %>
+         <td width="200px"> <%= @recipes.at(i).name%>         </td>
+         <td width="50px">  <%= i+@first %>                   </td>
+      <% end %>
+      <% if i+@second < @recipes.length %>
+         <td width="200px"> <%= @recipes.at(i+@second).name%> </td>
+         <td width="60px">  <%= i+@second %>                  </td>
+      <% end %>
+      <% if i+@third < @recipes.length %>
+         <td width="200px"> <%= @recipes.at(i+@third).name %> </td>
+         <td width="30px">  <%= i+@third %>                   </td>
+      <% end %>   
+    </tr>
+    <% end %>
+  </table>
+  
+  <div id="pagebrake"></div></div> <!--pagebrake-->
+
+  <% @recipes.each do |item| %>
   <div id="pagebrake">
    
     <br />
@@ -11,9 +36,9 @@
     <hr />
     <br />
 
-    <h3>Zutaten</h3>
-    <% ingred_list = item.get_ingreds %>
+    <% ingred_list = item.get_ingreds %>    
     <% if ingred_list.length > 0 %>
+    <h3>Zutaten</h3>
     <table>
       <% for i in 1..ingred_list.length %>
       <% list_item = ingred_list.shift %>
@@ -25,7 +50,8 @@
       <% end %>
     </table>
     <% end %>
-    <% if item.process != "" or item.process != nil %>
+  
+    <% if item.process.to_s != "" or item.process != nil %>
       <br />
       <hr />
       <br />
@@ -41,3 +67,4 @@
   <% end %> <!--@lists.each-->
 
 </div> <!--form-->
+

@@ -4,7 +4,14 @@ class Recipe < ActiveRecord::Base
   validates_presence_of :station_id
   belongs_to :station
   belongs_to :source
-
+  
+  
+  
+  def self.per_page
+    12
+  end
+  
+  
 
   # Alphabetische Listen anzeigen
   def self.alpha(arg)

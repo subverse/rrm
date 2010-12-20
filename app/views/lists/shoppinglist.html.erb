@@ -19,30 +19,31 @@
         <% end %>
       <% end %> <!--end .each-->
     <% end %> <!--end table-->    
-
+ 
+    <%= render :partial => 'print_button' %>
   </div>
 </div>
+
 
 <div id="marginTop">
   <div id="form">
     <h1>shoppinglistItems</h1>
     
-    <table>
-      <th>Zutat</th>
-      <th>Menge</th>
-      <th>Einheit</th>
+    <% table ["Zutat", "Menge", "Einheit"] do %>
       <% for i in 1..@shoppinglistItems.length %>
         <% item = @shoppinglistItems.shift %>
-        <tr>
-          <td><%= item.ingred %></td>
-          <td><%= item.amount %></td>
-          <td><%= item.unit %></td>
-        </tr>
-      <% end %>
-    </table>
+        <% table_row(item, item, alternating=true, false, false, false) do %>
+          <%= table_cell(item.ingred) %>
+          <%= table_cell(item.amount) %>
+          <%= table_cell(item.unit) %>
+        <% end %>
+      <% end %> <!--end .each-->
+    <% end %> <!--end table-->    
 
-  </div>
-</div>
+    <%= render :partial => 'print_button' %>
+  
+  </div> <!--form-->
+</div> <!--marginTop-->
 
 <div id="erg"></div> 
 

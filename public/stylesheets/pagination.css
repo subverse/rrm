@@ -1,0 +1,42 @@
+.my_pagination {
+   background: white;
+}
+  .my_pagination a, .my_pagination span, .my_pagination em {
+     padding: .2em .5em;
+     display: block;
+     float: left;
+    margin-right: 1px; 
+  }
+  .my_pagination span.disabled {
+     color: grey;
+     border: 1px solid #dedede; 
+  }
+  .my_pagination em {
+     font-weight: bold;
+     background: #grey;
+     color: white;
+     border: 1px solid #2E6AB1; 
+  }
+  .my_pagination a {
+     text-decoration: none;
+     color: grey;
+     border: 1px solid #dedede; 
+  }
+  .my_pagination a:hover, .my_pagination a:focus {
+     color: #003;
+     background-color: #dedede; 
+     border-color: #dedede; 
+  }
+  .my_pagination:after {
+     content: ".";
+     display: block;
+     height: 0;
+     clear: both;
+     visibility: hidden; 
+  }
+  * html .my_pagination {
+     height: 1%;
+  }
+  *:first-child+html .my_pagination {
+     overflow: hidden; 
+  }

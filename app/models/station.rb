@@ -6,5 +6,5 @@ class Station < ActiveRecord::Base
   def self.find_all
     find(:all, :order => "name asc")
   end
-
+  
 end #end Station
