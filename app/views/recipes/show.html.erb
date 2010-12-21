@@ -3,16 +3,32 @@
 
 <div id="search_left">
 <div id="form">
+
+<div id="form-bottom-menu">
+  <%= imageLinkTo "Previous_16x16.png", recipes_path, "Zurück zur Übersicht" %>
+  <% if logged_in? %>
+    <%= link_to_edit edit_recipe_path(@recipe) %>
+    <%= imageLinkToRemote "Temp_16x16.png", {:action => "add_ingred", :id => @recipe.id}, "erg" %>
+    <%= imageLinkTo "Settings_16x16.png", {:action => "add_process", :id => @recipe.id}, "Zubereitung bearbeiten" %>
+ <% end %>
+  <div id="floatRight">
+    <%= remote_add_to_list(@recipe, "erg") %>
+    <%= imageLinkTo "Print_16x16.png", {:action => "print", :id => @recipe.id}, "Druckansicht", true %>  
+  </div>
+</div>
+<hr />
+<br />
+
   <p>
-    <b>Name:</b>
-    <%= @recipe.name %>
+    <h1><%= @recipe.name %></h1>
   </p>
+  <br />
   <p>
-    <b>Posten:</b>
+    Posten:
     <%= my_link_to_path( "#{@recipe.station_name}", @recipe.station ) %>
   </p>
   <p>
-    <b>Quelle:</b>
+    Quelle:
     <%= my_link_to_path( "#{@recipe.source_name}", @recipe.source ) %>
   </p>
 
@@ -43,20 +59,8 @@
   <br />
   <hr>
 <% end %>
-<div id="form-bottom-menu">
-  <%= imageLinkTo "Previous_16x16.png", recipes_path, "Zurück zur Übersicht" %>
-  <% if logged_in? %>
-    <%= link_to_edit edit_recipe_path(@recipe) %>
-    <%= imageLinkToRemote "Temp_16x16.png", {:action => "add_ingred", :id => @recipe.id}, "erg" %>
-    <%= imageLinkTo "Settings_16x16.png", {:action => "add_process", :id => @recipe.id}, "Zubereitung bearbeiten" %>
- <% end %>
-  <div id="floatRight">
-    <%= remote_add_to_list(@recipe, "erg") %>
-    <%= imageLinkTo "Print_16x16.png", {:action => "print", :id => @recipe.id}, "Druckansicht", true %>  
-  </div>
-</div>
 
-</div>
+  </div>
 </div>
 
 

@@ -3,12 +3,11 @@
 <div id="form">
  
   <p>
-    <b>Posten:</b>
-    <%=h @station.name %>
+    <h1> <%= @station.name %> </h1>
   </p>
+  <br />
   <p>
-    <b>Rezepte:</b>
-    <%=h @station.recipes.count %>
+    Rezepte: <b> <%= @station.recipes.count %> </b>
   </p>
   <% if @recipes.length > 0 %>
   <%= render :partial => "shared/list_recipes" %>
