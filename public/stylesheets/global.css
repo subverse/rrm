@@ -205,6 +205,10 @@ body, p, ol, ul, td {
     border-bottom:1px solid grey;
 }
 
+ul {
+   list-style-type: none;
+}
+
 pre {
   background-color: #eee;
   padding: 10px;

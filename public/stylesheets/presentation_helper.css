@@ -1,0 +1,109 @@
+#form-container{
+    float: left;
+    min-width: 280px;
+    background-color: transparent;
+    width:auto;
+    height:auto;
+
+    -moz-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -khtml-border-radius:10px;
+    -khtml-border-radius:10px;
+
+   -webkit-box-shadow: #000 3px 4px 17px ;
+   -moz-box-shadow: grey 2px 5px 8px ;
+}
+
+
+#form-header, #form-footer{
+    background-color: silver;
+    background-image:url(/images/neoheader.png); /*fade_white_grey.png);*/
+    background-repeat:repeat-x;
+}
+
+
+#form-header{
+   padding-top: 7px;
+   padding-bottom: 3px;
+   padding-left: 10px;
+   padding-right: 7px;
+   height: 20px;  
+/*
+    border: 1.3px solid silver;
+    border-bottom: none;
+*/
+    -moz-border-radius-topleft: 6px;
+    -moz-border-radius-topright: 6px;
+    -khtml-border-radius-topleft:6px;
+    -khtml-border-radius-topright:6px;
+    -webkit-border-top-right-radius: 6px;
+    -webkit-border-top-left-radius: 6px;
+}
+
+#form-header-title {
+   float: left;
+   padding-top: 0px;
+   color: black;
+   font-size: 16px;
+}
+
+
+#form-header-controls {
+   float: right;
+   margin-left: 30px;
+}
+
+
+ul#header-controls li{
+    float: right;
+    margin: 0px;
+    position: relative;
+    padding-right: 3px;
+    list-style-type: none;
+}
+
+
+#form-content {
+   min-height: 100px;
+   padding-left: 10px;
+   padding-right: 10px;
+   background-color: #fff;
+/*    border-left: 1.3px solid silver;
+    border-right: 1.3px solid silver;
+*/
+    padding:10px;
+
+    -moz-border-radius-bottomleft: 6px;
+    -moz-border-radius-bottomright: 6px;
+    -khtml-border-radius-bottomleft:6px;
+    -khtml-border-radius-bottomright:6px;
+    -webkit-border-bottom-right-radius: 6px;
+    -webkit-border-bottom-left-radius: 6px;
+}
+
+#form-footer{
+   height: 21px;
+    /*padding: 3px;
+    padding-top: 4px;*/
+   padding-left: 10px;
+   padding-right: 10px;
+/*
+   border: 1.3px solid silver;
+   border-top: none;
+*/ 
+   -moz-border-radius-bottomleft:7px;
+    -moz-border-radius-bottomright:7px;
+    -khtml-border-radius-bottomleft:10px;
+    -khtml-border-radius-bottomright:10px;
+    -webkit-border-bottom-right-radius: 7px;
+    -webkit-border-bottom-left-radius: 7px;
+}
+
+ul#footer-items li{
+    float: left;
+    margin: 0 auto;
+    position: relative;
+    padding-right: 9px;
+    left: -17%;
+    list-style-type: none;
+}

@@ -8,11 +8,10 @@ class RrmController < ApplicationController
     @stations_count = Station.count
     @ingreds_count = Ingred.count
     @ingredtypes_count = Ingredtype.count
-
-    @recipes = Recipe.find(:all, :order => "id DESC")
-    @recipes = @recipes[0..2]
-
-#    @sources = Source.find
   end
-
+  
+  def help
+    
+  end
+  
 end

@@ -5,7 +5,7 @@
     <% for i in 1..@ingred_list.length %>
       <% item = @ingred_list.shift %>
       <% ingred_recipe = Ingred.find(item.id).recipe %>
-      <% table_row(item.ingred_obj, edit_ingred_path(item.ingred_obj), false, false, false, false) do %>
+      <% table_row(item.ingred_obj, edit_ingred_path(item.ingred_obj), alternating=true, false, false, false) do %>
         <% if ingred_recipe == nil %>
           <%= table_cell(linkTo item.ingred, item.ingred_obj) %></td>
         <% else %>
