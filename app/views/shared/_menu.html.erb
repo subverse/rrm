@@ -6,12 +6,15 @@
       <%= submenu_item linkTo "Saucier", Station.find_by_name("Saucier") %>
       <%= submenu_item linkTo "Patessier", Station.find_by_name("Patessier") %>
     <% end %>
-    <%= menu_item "Rezepte", recipes_path %>
-    <%= menu_item_to_new_tab ":neu", new_recipe_path if logged_in? %>
-    <%= menu_item "Zutaten", ingreds_path %>
-    <%= menu_item_to_new_tab ":neu", new_ingred_path if logged_in? %>
-    <%= menu_item "Kategorien", ingredtypes_path, "Kategorien der Zutaten" %>
-    <%= menu_item_to_new_tab ":neu", new_ingredtype_path if logged_in? %>
+    <% submenu_with_top_link("Rezepte", recipes_path) do %>
+      <%= submenu_item linkTo "Neues Rezept", new_recipe_path if logged_in? %>
+    <% end %>
+    <% submenu_with_top_link("Zutaten", ingreds_path) do %>
+      <%= submenu_item linkTo "Neue Zutat", new_ingred_path if logged_in? %>
+    <% end %>
+    <% submenu_with_top_link("Kategorien", ingredtypes_path) do %>
+      <%= submenu_item linkTo "Neue Kategorie", new_ingredtype_path if logged_in? %>
+    <% end %>
     <% submenu("sonstiges") do %>
       <%= submenu_item link_to_new_tab("Listen", lists_path, "Drucken") if logged_in? %>  
       <%= submenu_item linkTo("Quellen", sources_path, "Quellen der Rezepte") %>
@@ -24,6 +27,3 @@
       <%= menu_item_to_new_tab "logout (#{current_user.login})", :logout %>
     <% end %>
 <% end %>
-
-
-

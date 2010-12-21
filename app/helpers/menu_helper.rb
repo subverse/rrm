@@ -42,7 +42,7 @@ module MenuHelper
   end #end submenu
 
 
-  def submenu_bak(text, dest, title="", &submenu_items_block)
+  def submenu_with_top_link(text, dest, title="", &submenu_items_block)
     html = ""
     html << "<li>"
       html << "#{link(text, dest, title)}"
