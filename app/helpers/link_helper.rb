@@ -2,8 +2,12 @@ module LinkHelper
 
 #  def link_param
 
-  def linkTo(text, url, title="")
-   link_to text, url, :title => title
+  def linkTo(text, url, title="", new_tab=false)
+    if new_tab
+      link_to text, url, {:target => "_blank", :title => title}     
+    else
+      link_to text, url, {:title => title}
+    end
   end
 
   def imageLinkTo(image, url, title="", new_tab=false)
