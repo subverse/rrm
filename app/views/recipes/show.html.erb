@@ -1,70 +1,56 @@
 <%= render :partial => "shared/titles",
            :locals => {:tab => "Rezept: #{@recipe.name}", :page => ""}%>
 
-<div id="search_left">
 <div id="form">
 
-<div id="form-bottom-menu">
-  <%= imageLinkTo "Previous_16x16.png", recipes_path, "Zurück zur Übersicht" %>
-  <% if logged_in? %>
-    <%= link_to_edit edit_recipe_path(@recipe) %>
-    <%= imageLinkToRemote "Temp_16x16.png", {:action => "add_ingred", :id => @recipe.id}, "erg" %>
-    <%= imageLinkTo "Settings_16x16.png", {:action => "add_process", :id => @recipe.id}, "Zubereitung bearbeiten" %>
- <% end %>
-  <div id="floatRight">
-    <%= remote_add_to_list(@recipe, "erg") %>
-    <%= imageLinkTo "Print_16x16.png", {:action => "print", :id => @recipe.id}, "Druckansicht", true %>  
-  </div>
-</div>
-<hr />
-<br />
-
-  <p>
-    <h1><%= @recipe.name %></h1>
-  </p>
+  <div id="form-bottom-menu">
+    <%= imageLinkTo "Previous_16x16.png", recipes_path, "Zurück zur Übersicht" %>
+    <% if logged_in? %>
+      <%= link_to_edit edit_recipe_path(@recipe) %>
+      <%= imageLinkToRemote "Temp_16x16.png", {:action => "add_ingred", :id => @recipe.id}, "erg" %>
+      <%= imageLinkTo "Settings_16x16.png", {:action => "add_process", :id => @recipe.id}, "Zubereitung bearbeiten" %>
+    <% end %> <!--if logged_in?-->
+    <div id="floatRight">
+      <%= remote_add_to_list(@recipe, "erg") %>
+      <%= imageLinkTo "Print_16x16.png", {:action => "print", :id => @recipe.id}, "Druckansicht", true %>  
+    </div> <!--floatRight-->
+  </div><!--form-bottom-menu-->
+  <hr />
   <br />
-  <p>
-    Posten:
-    <%= my_link_to_path( "#{@recipe.station_name}", @recipe.station ) %>
-  </p>
-  <p>
-    Quelle:
-    <%= my_link_to_path( "#{@recipe.source_name}", @recipe.source ) %>
-  </p>
 
+  <h1><%= @recipe.name %></h1>
+  <br />
+  <p> Posten: <%= my_link_to_path( "#{@recipe.station_name}", @recipe.station ) %> </p>
+  <p> Quelle: <%= my_link_to_path( "#{@recipe.source_name}", @recipe.source ) %> </p>
   <br />
   <hr />
   <br />
 
-<div id="ingreds">
-  <%= render :partial => "ingreds" %>
-</div>
-    <!--<b>Faktor:</b>-->
-    <p>
-      <%= text_field_tag :factor_input, 1, :size => 2 %>
-      <b>-fache Menge</b>      
-    </p>
+  <div id="ingreds">
+    <%= render :partial => "ingreds" %>
+  </div>
+  <p>
+    <%= text_field_tag :factor_input, 1, :size => 2 %>
+    <b>-fache Menge</b>      
     <%= observe_field :factor_input, :url=>{ :action => :multiply, :id => @recipe.id },
       :frequency => 0.1,
       :update => "ingreds",
       :with => 'input' %>
-  <br />
-  <br />
-  <hr />
-<% if @recipe.process.to_s != "" %>
-  <br />
-  <h3>Zubereitung</h3>
-  <br />
-  <%= @recipe.process %>
-  <br />
-  <hr>
-<% end %>
+  </p>
 
-  </div>
-</div>
+  <% if @recipe.process.to_s != "" %>
+    <br />
+    <br />
+    <hr />
+    <br />
+    <h3>Zubereitung</h3>
+    <br />
+    <%= @recipe.process %>
+    <br />
+  <% end %>
+
+</div> <!--form-->
 
 
-<div id="erg">
-
-</div>
+<div id="erg"> </div>
 
