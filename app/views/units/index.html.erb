@@ -1,6 +1,7 @@
 <%= render :partial => "shared/titles", :locals => {:tab => "rrm::Einheiten", :page => "" }%>
 
-<div id="form">
+<% form('Übersicht', [], nil) do %>
+
   <h2>Einheiten</h2>
 
   <% table ["Bezeichnung"] do %>
@@ -14,4 +15,5 @@
   <% if logged_in? %>
     <%= button_to 'Neu', new_unit_path %>
   <% end %>
-<div/>
+
+<% end %>

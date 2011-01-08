@@ -1,6 +1,6 @@
 <%= render :partial => "shared/titles", :locals => {:tab => "rrm! Zutaten", :page => "" } %>
 
-<div id="form">
+<% form('Neu/Bearbeiten', ["#{imageLinkTo 'Previous_16x16.png', ingreds_path, 'Zurück zur Übersicht', false}"], nil) do%>
   <h2>Zutat</h2>
   <% form_for(@ingred) do |f| %>
     <%= f.error_messages %>
@@ -22,7 +22,4 @@
     </table>
     <%= f.submit 'Ok' %>
   <% end %>
-  <br />
-  <hr>
-  <%= link_to 'Zurück', ingreds_path, :class => "link_ext" %>
-<div/>
+<% end %>

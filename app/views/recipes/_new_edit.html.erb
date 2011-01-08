@@ -1,5 +1,7 @@
 <%= render :partial => "shared/titles", :locals => {:tab => "rrm! Rezept (new/edit)", :page => "" }%>
+<% form('Neu', ["#{imageLinkTo 'Cancel_16x16.png', recipes_path, 'Abbrechen', false}"], nil) do%>
 
+<% end %>
 <div id="form">
   <h2>Rezept</h2>
 <% form_for(@recipe) do |f| %>

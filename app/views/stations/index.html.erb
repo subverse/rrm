@@ -1,7 +1,8 @@
 <%= render :partial => "shared/titles",
            :locals => {:tab => "rrm::Posten",
                        :page => ""} %>
-<div id="form">
+<% form('Übersicht', [], nil) do %>
+
   <h2>Posten</h2>
 
   <% table ["Posten", "Rezepte"] do %>
@@ -16,4 +17,5 @@
   <% if logged_in? %>
     <%= button_to 'Neu', new_station_path %>
   <% end %>  
-<div/>
+
+<% end %>  

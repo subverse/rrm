@@ -16,7 +16,7 @@
       <%= submenu_item linkTo("Neue Kategorie", new_ingredtype_path) if logged_in? %>
     <% end %>
     <% submenu("sonstiges") do %>
-      <%= submenu_item link_to_new_tab("Hilfe", {:controller => :rrm, :action => :help}, "Hilfe") %>  
+      <%= submenu_item link_to_new_tab("Hilfe", {:controller => 'rrm', :action => 'help'}, "Hilfe") %>  
       <%= submenu_item link_to_new_tab("Listen", lists_path, "Drucken") if logged_in? %>  
       <%= submenu_item linkTo("Quellen", sources_path, "Quellen der Rezepte") %>
       <%= submenu_item linkTo("Einheiten", units_path, "Verwendete Maßeinheiten") %>

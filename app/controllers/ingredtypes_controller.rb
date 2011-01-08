@@ -2,7 +2,7 @@ class IngredtypesController < ApplicationController
 
   layout 'application'
 
-  before_filter :login_required, :except => [:index, :show]
+  before_filter :login_required, :except => [:index, :show, :show_remote]
 
   # GET /ingredtypes
   # GET /ingredtypes.xml

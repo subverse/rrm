@@ -13,5 +13,9 @@ class RrmController < ApplicationController
   def help
     
   end
+
+  def show
+
+  end
   
-end
+end #end controller

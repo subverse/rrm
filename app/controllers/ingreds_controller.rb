@@ -2,7 +2,7 @@ class IngredsController < ApplicationController
 
   layout 'application'
 
-  before_filter :login_required, :except => [:index, :show, :alpha]
+  before_filter :login_required, :except => [:index, :show, :alpha, :show_remote]
 
   # Alphabetische Listen anzeigen
   def alpha
@@ -33,7 +33,7 @@ class IngredsController < ApplicationController
       format.html { render :layout => false}# show_remote.html.erb
       format.xml  { render :xml => @ingred }
     end
-  end
+  end #end show_remote
 
   
   

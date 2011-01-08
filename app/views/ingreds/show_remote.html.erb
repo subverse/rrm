@@ -1,17 +1,13 @@
 <%= render :partial => "shared/titles",
            :locals => {:tab => "Zutaten",
                        :page => ""} %>
+<div class="form">
+<% form('Übersicht', ["#{ imageLinkTo 'Edit_16x16.png', edit_ingred_path(@ingred), 'Bearbeiten', true if logged_in? }"], nil) do %>
 
-<div id="form">
   <h2><%= @ingred.name %></h2>
 
   <% if @recipes.length > 0 %>
     <%= render :partial => "shared/list_recipes" %>
   <% end %>
-
-<br />
-<hr>
-<%= link_to 'Zutaten', ingreds_path, :class => "link_ext" %> |
-<%= link_to 'Bearbeiten', edit_ingred_path(@ingred), :class => "link_ext" %>
-<div/>
-
+<% end %>
+</div> 

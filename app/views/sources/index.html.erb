@@ -1,5 +1,6 @@
 <%= render :partial => "shared/titles", :locals => {:tab => "rrm::Quellen", :page => "" }%>
-<div id="form">
+<% form('Übersicht', ["#{button_to 'Neu', new_source_path if logged_in?}"], nil) do %>
+
   <h2>Quellen</h2>
 
   <% table ["Quelle", "Rezepte"] do %>
@@ -11,8 +12,4 @@
     <% end %> <!--end .each-->
   <% end %> <!--end table-->
 
-  <% if logged_in? %>
-    <%= button_to 'Neu', new_source_path %>
-  <% end %>
-
-</div>
+<% end %>

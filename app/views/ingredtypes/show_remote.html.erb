@@ -2,9 +2,10 @@
            :locals => {:tab => "rrm::ingredtypes",
            :page => "rrm"}%>
 
-<div id="search_left">
-<div id="form">
+<div class="form">
 
+<% form('Übersicht', ["#{ imageLinkTo 'Edit_16x16.png', edit_ingredtype_path(@ingredtype), true if logged_in? }",
+                      "#{imageLinkToRemoteCancel}"], nil) do %>
 
   <p>
     <h2><%= @ingredtype.name %></h2>
@@ -25,11 +26,8 @@
     <% end %> <!--end .each-->
   <% end %> <!--end table-->
 
-  <br />
-  <hr>
-  <%= linkTo 'Bearbeiten', edit_ingredtype_path(@ingredtype) %>
+<% end %> <!--form_helper-->
 </div>
-</div> 
- <div id="div_recipes"></div>
+<div id="div_recipes"></div>
 
 
