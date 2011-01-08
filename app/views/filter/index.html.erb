@@ -1,6 +1,6 @@
 <br />
 <!--<div id="search_left">-->
-<div id="form">
+<%form('Erweiterte Suche', [], nil) do%>
 
   <b>Finder</b>*<br/>
 
@@ -90,12 +90,13 @@
 
   <%= submit_tag "Suchen" %>
   <% end %>
-</div> <!--form-->
+<% end %> <!--form_helper-->
 <!--</div>--> <!--search-left-->
 
+<%form('Ergebnis', [], nil) do%>
 <div id="search-right">
-  <!--  <b>Result</b>-->
   <div id="erg"></div>
 </div>
+<% end %> <!--form_helper-->
 
 

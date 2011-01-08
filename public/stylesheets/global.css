@@ -193,24 +193,25 @@ body, p, ol, ul, td {
 
 #search-right{
    min-width:330px;
-   min-height:426px;
+   min-height:400px;
   
    margin-bottom: 0px;
-   margin-left: 340px;
+   margin-left: 0px; /*340px;*/
 
    padding:17px;
    padding-top:0px;
    padding-left:17px;
    padding-right:17px;
-
+/*   
    background-color: #fff;
-   
+
    border: 1px solid grey;
    -moz-border-radius:10px;
    -khtml-border-radius:10px;
    -webkit-border-radius:10px;
    -webkit-box-shadow: #000 3px 4px 17px ;
    -moz-box-shadow: #000 3px 4px 14px ;
+*/
 }
 
 .line {

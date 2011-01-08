@@ -1,14 +1,15 @@
 #form-container{
-    float: left;
-    min-width: 280px;
-    background-color: transparent;
-    width:auto;
-    height:auto;
+   float: left;
+   margin-left: 6px;
+   min-width: 280px;
+   background-color: transparent;
+   width:auto;
+   height:auto;
 
-    -moz-border-radius: 7px;
-    -moz-border-radius: 7px;
-    -khtml-border-radius:10px;
-    -khtml-border-radius:10px;
+   -moz-border-radius: 7px;
+   -moz-border-radius: 7px;
+   -khtml-border-radius:10px;
+   -khtml-border-radius:10px;
 
    -webkit-box-shadow: #000 3px 4px 17px ;
    -moz-box-shadow: grey 2px 5px 8px ;
