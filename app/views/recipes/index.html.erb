@@ -1,5 +1,6 @@
 <%= render :partial => "shared/titles", :locals => {:tab => "rrm::Rezepte", :page => ""}%>
-<div id="form">
+
+<% form('Übersicht', [], nil) do %>
   <h2>Rezepte (<%= @recipes_length  %>)</h2>
   <br/>
   <%= render :partial => "shared/alpha_search", :locals => {:c => "recipes"} %>
@@ -7,4 +8,5 @@
     <%= render :partial => "shared/list_recipes" %>
   <div/> <!--erg-->
   10 latest recipes.
-<div/> <!--form-->
+<% end %>
+
