@@ -1,6 +1,5 @@
 <br />
-<div id="form">
-  <h2>Log In</h2>
+<% form('Anmeldung', [], nil) do %> 
   <% form_tag session_path do -%>
   <table>
     <tr>
@@ -17,4 +16,4 @@
 -->
     <p><%= submit_tag 'OK' %></p>
   <% end -%>
-</div>
+<% end -%>

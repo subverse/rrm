@@ -1,7 +1,8 @@
 <%= render :partial => "shared/titles", :locals => {:tab => "login",:page=>""}%>
 <br />
 <br />
-<div id="form">
+<% form('Login', [], nil) do %>
+
  <h2>Login</h2>
   <table>
     <% form_tag :controller => "authentication", :action => "check" do %>
@@ -24,4 +25,5 @@
   </table>
       <%= submit_tag "login" %>
     <% end %>
-</div>
+
+<% end %>
