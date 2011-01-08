@@ -6,7 +6,7 @@ class Recipe < ActiveRecord::Base
   belongs_to :source
   
   
-  
+  # will_paginate: max number of page items
   def self.per_page
     12
   end

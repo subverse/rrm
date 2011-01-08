@@ -42,7 +42,6 @@ class IngredtypesController < ApplicationController
       format.xml  { render :xml => @ingredtype }
     end
   end #end show_remote
- 
   
   
   # GET /ingredtypes/new

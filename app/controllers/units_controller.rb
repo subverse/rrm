@@ -7,7 +7,7 @@ class UnitsController < ApplicationController
   # GET /units
   # GET /units.xml
   def index
-    @units = Unit.find_all
+    @units = Unit.all
 
     respond_to do |format|
       format.html # index.html.erb

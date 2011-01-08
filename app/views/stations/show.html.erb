@@ -1,7 +1,11 @@
 <%= render :partial => "shared/titles", :locals => {:tab => "rrm::Posten", :page => "Posten::Details" }%>
 <%= stylesheet_link_tag 'pagination' %>
-<div id="form">
- 
+
+<% form('Posten', [
+   "#{imageLinkTo 'Print_16x16.png', {:action => 'print', :id => @station.id}, 'Posten drucken', true if logged_in?}",
+   "#{imageLinkTo 'Edit_16x16.png', edit_station_path(@station), 'Posten Bearbeiten', true if logged_in?}", 
+   "#{imageLinkTo 'Previous_16x16.png', stations_path, 'Zurück zur Übersicht'}"], nil) do %>
+
   <p>
     <h1> <%= @station.name %> </h1>
   </p>
@@ -10,7 +14,7 @@
     Rezepte: <b> <%= @station.recipes.count %> </b>
   </p>
   <% if @recipes.length > 0 %>
-  <%= render :partial => "shared/list_recipes" %>
+    <%= render :partial => "shared/list_recipes" %>
   <% end %>
   <div id="floatRight">
     <div class="my_pagination">
@@ -19,14 +23,6 @@
   </div>  
   <br />
   <br />
-  <hr>
-  <div id="form-bottom-menu">
-    <%= imageLinkTo "Previous_16x16.png", stations_path, "Übersicht Posten" %>
-    <% if logged_in? %>
-      <%= imageLinkTo "Edit_16x16.png", edit_station_path(@station), "Posten bearbeiten" %>
-      <div id="floatRight">
-        <%= imageLinkTo "Print_16x16.png", {:action => "print", :id => @station.id}, "Posten drucken", true %>
-      </div>
-    <% end %>
-  <div/> 
-<div/>
+
+<% end %>
+
