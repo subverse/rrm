@@ -3,11 +3,12 @@
            :page => "Rezept::Zubereitung"} %>
 
 <div id="search_left">
-<div id="form">
+<% form('Rezept', [], nil) do %>
+
   <p>
-    <b>Name:</b>
-    <%= @recipe.name %>
+    <h1><%= @recipe.name %></h1>
   </p>
+  <br />
   <p>
     <b>Posten:</b>
     <%= my_link_to_path( "#{@recipe.station_name}", @recipe.station ) %>
@@ -49,21 +50,19 @@
 </div>
 
 </div>
-</div>
 
+<%end%>
 
-<div id="erg">
-
-</div>
-
-<div id="form">
+<div id="erg"></div>
+  
+<% form('Zubereitung', [], nil) do %>
   <% form_for @recipe, :url => {:action => "save_process", :id => @recipe.id} do |f| %>
     <%= f.error_messages %>
-    <h3><%= f.label "Zubereitung" %></h3>
+    <h3><%= f.label @recipe.name %></h3>
     <br />
     <%= f.tinymce :process %>
     <br />
     <%= submit_tag "Speichern", :onclick => 'javascript:tinyMCE.triggerSave(true,true);' %>
   <% end %>
-<div/>
+<% end %>
 

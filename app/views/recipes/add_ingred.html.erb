@@ -2,6 +2,8 @@
            :locals => {:tab => "Zutaten: #{@recipe.name}",
            :page => "Rezept::"} %>
 
+<div class="form">
+
 <% form('Erweitern', ["#{imageLinkToRemoteCancel}"], nil) do%>
 
   <% form_for(@recipe, :url => {:action => "save_ingred", :id => @recipe.id}) do |f| %>
@@ -35,3 +37,5 @@
 <% end %> <!--form_for-->
 
 <% end %> <!--form_helper-->
+
+</div>
