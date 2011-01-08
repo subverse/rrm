@@ -1,6 +1,6 @@
 <% menu do %>
     <%= menu_item "Finder", :filter, "Erweiterte Suche" %>
-    <% submenu("Posten") do %>
+    <% submenu_with_top_link("Posten", stations_path) do %>
       <%= submenu_item linkTo "Entremetier", Station.find_by_name("Entremetier") %>
       <%= submenu_item linkTo "Gardemanger", Station.find_by_name("Gardemanger") %>
       <%= submenu_item linkTo "Saucier", Station.find_by_name("Saucier") %>

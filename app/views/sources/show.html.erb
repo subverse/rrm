@@ -1,9 +1,8 @@
 <%= render :partial => "shared/titles", :locals => {:tab => "rrm::Quellen", :page => "Quellen::index" }%>
-<div id="form">
-  <p>
-    <b>Quelle:</b>
-    <%=h @source.name %>
-  </p>
+<%form('Quelle', ["#{imageLinkTo 'Edit_16x16.png', edit_source_path(@source), 'Quelle bearbeiten', false if logged_in?}",
+                  "#{imageLinkTo 'Previous_16x16.png', sources_path, 'Zurück zur Übersicht', false}"], nil) do%>
+  <h1><%= @source.name %></h1>
+
   <% if @recipes.length > 0 %>
     <%= render :partial => "shared/list_recipes" %>
   <% end %>
@@ -11,4 +10,5 @@
   <% if admin? %>
     | <%= link_to 'Bearbeiten', edit_source_path(@source), :class => "link_ext" %>
   <% end %>
-</div> <!--id=form-->
+
+<% end %> <!--form_helper-->
