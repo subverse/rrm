@@ -34,25 +34,9 @@ module TableHelper
          html << cell_values
          html << "#{table_row_ops obj, edit_path, show, edit, destroy, remote_edit}"
          html << "</tr>"
-         concat(html, block)
+         concat(html)#, block)
        end #end table_row
-
-
-       def table_row_bak(obj, edit_path, alternating, show, edit, destroy, obj_values)
-         # expects cell value and the object which contains these value
-         html = ""
-         if alternating
-           html << "<tr class='#{cycle('odd', 'even')}'>"
-         else
-           html << "<tr>"
-         end
-         obj_values.each do |value|
-           html << "<td>#{value}</td>"
-         end
-         html << "#{table_row_ops obj, edit_path, show, edit, destroy}"
-         html << "</tr>"
-       end #end table_row
-
+       
 
        def table_row_ops(obj, edit_path, show, edit, destroy, remote_edit)
          html = ""
@@ -74,7 +58,7 @@ module TableHelper
          data = capture(&block)
          html << data
          html << "</table>"
-         concat(html, block.binding)
+         concat(html)#, block)
        end
 
 

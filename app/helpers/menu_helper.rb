@@ -9,7 +9,7 @@ module MenuHelper
         html << menu_items
       html << "</ul>"
     html << "</div>"
-    concat(html, menu_items_block)
+    concat(html)#, menu_items_block)
   end #end menu
 
 
@@ -38,7 +38,7 @@ module MenuHelper
         html << submenu_items
       html << "</ul>"
     html << "</li>"
-    concat(html, submenu_items_block)
+    concat(html)#, submenu_items_block)
   end #end submenu
 
 
@@ -51,7 +51,7 @@ module MenuHelper
         html << submenu_items
       html << "</ul>"
     html << "</li>"
-    concat(html, submenu_items_block)
+    concat(html)#, submenu_items_block)
   end #end submenu
 
 

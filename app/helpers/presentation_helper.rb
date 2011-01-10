@@ -36,8 +36,7 @@ module PresentationHelper
     end  
     html << "</div>" #end form-container
     
-#    concat(html, block.binding)
-    concat(html, block)
+    concat(html)#, block)
   end #end form
   
   
