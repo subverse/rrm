@@ -1,13 +1,23 @@
-<h2>User::<%= @user.login %></h2>
+<br />
+<% form('Bearbeiten', ["#{imageLinkTo 'Previous_16x16.png', users_path}"], nil) do %>
 
-<% form_for(@user) do |f| %>
+  <h2><%= @user.login %></h2>
+  <br />
 
-  <p>
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.submit 'Change email' %>
-  </p>
+  <% form_for(@user) do |f| %>
 
+    <p>
+      <%= f.label :email %>&nbsp;
+      <%= f.text_field :email %>
+    </p>
+
+    <br />
+    <p>
+      <%= f.submit 'Change email' %>
+    </p>
+  <% end %>
+  
+  <br />
+  <hr />
+  <%= linkTo 'Passwort ändern',{:action => 'change_password', :id => @user.id} if logged_in? %>
 <% end %>

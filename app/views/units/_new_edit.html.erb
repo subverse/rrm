@@ -1,6 +1,7 @@
 <%= render :partial => "shared/titles", :locals => {:tab => "rrm::Einheiten (new/edit)", :page => ""} %>
 
-<div id="form">
+<%form('arg', [], nil) do%>
+
   <h2>Einheit</h2>
   <% form_for(@unit) do |f| %>
     <%= f.error_messages %>
@@ -9,10 +10,15 @@
         <td><%= f.label :name %></td>
         <td><%= f.text_field :name %></td>
       </tr>
+      <tr>
+        <td><%= f.label :info %></td>
+        <td><%= f.text_field :info %></td>
+      </tr>
     </table>
     <%= f.submit 'Create' %>
   <% end %>
   <br />
   <hr>
   <%= link_to 'Zurück', units_path, :class => "link_ext" %>
- </div>
+
+<% end %>

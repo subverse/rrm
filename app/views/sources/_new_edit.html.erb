@@ -1,6 +1,6 @@
 <%= render :partial => "shared/titles", :locals => {:tab => "rrm::Quellen (new/edit)", :page => "" }%>
 
-<div id="form">
+<%form('Neu/Bearbeiten', ["#{imageLinkTo 'Previous_16x16.png', sources_path}"], nil) do %>
   <h2>Quelle</h2>
   <% form_for(@source) do |f| %>
     <%= f.error_messages %>
@@ -12,7 +12,4 @@
     </table>
     <%= f.submit 'Bestätigen' %>
   <% end %>
-<br/>
-<hr/>
-  <%= link_to 'Zurück', sources_path, :class => "link_ext" %>
-</div>
+<% end %>

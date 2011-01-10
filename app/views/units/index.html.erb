@@ -1,6 +1,6 @@
 <%= render :partial => "shared/titles", :locals => {:tab => "rrm::Einheiten", :page => "" }%>
 
-<% form('Übersicht', [], nil) do %>
+<% form('Übersicht', ["#{imageLinkTo 'Add_16x16.png', new_unit_path, 'Neu', false  if logged_in?}"], nil) do %>
 
   <h2>Einheiten</h2>
 
@@ -12,8 +12,6 @@
     <% end %> <!--end .each-->
   <% end %> <!--end table-->
 
-  <% if logged_in? %>
-    <%= button_to 'Neu', new_unit_path %>
-  <% end %>
+  <% end %> <!--end form-->
 
-<% end %>
+

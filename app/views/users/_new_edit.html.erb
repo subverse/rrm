@@ -1,6 +1,7 @@
 <%= render :partial => "shared/titles", :locals => {:tab => "rrm:users", :page => ""} %>
 
-<div id="form">
+<% form('Neu/Bearbeiten', ["#{imageLinkTo 'Previous_16x16.png', users_path}"], nil) do %>
+
   <% form_for(@user) do |f| %>
     <%= f.error_messages %>
     <table>
@@ -19,7 +20,4 @@
     </table>
   <p><%= f.submit 'Create' %></p>
   <% end %>
-  <br/>
-  <hr/>
-  <%= link_to 'Back', users_path %>
-<div/> <!--id=form-->
+<% end %>

@@ -1,5 +1,5 @@
 <%= render :partial => "shared/titles", :locals => {:tab => "rrm::Quellen", :page => "" }%>
-<% form('Übersicht', ["#{button_to 'Neu', new_source_path if logged_in?}"], nil) do %>
+<% form('Übersicht', ["#{imageLinkTo 'Add_16x16.png', new_source_path, 'Neu', false  if logged_in?}"], nil) do %>
 
   <h2>Quellen</h2>
 

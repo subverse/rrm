@@ -1,14 +1,14 @@
 <br />
-<div id="form">
-  <h2>Users (<%= @users.length %>)</h2>
+<% form('Übersicht', [], nil) do%>
+  <h2>Benutzer (<%= @users.length %>)</h2>
 
  <% table ["Login", "email"] do %>
     <% @users.each do |user| %>
       <% table_row(user, edit_user_path(user), alternating=true, show=false, edit=logged_in?, destroy=logged_in?) do %>
-        <%= table_cell linkTo( user.login, user ) %>
-        <%= table_cell linkTo( user.email, user) %>
+        <%= table_cell user.login %>
+        <%= table_cell user.email %>
       <% end %>
     <% end %> <!--end .each-->
   <% end %> <!--end table-->
 
-</div>
+<% end %>
