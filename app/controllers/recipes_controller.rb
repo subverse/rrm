@@ -10,6 +10,7 @@ class RecipesController < ApplicationController
   def alpha
     @search = params[:a]
     @recipes = Recipe.alpha(@search)
+
     render :layout => false
   end #end alpha
 
@@ -185,16 +186,20 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
 
     if @recipe.length >= Recipe.ingreds_max_length
+
       respond_to do |format|
         flash[:notice] = 'ingreds full'
         format.html { redirect_to(@recipe) }
 #        format.html { render :action => "add_ingred" }
         format.xml  { render :xml => @recipe.errors, :status => :unprocessable_entity }
       end
+
     else
       render :layout => false
     end
+      
   end #end add_ingred
+      
 
 
   def save_ingred
@@ -204,8 +209,8 @@ class RecipesController < ApplicationController
     respond_to do |format|
       if  @recipe.length <= Recipe.ingreds_max_length && @recipe.update_attributes(params[:recipe])
         flash[:notice] = 'ingred was successfully saved.'
-        format.html { redirect_to(@recipe) }
-#        format.html { render :action => "add_ingred" }
+#        format.html { redirect_to(@recipe) }
+        format.html { render :controller => 'recipes', :action => 'add_ingred' }
         format.xml  { head :ok }
       else
         format.html { redirect_to(@recipe) }

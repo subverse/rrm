@@ -1,8 +1,8 @@
 <% if not @shoppinglist.empty? %>
 
 <div id="marginTop">
-  <div id="form">
-    <h1>shoppinglist</h1>
+<% form('Rezepte', ["#{imageLinkTo 'Print_16x16.png', {:action => 'print', :id => 1}, 
+                     'Druckansicht', true if logged_in? }"], nil) do %>
 
     <% table ["Rezept"] do %>
       <% @shoppinglist.each do |item| %>
@@ -19,15 +19,11 @@
         <% end %>
       <% end %> <!--end .each-->
     <% end %> <!--end table-->    
- 
-    <%= render :partial => 'print_button' %>
   </div>
-</div>
-
+<% end %> <!--presentation_helper--> 
 
 <div id="marginTop">
-  <div id="form">
-    <h1>shoppinglistItems</h1>
+  <% form('Einkaufsliste', ["#{render :partial => 'print_button'}"], nil) do %>
     
     <% table ["Zutat", "Menge", "Einheit"] do %>
       <% for i in 1..@shoppinglistItems.length %>
@@ -39,10 +35,7 @@
         <% end %>
       <% end %> <!--end .each-->
     <% end %> <!--end table-->    
-
-    <%= render :partial => 'print_button' %>
-  
-  </div> <!--form-->
+    <% end %> <!--presentation_helper-->   
 </div> <!--marginTop-->
 
 <div id="erg"></div> 

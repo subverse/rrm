@@ -1,4 +1,6 @@
 class ListsController < ApplicationController
+
+
   
   def clearList
     owner = current_user.login
@@ -9,7 +11,12 @@ class ListsController < ApplicationController
       format.xml  { render :xml => @list }
     end
   end #end clearList
+  
+  
+  def finder
 
+  end #end finder  
+  
   
   # GET /recipes/1
   # GET /recipes/1.xml

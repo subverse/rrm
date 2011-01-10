@@ -2,7 +2,7 @@
            :locals => {:tab => "Zutaten",
                        :page => ""} %>
 <!--<div class="form">-->
-<% form('Übersicht', ["#{ imageLinkTo 'Edit_16x16.png', edit_ingred_path(@ingred), 'Bearbeiten', true if logged_in? }"], nil) do %>
+<% form('Zutat', ["#{ imageLinkTo 'Edit_16x16.png', edit_ingred_path(@ingred), 'Bearbeiten', true if logged_in? }"], nil) do %>
 
   <h2><%= @ingred.name %></h2>
 

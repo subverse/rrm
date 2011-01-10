@@ -1,7 +1,8 @@
 <%= render :partial => "shared/titles",
            :locals => {:tab => "Zutaten",
                        :page => ""} %>
-<div id="form">
+<% form('Zutat', ["#{ imageLinkTo 'Previous_16x16.png', ingreds_path, 'Zurück zur Übersicht', false}",
+                  "#{ imageLinkTo 'Edit_16x16.png', edit_ingred_path(@ingred), 'Bearbeiten', true if logged_in?}"], nil) do %>
 
    <table>
     <tr>
@@ -31,8 +32,4 @@
     <%= render :partial => "shared/list_recipes" %>
   <% end %>
 
-<br />
-<hr>
-<%= link_to 'Zutaten', ingreds_path, :class => "link_ext" %> |
-<%= link_to 'Bearbeiten', edit_ingred_path(@ingred), :class => "link_ext" %>
-<div/>
+<% end %>

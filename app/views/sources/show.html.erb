@@ -6,9 +6,5 @@
   <% if @recipes.length > 0 %>
     <%= render :partial => "shared/list_recipes" %>
   <% end %>
-  <%= link_to 'Zurück', sources_path, :class => "link_ext" %>
-  <% if admin? %>
-    | <%= link_to 'Bearbeiten', edit_source_path(@source), :class => "link_ext" %>
-  <% end %>
-
+ 
 <% end %> <!--form_helper-->

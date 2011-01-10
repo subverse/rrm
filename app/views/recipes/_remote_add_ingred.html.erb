@@ -1,7 +1,3 @@
-<%= render :partial => "shared/titles",
-           :locals => {:tab => "Zutaten: #{@recipe.name}",
-           :page => "Rezept::"} %>
-
 <% form('Zutat hinzufügen', ["#{imageLinkToRemoteCancel}", "#{imageLinkTo 'Add_16x16.png', new_ingred_path, 'Neue Zutat in Stammdaten anlegen', true if logged_in?}"], nil) do%>
 
   <% form_for(@recipe, :url => {:action => "save_ingred", :id => @recipe.id}) do |f| %>
@@ -35,3 +31,4 @@
 <% end %> <!--form_for-->
 
 <% end %> <!--form_helper-->
+

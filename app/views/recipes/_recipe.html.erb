@@ -1,0 +1,58 @@
+<%= render :partial => "shared/titles",
+           :locals => {:tab => "Rezept: #{@recipe.name}", :page => ""}%>
+
+<% if show_all_controls %>
+    <% controls = [
+       "#{imageLinkTo 'Print_16x16.png', {:action => 'print', :id => @recipe.id}, 'Druckansicht', true if logged_in?}",
+       "#{remote_add_to_list(@recipe, 'erg') if logged_in?}",
+       "#{imageLinkTo 'Settings_16x16.png', {:action => 'add_process', :id => @recipe.id}, 'Zubereitung bearbeiten' if logged_in?}",
+       "#{imageLinkToRemote 'Temp_16x16.png', {:action => 'add_ingred', :id => @recipe.id}, 'erg' if logged_in?}",
+       "#{link_to_edit edit_recipe_path(@recipe) if logged_in?}",
+       "#{imageLinkTo 'Previous_16x16.png', recipes_path, 'Zurück zur Übersicht'}"]
+    %>
+<%else%>
+    <% controls = [
+       "#{imageLinkTo 'Print_16x16.png', {:action => 'print', :id => @recipe.id}, 'Druckansicht', true if logged_in?}",
+       "#{imageLinkTo 'Previous_16x16.png', @recipe, 'Zurück'}"] 
+    %>
+<%end%>
+
+<% form('Rezept', controls, nil) do %>
+
+  <br />
+  <h1><%= @recipe.name %></h1>
+  <br />
+  <p> Posten: <%= my_link_to_path( "#{@recipe.station_name}", @recipe.station ) %> </p>
+  <p> Quelle: <%= my_link_to_path( "#{@recipe.source_name}", @recipe.source ) %> </p>
+  <br />
+  <hr />
+  <br />
+
+  <div id="ingreds">
+    <%= render :partial => "ingreds" %>
+  </div>
+  
+  <% if show_process %>
+  <p>
+    <%= text_field_tag :factor_input, 1, :size => 2 %>
+    <b>-fache Menge</b>      
+    <%= observe_field :factor_input, :url=>{ :action => :multiply, :id => @recipe.id },
+      :frequency => 0.1,
+      :update => "ingreds",
+      :with => 'input' %>
+  </p>
+
+  <% if @recipe.process.to_s != "" %>
+    <br />
+    <hr />
+    <br />
+    <h3>Zubereitung</h3>
+    <br />
+    <%= @recipe.process %>
+    <br />
+  <% end %>
+  <% end %> <!--if show_process-->
+
+<% end %> <!--presentation_helper.form-->
+
+<div id="erg"> </div>

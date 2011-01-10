@@ -1,7 +1,6 @@
 <% if not @lists.empty? %>
 <div id="marginTop">
-  <div id="form">
-    <h1>Liste</h1>
+<% form('Übersicht Liste', [], nil) do %>
 
     <% table ["Rezept", "Menge", "Einkaufen", "Produktion"] do %>
       <% @lists.each do |item| %>
@@ -35,9 +34,8 @@
         <% end %>
       <% end %> <!--end .each-->
     <% end %> <!--end table-->    
-   
-  </div>
 </div>
 <% end %>
+<% end %> <!--presentation_helper--> 
 
 <div id="erg"></div> 

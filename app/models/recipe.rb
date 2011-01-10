@@ -18,7 +18,7 @@ class Recipe < ActiveRecord::Base
     find(:all, :conditions => ["name LIKE ?", arg+"%"], :order => "name ASC")
   end #end alpha
 
-
+ 
   def is_recipe?
     true
   end
