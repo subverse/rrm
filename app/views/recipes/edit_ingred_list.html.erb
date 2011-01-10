@@ -1,30 +1,9 @@
 <%= render :partial => "shared/titles", :locals => {:tab => "rrm! Rezept (new/edit)", :page => "" }%>
-<% form('Neu', ["#{imageLinkTo 'Cancel_16x16.png', recipes_path, 'Abbrechen', false}"], nil) do%>
-
-<% end %>
-<div id="form">
-  <h2>Rezept</h2>
+<% form('Bearbeiten', ["#{imageLinkTo 'Cancel_16x16.png', recipe_path(@recipe), 'Abbrechen', false}"], nil) do%>
+  
 <% form_for(@recipe) do |f| %>
   <%= f.error_messages %>
-  <table>
-    <tr>
-      <td>Name</td>
-      <td><%= f.text_field :name %></td>
-    </tr>
-    <tr>
-      <td>Posten</td>
-      <td><%= f.collection_select :station_id,
-              Station.find_all, :id, :name %>
-      </td>
-    </tr>
-    <tr>
-      <td>Quelle</td>
-      <td><%= f.collection_select :source_id,
-              Source.find_all, :id, :name %>
-      </td>
-    </tr>
-  </table>
-
+  
 <% if  @ingred_list != nil and @ingred_list.length > 0 %>
   <br />
   <h3>Zutaten</h3>
@@ -47,15 +26,13 @@
     </tr>
   <% end %>
 </table>
-<% end %>
 
   <p>
     <%= f.submit 'Speichern' %>
   </p>
+<% else %>
+  <b>deprecated</b>
 <% end %>
+<% end %> <!--form_for-->
 
-<br />
-<hr>
-<%= linkTo "Abbrechen", recipes_path %>
-<div/>
-
+<% end %> <!--form_helper-->

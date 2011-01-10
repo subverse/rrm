@@ -17,9 +17,17 @@ module LinkHelper
       link_to image_tag(image, :border => 0), url, :title => title
     end
   end
+  
+  
+  def linkToRemote(title, url, div)
+    link_to_remote title, :url => url, :method => 'get',
+                                       :update => { :success => "#{div}", :failure => "#{div}"},
+                                       :before => "$('#{div}').update('Laden...')"
+  end
 
+  
   def imageLinkToRemote(image, url, div)
-    link_to_remote image_tag(image, :border=>0), :url => url,
+    link_to_remote image_tag(image, :border=>0), :url => url, :method => 'get',
                                         :update => { :success => "#{div}", :failure => "#{div}"},
                                         :before => "$('#{div}').update('Laden...')"
   end

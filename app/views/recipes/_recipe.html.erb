@@ -6,8 +6,8 @@
        "#{imageLinkTo 'Print_16x16.png', {:action => 'print', :id => @recipe.id}, 'Druckansicht', true if logged_in?}",
        "#{remote_add_to_list(@recipe, 'erg') if logged_in?}",
        "#{imageLinkTo 'Settings_16x16.png', {:action => 'add_process', :id => @recipe.id}, 'Zubereitung bearbeiten' if logged_in?}",
-       "#{imageLinkToRemote 'Temp_16x16.png', {:action => 'add_ingred', :id => @recipe.id}, 'erg' if logged_in?}",
-       "#{link_to_edit edit_recipe_path(@recipe) if logged_in?}",
+       "#{imageLinkToRemote 'Temp_16x16.png', {:controller => 'ingredients', :action => 'new', :id => @recipe.id}, 'erg' if logged_in?}",
+       "#{imageLinkToRemote 'Edit_16x16.png', {:action => 'edit_ingred_list', :id=>@recipe.id}, 'erg' if logged_in?}",
        "#{imageLinkTo 'Previous_16x16.png', recipes_path, 'Zurück zur Übersicht'}"]
     %>
 <%else%>

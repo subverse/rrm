@@ -6,3 +6,4 @@
 .DS_Store
 *flymake.rb
 *.pid
+*#

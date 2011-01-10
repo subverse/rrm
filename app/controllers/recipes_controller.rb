@@ -35,6 +35,9 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @station = Station.find(@recipe.station_id).name
     @ingred_list = @recipe.get_ingreds
+    
+    @ingredients = @recipe.ingredients
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @recipe }
@@ -53,9 +56,15 @@ class RecipesController < ApplicationController
     @ingred_list.each do |ingred|
       ingred.amount=(ingred.amount * @factor).to_f
     end
+    
+    @ingredients = @recipe.ingredients
 
+    @ingredients.each do |ingredient|
+      ingredient.amount = (ingredient.amount * @factor).to_f
+    end
+    
     render :partial => "ingreds"
-  end #end show
+  end #multiply
 
 
   # GET /recipes/1
@@ -106,14 +115,22 @@ class RecipesController < ApplicationController
       end
     end
   end
+  
+  
+  # GET /recipes/1/edit
+  def edit_ingred_list
+    @recipe = Recipe.find(params[:id])
+  #  @ingreds = Ingred.find(:all)
+    @ingred_list = @recipe.get_ingreds
+    @ingred_list_int = @recipe.get_ingreds_int
 
+    render :layout => false
+  end
+  
 
   # GET /recipes/1/edit
   def edit
     @recipe = Recipe.find(params[:id])
-    @ingreds = Ingred.find(:all)
-    @ingred_list = @recipe.get_ingreds
-    @ingred_list_int = @recipe.get_ingreds_int
   end
 
 
@@ -154,9 +171,11 @@ class RecipesController < ApplicationController
 
   def add_process
     @recipe = Recipe.find(params[:id])
-    
     @station = Station.find(@recipe.station_id).name
+
     @ingred_list = @recipe.get_ingreds
+    @ingredients = @recipe.ingredients
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @recipe }

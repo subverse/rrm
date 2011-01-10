@@ -23,30 +23,6 @@
     </tr>
   </table>
 
-<% if  @ingred_list != nil and @ingred_list.length > 0 %>
-  <br />
-  <h3>Zutaten</h3>
-<table>
-  <tr>
-    <th>Bezeichnung</th>
-    <th>Menge</th>
-    <th>Einheit</th>
-  </tr>
-  <% for i in 1..@ingred_list.length %>
-    <% item = @ingred_list.shift %>
-    <tr>
-      <td><%= f.collection_select :"ingred#{i}",
-              Ingred.find_all, :id, :name %>
-      </td>
-      <td><%= f.text_field :"amount#{i}", :size => "6" %></td>
-      <td><%= f.collection_select :"unit#{i}",
-              Unit.find_all, :id, :name %>
-      </td>
-    </tr>
-  <% end %>
-</table>
-<% end %>
-
   <p>
     <%= f.submit 'Speichern' %>
   </p>

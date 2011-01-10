@@ -1,0 +1,23 @@
+<p>
+  <b>Recipe:</b>
+  <%=h @ingredient.recipe_id %>
+</p>
+
+<p>
+  <b>Amount:</b>
+  <%=h @ingredient.amount %>
+</p>
+
+<p>
+  <b>Unit:</b>
+  <%=h @ingredient.unit_id %>
+</p>
+
+<p>
+  <b>Info:</b>
+  <%=h @ingredient.info %>
+</p>
+
+
+<%= link_to 'Edit', edit_ingredient_path(@ingredient) %> |
+<%= link_to 'Back', ingredients_path %>

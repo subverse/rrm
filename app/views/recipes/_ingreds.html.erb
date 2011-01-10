@@ -1,4 +1,26 @@
 <h3>Zutaten</h3>
+
+<% if @ingredients.length > 0 %>
+  
+  <% table ["Bezeichnung", "Menge", "Einheit", "Info"] do %>
+    <% @ingredients.each do |ingredient| %>
+      <% ingred =  Ingred.find(ingredient.ingred_id) %>
+      <% ingred_recipe = ingred.recipe %>
+      <% table_row(ingredient, edit_ingredient_path(ingredient), true, false, logged_in?, logged_in?, true) do %>
+        <% if ingred_recipe == nil %>
+          <%= table_cell(linkToRemote ingred.name, edit_ingredient_path(ingredient), 'erg') %></td>
+        <% else %>
+          <%= table_cell(link_to_new_tab 'foo', ingred_recipe) %></td>
+        <% end %>
+        <%= table_cell(ingredient.amount) %>
+        <%= table_cell(Unit.find(ingredient.unit_id).name) %>
+        <%= table_cell(ingredient.info) %>
+      <% end %> <!--table_row-->
+    <% end %> <!--end .for-->
+  <% end %> <!--end table-->
+  
+<%end%>
+
 <% if @ingred_list.length > 0 %>
 
   <% table ["Bezeichnung", "Menge", "Einheit"] do %>

@@ -1,10 +1,10 @@
 class Recipe < ActiveRecord::Base
-#  validates_uniqueness_of :name (mehre Rezepte mit gleichem Namen)
+#  (no) validates_uniqueness_of :name (mehre Rezepte mit gleichem Namen)
   validates_presence_of :name
   validates_presence_of :station_id
   belongs_to :station
   belongs_to :source
-  
+  has_many :ingredients
   
   # will_paginate: max number of page items
   def self.per_page
@@ -13,7 +13,7 @@ class Recipe < ActiveRecord::Base
   
   
 
-  # Alphabetische Listen anzeigen
+  # Alphabetische Listen Anzeigen
   def self.alpha(arg)
     find(:all, :conditions => ["name LIKE ?", arg+"%"], :order => "name ASC")
   end #end alpha

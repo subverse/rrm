@@ -1,0 +1,36 @@
+<% form(title, ["#{imageLinkToRemoteCancel}"], nil) do %>
+
+
+  <% form_for @ingredient do |f| %>
+  <%= f.error_messages %>
+
+  <br />
+  <h2>Zutat</h2>
+  <%= f.hidden_field :recipe_id %>
+
+  <table>   
+    <tr>
+      <td>Bezeichnung</td>
+      <td><%= f.collection_select :ingred_id, Ingred.find_all, :id, :name %></td>
+    </tr>
+    <tr>
+      <td>Menge</td>
+      <td><%= f.text_field :amount, :size => 6 %></td>
+    </tr>
+    <tr>
+      <td>Einheit</td>
+      <td><%= f.collection_select :unit_id, Unit.find_all, :id, :name %></td>
+    </tr>
+    <tr>
+      <td>Info</td>
+      <td><%= f.text_field :info, :size => 21 %></td>
+    </tr>
+  </table>
+
+  <br /> 
+  <p>
+    <%= f.submit 'Speichern' %>
+  </p>
+<% end %>
+
+<% end %> <!--presentation_helper--> 
