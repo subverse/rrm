@@ -18,6 +18,17 @@
       <% end %>
     </table>
   <% end %>
+  <% if @ingredients.length > 0 %>
+    <table>
+      <% @ingredients.each do |ingredient| %>
+        <tr>
+          <td><%= ingredient.ingred %></td>
+          <td><%= ingredient.amount %></td>
+          <td><%= ingredient.unit %></td>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
   <% if @recipe.process != "" or @recipe.process != nil %>
     <br/>
     <hr/>

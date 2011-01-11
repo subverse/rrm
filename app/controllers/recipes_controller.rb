@@ -73,6 +73,8 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @station = Station.find(@recipe.station_id).name
     @ingred_list = @recipe.get_ingreds
+    @ingredients = @recipe.ingredients
+    
     respond_to do |format|
       format.html { render :layout => 'recipe'}
       format.xml  { render :xml => @recipe }

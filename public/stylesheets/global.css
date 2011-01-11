@@ -90,7 +90,7 @@ body, p, ol, ul, td {
 #marginTop {
    height: auto;
    width: auto;
-   margin-top: 79px;
+   margin-top: 60px;
 }
 
 #erg{
@@ -179,7 +179,7 @@ body, p, ol, ul, td {
 
 #search-right{
    min-width:330px;
-   min-height:400px;
+   min-height:393px;
   
    margin-bottom: 0px;
    margin-left: 0px; /*340px;*/
