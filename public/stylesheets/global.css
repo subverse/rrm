@@ -76,24 +76,9 @@ body, p, ol, ul, td {
     margin-right: 10px;
     float:right;
 }
-/*
-#menu {
-    position: fixed;
-    color: black;
-    height:21px;
-    min-width:850px;
-    width: 100%;
-    margin-top: 47px;
-    border:none;
-    background-color: #424242;
-
-    background-image:url(/images/menu_img.png);
-    background-repeat:repeat-x;
-}
-*/
 
 #buffer {
-    margin-top: 60px;
+   margin-top: 60px;
    background-color: #dedede;
 }
 
@@ -152,6 +137,7 @@ body, p, ol, ul, td {
    -moz-box-shadow: grey 2px 3px 18px ;
 } /*end form*/
 
+
 #form_right{
   float:left;
   width:auto;
@@ -202,16 +188,6 @@ body, p, ol, ul, td {
    padding-top:0px;
    padding-left:17px;
    padding-right:17px;
-/*   
-   background-color: #fff;
-
-   border: 1px solid grey;
-   -moz-border-radius:10px;
-   -khtml-border-radius:10px;
-   -webkit-border-radius:10px;
-   -webkit-box-shadow: #000 3px 4px 17px ;
-   -moz-box-shadow: #000 3px 4px 14px ;
-*/
 }
 
 .line {

@@ -1,6 +1,5 @@
 <%= render :partial => "shared/titles",
-           :locals => {:tab => "rrm::Kategorien",
-           :page => "rrm"}%>
+           :locals => {:tab => "rrm::Kategorien", :page => nil}%>
 <% form('Übersicht', [], nil) do %>
   <h2>Kategorien (<%= @ingredtypes.length %>)</h2>
   <% table ["Bezeichnung", "Zutaten"] do %>

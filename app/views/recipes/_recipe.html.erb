@@ -1,6 +1,3 @@
-<%= render :partial => "shared/titles",
-           :locals => {:tab => "Rezept: #{@recipe.name}", :page => ""}%>
-
 <% if show_all_controls %>
     <% controls = [
        "#{imageLinkTo 'Print_16x16.png', {:action => 'print', :id => @recipe.id}, 'Druckansicht', true if logged_in?}",

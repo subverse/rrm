@@ -1,5 +1,5 @@
-<div id="marginTop">
-  <div id="form">
+<% form('Eintrag', ["#{imageLinkToRemoteCancel}"], nil) do %>
+
     <% form_for(@list) do |f| %>
 
     <h3> <%= @recipe_name %> </h3>
@@ -30,8 +30,5 @@
       <%= f.submit 'Create' %>
     </p>
     <% end %>
-    <br/>
-    <hr/>
-    <%= linkTo "Abbrechen", lists_path %>
-  </div>
-</div>
+  
+<% end %> <!--presentation_helper--> 

@@ -4,10 +4,11 @@
 
   <h2>Einheiten</h2>
 
-  <% table ["Bezeichnung"] do %>
+  <% table ["Bezeichnung", "Info"] do %>
     <% @units.each do |unit| %>
       <% table_row(unit, edit_unit_path(unit), alternating=true, show=false, edit=logged_in?, destroy=false) do %>
         <%= table_cell linkTo( unit.name, unit ) %>
+        <%= table_cell unit.info %>
       <% end %>
     <% end %> <!--end .each-->
   <% end %> <!--end table-->

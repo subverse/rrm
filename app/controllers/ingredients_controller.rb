@@ -1,6 +1,11 @@
 class IngredientsController < ApplicationController
   # GET /ingredients
   # GET /ingredients.xml
+
+  layout 'application'
+
+  before_filter :login_required
+
   def index
     @ingredients = Ingredient.all
 

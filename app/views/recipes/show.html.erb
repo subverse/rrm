@@ -1,5 +1,5 @@
 <%= render :partial => "shared/titles",
-           :locals => {:tab => "Rezept: #{@recipe.name}", :page => ""}%>
+           :locals => {:tab => "#{@recipe.name}", :page => nil}%>
 
 <%= render :partial => 'recipe', :locals => {:show_all_controls => true, :show_process => true} %>
 

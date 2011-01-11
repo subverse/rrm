@@ -1,4 +1,4 @@
-<%= render :partial => "shared/titles", :locals => {:tab => "rrm! Rezept (new/edit)", :page => "" }%>
+<%= render :partial => "shared/titles", :locals => {:tab => "deprecated: Zutaten bearbeiten", :page => nil }%>
 <% form('Bearbeiten', ["#{imageLinkTo 'Cancel_16x16.png', recipe_path(@recipe), 'Abbrechen', false}"], nil) do%>
   
 <% form_for(@recipe) do |f| %>

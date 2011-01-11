@@ -1,6 +1,5 @@
-<%= render :partial => "shared/titles", :locals => {:tab => "rrm::Posten (new/edit)", :page => ""}%>
+<% form('Bearbeiten', ["#{link_to 'Zurück', stations_path, :class => "link_ext"}"], nil) do %>
 
-<div id="form">
   <h2>Posten</h2>
 <% form_for(@station) do |f| %>
   <%= f.error_messages %>
@@ -12,7 +11,5 @@
   </table>
   <%= f.submit 'Bestätigen' %>
 <% end %>
-<br/>
-<hr/>
-<%= link_to 'Zurück', stations_path, :class => "link_ext" %>
-<div/>
+
+<% end %> <!--presentation_helper--> 

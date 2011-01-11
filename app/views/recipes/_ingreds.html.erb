@@ -7,7 +7,7 @@
       <% ingred =  Ingred.find(ingredient.ingred_id) %>
       <% ingred_recipe = ingred.recipe %>
       <% table_row(ingredient, edit_ingredient_path(ingredient), true, false, logged_in?, logged_in?, true) do %>
-        <% if ingred_recipe == nil %>
+        <% if ingred_recipe == nil and logged_in? %>          
           <%= table_cell(linkToRemote ingred.name, edit_ingredient_path(ingredient), 'erg') %></td>
         <% else %>
           <%= table_cell(link_to_new_tab ingred.name, ingred_recipe) %></td>
