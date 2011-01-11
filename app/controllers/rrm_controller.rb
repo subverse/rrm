@@ -9,6 +9,11 @@ class RrmController < ApplicationController
     @ingreds_count = Ingred.count
     @ingredtypes_count = Ingredtype.count
   end
+
+  def download
+    send_file "#{RAILS_ROOT}/db/development.sqlite3"
+  end
+
   
   def help
     

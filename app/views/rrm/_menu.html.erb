@@ -21,6 +21,7 @@
       <%= submenu_item linkTo("Quellen", sources_path, "Quellen der Rezepte") %>
       <%= submenu_item linkTo("Einheiten", units_path, "Verwendete Maßeinheiten") %>
       <%= submenu_item linkTo("User", users_path, "Benutzerliste") if logged_in? %>
+      <%= submenu_item linkTo("Backup", {:controller => 'rrm', :action => 'download', :id => 1 }, "Backup Datenbank") if logged_in? %>
     <% end %>
     <% if !logged_in? %>
       <%= menu_item_to_new_tab "Login", :login %>
