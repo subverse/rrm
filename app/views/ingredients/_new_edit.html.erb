@@ -11,7 +11,9 @@
   <table>   
     <tr>
       <td>Bezeichnung</td>
-      <td><%= f.collection_select :ingred_id, Ingred.find_all, :id, :name %></td>
+      <td><%= f.collection_select(:ingred_id, Ingred.find_all, :id,
+          :name, {:prompt => ""}, :id => 'select_id') %>      
+      </td>
     </tr>
     <tr>
       <td>Menge</td>

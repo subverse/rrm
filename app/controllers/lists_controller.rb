@@ -1,6 +1,4 @@
 class ListsController < ApplicationController
-
-
   
   def clearList
     owner = current_user.login

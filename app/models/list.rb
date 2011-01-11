@@ -33,6 +33,7 @@ class List < ActiveRecord::Base
 
   def self.get_all_ingreds_list(recipes)
     all_ingreds_list = Array.new
+    
     recipes.each do |recipe|
       ingred_list = recipe.get_ingreds
       ingred_list.each do |ingred|
@@ -41,6 +42,16 @@ class List < ActiveRecord::Base
           all_ingreds_list.push(new_item)
       end
     end
+
+    recipes.each do |recipe|
+      ingred_list = recipe.ingredients
+      ingred_list.each do |item|
+        new_item = Ingred_data.new(item.ingred_id, 0, item.unit_id)
+        new_item.add(item.amount, item.unit_id)
+        all_ingreds_list.push(new_item)
+      end
+    end
+    
     return all_ingreds_list
   end #end self.get_all_ingreds_list
 
