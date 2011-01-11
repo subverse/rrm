@@ -25,13 +25,14 @@ class IngredientsController < ApplicationController
       format.xml  { render :xml => @ingredient }
     end
   end
-
+  
+  
   # GET /ingredients/new
   # GET /ingredients/new.xml
   def new
     @ingredient = Ingredient.new
     @ingredient.recipe_id = params[:id]
-
+     
     respond_to do |format|
       format.html { render :layout => false }
       format.xml  { render :xml => @ingredient }

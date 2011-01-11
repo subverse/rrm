@@ -14,9 +14,13 @@ class Ingredient < ActiveRecord::Base
     end
     result
   end #amount
-
-  def ingred
+  
+  def name
     Ingred.find(self[:ingred_id]).name
+  end
+  
+  def ingred
+    Ingred.find(self[:ingred_id])
   end
   
   def unit

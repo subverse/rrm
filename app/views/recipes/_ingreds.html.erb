@@ -4,16 +4,16 @@
   
   <% table ["Bezeichnung", "Menge", "Einheit", "Info"] do %>
     <% @ingredients.each do |ingredient| %>
-      <% ingred =  Ingred.find(ingredient.ingred_id) %>
-      <% ingred_recipe = ingred.recipe %>
+
+      <% ingred_recipe = ingredient.ingred.recipe %>
       <% table_row(ingredient, edit_ingredient_path(ingredient), true, false, logged_in?, logged_in?, true) do %>
         <% if ingred_recipe == nil and logged_in? %>          
-          <%= table_cell(linkToRemote ingred.name, edit_ingredient_path(ingredient), 'erg') %></td>
+          <%= table_cell(linkToRemote ingredient.name, edit_ingredient_path(ingredient), 'erg') %></td>
         <% else %>
-          <%= table_cell(link_to_new_tab ingred.name, ingred_recipe) %></td>
+          <%= table_cell(link_to_new_tab ingredient.name, ingred_recipe) %></td>
         <% end %>
         <%= table_cell(ingredient.amount) %>
-        <%= table_cell(Unit.find(ingredient.unit_id).name) %>
+        <%= table_cell(ingredient.unit) %>
         <%= table_cell(ingredient.info) %>
       <% end %> <!--table_row-->
     <% end %> <!--end .for-->
