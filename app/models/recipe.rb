@@ -247,7 +247,7 @@ class Recipe < ActiveRecord::Base
   end #end get_ingreds
 
   
-  
+=begin    
 
   def get_ingreds_int
     length = self[:length]-1
@@ -260,7 +260,7 @@ class Recipe < ActiveRecord::Base
     end
     return ingred_list
   end #end get_ingreds_int
-
+=end
   
 
 =begin  
