@@ -34,7 +34,7 @@ class RecipesController < ApplicationController
   def show
     @recipe = Recipe.find(params[:id])
     @station = Station.find(@recipe.station_id).name
-    @ingred_list = @recipe.get_ingreds
+    @ingred_list = Array.new #@recipe.get_ingreds
     
     @ingredients = @recipe.ingredients
     
@@ -50,9 +50,8 @@ class RecipesController < ApplicationController
   def multiply
     @recipe = Recipe.find(params[:id])
     @factor = params[:input].to_f
-#   @station = Station.find(@recipe.station_id).name
-    @ingred_list = @recipe.get_ingreds
-
+    
+    @ingred_list = Array.new #@recipe.get_ingreds
     @ingred_list.each do |ingred|
       ingred.amount=(ingred.amount * @factor).to_f
     end
@@ -72,7 +71,8 @@ class RecipesController < ApplicationController
   def print
     @recipe = Recipe.find(params[:id])
     @station = Station.find(@recipe.station_id).name
-    @ingred_list = @recipe.get_ingreds
+    @ingred_list = Array.new #@recipe.get_ingreds
+
     @ingredients = @recipe.ingredients
     
     respond_to do |format|
@@ -123,8 +123,8 @@ class RecipesController < ApplicationController
   def edit_ingred_list
     @recipe = Recipe.find(params[:id])
   #  @ingreds = Ingred.find(:all)
-    @ingred_list = @recipe.get_ingreds
-    @ingred_list_int = @recipe.get_ingreds_int
+    @ingred_list = Array.new # @recipe.get_ingreds
+    @ingred_list_int = Array.new #@recipe.get_ingreds_int
 
     render :layout => false
   end
@@ -144,7 +144,7 @@ class RecipesController < ApplicationController
     respond_to do |format|
       if @recipe.update_attributes(params[:recipe])
         recipe = Recipe.find(params[:id])
-        recipe.sanitize_ingred_list
+        # recipe.sanitize_ingred_list
         @recipe.save
         flash[:notice] = 'Recipe was successfully updated.'
         format.html { redirect_to(@recipe) }
@@ -175,7 +175,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @station = Station.find(@recipe.station_id).name
 
-    @ingred_list = @recipe.get_ingreds
+    @ingred_list = Array.new# @recipe.get_ingreds
     @ingredients = @recipe.ingredients
     
     respond_to do |format|

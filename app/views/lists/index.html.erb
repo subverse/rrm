@@ -1,8 +1,8 @@
-<%= render :partial => 'shared/titles', :locals => {:tab => 'Dokumente', :page => nil} %>
+<%= render :partial => 'shared/titles', :locals => {:tab => 'Listen', :page => nil} %>
 
 <% if not @lists.empty? %>
 <div id="marginTop">
-<% form('Übersicht Liste', [], nil) do %>
+<% form('Übersich', [], nil) do %>
 
     <% table ["Rezept", "Menge", "Einkaufen", "Produktion"] do %>
       <% @lists.each do |item| %>

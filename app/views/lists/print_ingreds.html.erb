@@ -5,20 +5,19 @@
 <div id="pagebrake">
 
   <% recipe = @recipes.pop %>
-  <% ingred_list = recipe.get_ingreds %>
+  <% ingred_list = recipe.ingredients %>
   <hr/>
   <br/>
-  <h2><%=h recipe.name %></h2>
+  <h2><%= recipe.name %></h2>
   <br/>
   <hr/>
   <br/>
   <h3>Zutaten</h3>
   <% if ingred_list.length > 0 %>
     <table>
-      <% for i in 1..ingred_list.length %>
-        <% item = ingred_list.shift %>
+      <% ingred_list.each do |item| %>
         <tr>
-          <td><%= item.ingred %></td>
+          <td><%= item.ingred.name %></td>
           <td><%= item.amount %></td>
           <td><%= item.unit %></td>
         </tr>
