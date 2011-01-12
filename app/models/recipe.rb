@@ -6,28 +6,44 @@ class Recipe < ActiveRecord::Base
   belongs_to :source
   has_many :ingredients
   
+  
   # will_paginate: max number of page items
   def self.per_page
     12
   end
   
   
+  def self.find_all
+    find(:all, :order => "name asc")
+  end
 
+  
+  def station_name
+    Station.find(self[:station_id]).name
+  end
+
+
+  def source_name
+    Source.find(self[:source_id]).name
+  end
+
+  
   # Alphabetische Listen Anzeigen
   def self.alpha(arg)
     find(:all, :conditions => ["name LIKE ?", arg+"%"], :order => "name ASC")
   end #end alpha
 
- 
+=begin
   def is_recipe?
     true
   end
-
-
+=end
+  
+=begin
   def self.ingreds_max_length
     50
   end
-
+=end
 
   def self.get_by_station(station)
     find(:all, :conditions => ["station_id='#{station.id}'"], :order => "name ASC")
@@ -159,7 +175,7 @@ class Recipe < ActiveRecord::Base
   end #end self.search_detailed
 
 
-
+=begin
   def sanitize_ingred_list
     list = get_ingreds_int
    old_list = self.get_ingreds_int
@@ -169,8 +185,9 @@ class Recipe < ActiveRecord::Base
    add_ingred_list(new_list)
    self.save
   end #end sanitize_ingred_list
-
-
+=end
+  
+=begin  
   def empty_ingred_list
     length = self[:length]-1
     if length > 0
@@ -183,8 +200,9 @@ class Recipe < ActiveRecord::Base
     end
     self.save
   end #end self.empty_ingred_list
-
-
+=end
+  
+=begin
   def add_ingred_list(new_ingred_list)
     length = new_ingred_list.length
     for i in 1..length
@@ -195,10 +213,13 @@ class Recipe < ActiveRecord::Base
     end
     self.save
   end #end self.add_ingreds_list
-
+=end
+  
 
   def has_ingred?(ingred_id)
-    result = false
+#    result = false
+    result = Ingredient.find(:first, :conditions => ["recipe_id='#{self[:id]}' AND ingred_id='#{ingred_id}'"]) != nil
+=begin    
     if length > 0
       for i in 1..self[:length]
         if self[:"ingred#{i}"] == ingred_id
@@ -207,19 +228,11 @@ class Recipe < ActiveRecord::Base
         end
       end
     end
+=end
     return result
   end #end has_ingred
-
-
-  def station_name
-    Station.find(self[:station_id]).name
-  end
-
-
-  def source_name
-    Source.find(self[:source_id]).name
-  end
-
+  
+  
 
   def get_ingreds
     length = self[:length]-1
@@ -233,6 +246,8 @@ class Recipe < ActiveRecord::Base
     return ingred_list
   end #end get_ingreds
 
+  
+  
 
   def get_ingreds_int
     length = self[:length]-1
@@ -246,11 +261,9 @@ class Recipe < ActiveRecord::Base
     return ingred_list
   end #end get_ingreds_int
 
+  
 
-  def self.find_all
-    find(:all, :order => "name asc")
-  end
-
+=begin  
   class ListItem
 
     def initialize(ingred, amount, unit, id)
@@ -298,8 +311,9 @@ class Recipe < ActiveRecord::Base
     end
 
   end #end ListItem
-
-
+=end
+  
+=begin  
   class ListItem_int
 
     def initialize(ingred, amount, unit)
@@ -322,5 +336,6 @@ class Recipe < ActiveRecord::Base
     end
 
   end #end ListItem_int
-
+=end  
+  
 end #end Recipe

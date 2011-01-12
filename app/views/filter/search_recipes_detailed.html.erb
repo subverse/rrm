@@ -1,11 +1,9 @@
-Params{
-  <%= "station::#{@station}" if @station_check.to_i == 1 %>
-  <%= "source::#{@source}" if @source_check.to_i == 1 %>
-  <%= "ingred::#{@ingred}" if @ingred_check.to_i == 1 %>
-  <%= "ingred::#{@ingred_1}" if @ingred_check_1.to_i == 1 %>
-  <%= "ingred::#{@ingred_2}" if @ingred_check_2.to_i == 1 %>
-}
-<br/>
+<%= "#{@station} " if @station_check.to_i == 1 %>
+<%= "#{@source} " if @source_check.to_i == 1 %>
+<%= "#{@ingred} " if @ingred_check.to_i == 1 %>
+<%= "#{@ingred_1} " if @ingred_check_1.to_i == 1 %>
+<%= "#{@ingred_2}" if @ingred_check_2.to_i == 1 %>
+
 <br/>
 <%= render :partial => "shared/list_recipes" %>
 
